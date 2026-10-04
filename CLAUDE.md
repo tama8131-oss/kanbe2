@@ -87,6 +87,27 @@
 1. 川越まつり：10月17日(土)・18日(日)
    - https://rurubu.jp/andmore/spot/20000059
 2. 府中刑務所文化祭：11月3日(火・祝)
-   - ※たまさんから届いたメモがここで途切れてた。日付・詳細・以降のイベントは要確認
+3. 入間航空祭（ブルーインパルス）：11月3日(火・祝)
+   - https://www.mod.go.jp/asdf/event/cat-kouku/
+4. 酉の市（浅草・鷲神社）：11月の酉の日（今年の日程は未確認）
+   - https://rurubu.jp/andmore/spot/20000348
+5. 秩父夜祭：12月2日(水)・3日(木)
+   - http://www.chichibuji.gr.jp/?page_id=6
+6. 全国矯正展（東京国際フォーラム）：12月5日(土)・6日(日)
+7. 世田谷ボロ市：12月15日(火)・16日(水)、1月15日(金)・16日(土)
+   - https://www.city.setagaya.lg.jp/02072/10108.html
+
+- 2026年度の矯正展一覧：https://tokyonewsmedia.com/archives/24481
+
+#### 出会い系イベント・TOKYO縁結び（東京都）
+
+- 登録料：11,000円で2年間。月会費・成婚料なし
+- 別途：独身証明書の取得費用、交流イベントの参加費
+- 登録条件：都内に在住・在勤・在学のいずれか（市川の住所だけでは不可）
+- 業務委託が「在勤」に当たるかは規約に記載なし → 事務局に確認
+  - matching@tokyo-futari-story.jp
+- 会社が麻布（港区）に移れば（2027年1月ごろ予定）都内在勤の条件に合う
+- 公式：https://www.futari-story.metro.tokyo.lg.jp/ai-matching/
+- 利用規約：https://www.futari-story.metro.tokyo.lg.jp/ai-matching/terms.html
 
 ※このメモはたまさんから共有された情報の整理。「未確認」「要確認」の部分は、最新情報を公式ページで確かめること。
