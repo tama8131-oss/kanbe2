@@ -106,6 +106,7 @@
 - 去年は給食体験（300食限定）、トークショー、映画上映、施設見学、保護犬譲渡会
 - URL：https://akishima-kanko.org/event/%E7%AC%AC6%E5%9B%9E%E6%98%AD%E5%B3%B6%E7%9F%AF%E6%AD%A3%E5%B1%95%E3%81%AE%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B/
 - 関東矯正管区：https://www.moj.go.jp/kyousei1/kyousei08_00101.html
+- 問い合わせ先：東日本成人矯正医療センター 042-500-5271（検索結果に出てた番号）
 
 ##### ルート
 
