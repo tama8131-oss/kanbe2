@@ -80,11 +80,13 @@ Weekend times are different. Always check the latest timetable before booking.
 
 Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arrive at **Kawaguchiko Station**.
 
-- Time: about 1 hour 35–45 minutes without traffic [CHECK: official timetable]
-- Fare: ¥2,200 one way for adults (Highway Bus.com official fare table, checked November 2026). Children half price. No round-trip discount.
+- Time: about 1 hour 45 minutes to Kawaguchiko Station (about 1 hour 40 minutes to Fuji-Q Highland). Traffic can make it longer.
+- Fare: ¥2,000–2,200 one way for adults; the lower price is the online discount ("Net-wari"). Standard fare ¥2,200, children half price. No round-trip discount. (Highway Bus.com official pages, checked November 2026.)
 - The same bus also stops at **Fuji-Q Highland** (same fare), and continues to Oshino Hakkai and Lake Yamanakako. In summer some buses go up to the Mt. Fuji 5th Station.
 - Frequency: every 10 minutes to 1 hour
-- Toilet: buses on this route usually have a toilet on board. There is **no rest stop** on the way. [CHECK: not yet seen on an official page]
+- **No rest stops** on the way. Use the toilet before you board. [CHECK: toilet on board not listed on the official page]
+- You can choose a window or aisle seat when booking, and there are women-only seats.
+- Pay online by credit card, or buy at the ticket counters at Busta Shinjuku, Fuji-Q Highland, Kawaguchiko Station and Mt. Fuji Station.
 - All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out.
 - Traffic can add an hour on Sunday evenings and holidays.
 
@@ -94,7 +96,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 |---|---|---|
 | Time | About 2 hours, reliable | About 2 hours, traffic-dependent |
 | Price | Higher | Lower |
-| Comfort | More legroom, can walk around | Seat belt required. Buses usually have a toilet on board. [CHECK] |
+| Comfort | More legroom, can walk around | Seat belt required. No rest stops. |
 | Best for | Tight schedules, return trip on busy days | Budget travelers, weekday trips |
 
 **Our recommendation:** Bus there in the morning (cheaper, little traffic), train back in the evening (avoids Sunday traffic jams).
