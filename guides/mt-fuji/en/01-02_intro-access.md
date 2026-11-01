@@ -59,9 +59,10 @@ The **Fuji Excursion** limited express runs directly from **Shinjuku Station** t
 
 Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arrive at **Kawaguchiko Station**.
 
-- Time: about 1 hour 45 minutes to 2 hours 30 minutes, depending on traffic [CHECK]
-- Fare: about ¥2,000–2,500 one way [CHECK]
-- Reserve online in advance. Weekend buses sell out.
+- Time: about 1 hour 35–45 minutes without traffic
+- Fare: ¥2,200 one way for adults, or ¥2,000 if you book and pay online in advance (children half price) [CHECK: confirm on official site]
+- Frequency: every 10 minutes to 1 hour
+- All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out.
 - Traffic can add an hour on Sunday evenings and holidays.
 
 ### Train or bus? Quick comparison
