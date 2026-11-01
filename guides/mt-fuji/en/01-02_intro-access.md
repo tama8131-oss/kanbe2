@@ -85,6 +85,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 - The same bus also stops at **Fuji-Q Highland** (same fare), and continues to Oshino Hakkai and Lake Yamanakako. In summer some buses go up to the Mt. Fuji 5th Station.
 - Frequency: every 10 minutes to 1 hour
 - **No rest stops** on the way, but there is a **toilet on board**. (Fujikyu Bus official FAQ, checked November 2026.)
+- **Cancellation:** you can cancel a booking, but a cancellation fee applies, so check the fee when you book. With a round-trip booking you can cancel just one direction. (Fujikyu Bus official FAQ)
 - **Luggage:** one suitcase per person goes free of charge in the luggage space under the bus. (Fujikyu Bus official FAQ)
 - **Children:** elementary school age and under pay half the adult fare. One preschool child per adult rides free if they sit on your lap; a child who takes their own seat pays the child fare. (Fujikyu Bus official FAQ)
 - You can choose a window or aisle seat when booking, and there are women-only seats.
