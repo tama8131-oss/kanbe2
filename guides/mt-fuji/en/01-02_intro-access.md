@@ -44,9 +44,10 @@ Mt. Fuji hides behind clouds more often than most visitors expect. Timing matter
 
 The **Fuji Excursion** limited express runs directly from **Shinjuku Station** to **Kawaguchiko Station**.
 
-- Time: about 2 hours [CHECK]
-- Fare: about ¥4,000 one way [CHECK]
-- All seats reserved. Book early, especially on weekends and in cherry blossom / autumn leaf season.
+- Time: about 1 hour 55 minutes, no transfers
+- Fare: about ¥4,130–4,200 one way (ticket + reserved-seat express fee) [CHECK: confirm on Fujikyu official site]
+- Book in advance (JR East "Eki-net"), especially on weekends and in cherry blossom / autumn leaf season.
+- **Important:** The Fuji Excursion is only 3 cars. Between Shinjuku and Otsuki it is coupled to another express train ("Azusa" or "Kaiji"). **Make sure you board Cars 1–3**, or you will end up going somewhere else.
 - JR Pass: covers only part of the route (the Fujikyu Railway section is extra). [CHECK]
 
 **Tip:** Sit on the right side of the train heading to Kawaguchiko for the best Fuji views near the end of the ride. [CHECK]
