@@ -74,7 +74,16 @@ Weekend times are different. Always check the latest timetable before booking.
 
 **Backup option:** If the Fuji Excursion is full, take the "Kaiji" limited express from Shinjuku to **Otsuki**, then change to the Fujikyu Railway (for example the "Fujisan View Express") to Kawaguchiko. It takes about 20 minutes longer, and the Fujikyu section cannot be booked on Eki-net.
 
-<!-- Seat-side tip removed until Fujikyu answers our inquiry (2026-11-01). -->
+**Which side to see Mt. Fuji (Fujikyu Railway section, Otsuki → Kawaguchiko):** the view switches sides, so there is no single "best side".
+
+| Section | Mt. Fuji is on the |
+|---|---|
+| Otsuki → Tsukiedera | Left side (facing the direction of travel) |
+| Tsukiedera → Mt. Fuji Station | Right side |
+| Mt. Fuji Station → Kawaguchiko | Left side |
+
+On the way back to Tokyo it is the opposite. (Fujikyu Railway official Q&A, checked November 2026.)
+
 
 ### Option B: Highway bus
 
