@@ -69,7 +69,7 @@ The **Fuji Excursion** limited express runs directly from **Shinjuku Station** t
 
 Weekend times are different. Always check the latest timetable before booking.
 
-**JR Pass users:** the nationwide Japan Rail Pass covers Shinjuku–Otsuki only. From Otsuki to Kawaguchiko (Fujikyu Railway) you pay extra: fare ¥1,170 + express fee ¥600 (children ¥400) = ¥1,770 one way. Getting off at Shimoyoshida for Chureito Pagoda: fare ¥980 + express fee ¥600 = ¥1,580. (Fujikyu Railway official fare and fee tables, checked November 2026.) Buy the Fujikyu express ticket before boarding (at a JR ticket office, ticket machine or online). [CHECK: on-board surcharge for the Fujikyu section not confirmed; ask Fujikyu]
+**JR Pass users:** the nationwide Japan Rail Pass covers Shinjuku–Otsuki only. From Otsuki to Kawaguchiko (Fujikyu Railway) you pay extra: fare ¥1,170 + express fee ¥600 (children ¥400) = ¥1,770 one way. Getting off at Shimoyoshida for Chureito Pagoda: fare ¥980 + express fee ¥600 = ¥1,580. (Fujikyu Railway official fare and fee tables, checked November 2026.) Children pay half the fare (Otsuki–Kawaguchiko ¥590). Suica / PASMO work on the Fujikyu Railway, and the IC card fare is a little cheaper (Otsuki–Kawaguchiko ¥1,161). Buy the Fujikyu express ticket before boarding (at a JR ticket office, ticket machine or online). [CHECK: on-board surcharge for the Fujikyu section not confirmed; ask Fujikyu]
 - The **JR Tokyo Wide Pass** may cover the Fujikyu section too. [CHECK]
 
 **Backup option:** If the Fuji Excursion is full, take the "Kaiji" limited express from Shinjuku to **Otsuki**, then change to the Fujikyu Railway (for example the "Fujisan View Express") to Kawaguchiko. It takes about 20 minutes longer, and the Fujikyu section cannot be booked on Eki-net.
