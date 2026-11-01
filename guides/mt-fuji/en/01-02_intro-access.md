@@ -74,7 +74,7 @@ Weekend times are different. Always check the latest timetable before booking.
 
 **Backup option:** If the Fuji Excursion is full, take the "Kaiji" limited express from Shinjuku to **Otsuki**, then change to the Fujikyu Railway (for example the "Fujisan View Express") to Kawaguchiko. It takes about 20 minutes longer, and the Fujikyu section cannot be booked on Eki-net.
 
-**Tip:** Sit on the right side of the train heading to Kawaguchiko for the best Fuji views near the end of the ride. [CHECK]
+<!-- Seat-side tip removed until Fujikyu answers our inquiry (2026-11-01). -->
 
 ### Option B: Highway bus
 
