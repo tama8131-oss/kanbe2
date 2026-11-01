@@ -1,6 +1,6 @@
 # Mt. Fuji Day Trip Guide from Tokyo
 
-> Draft v0.1 (2026-11-01). Items marked **[CHECK]** must be verified on official sites before publishing.
+> Draft v0.1 (2026-11-01). Items marked **[CHECK]** must be verified on official sites before publishing. Only information seen on an official page counts as verified.
 
 ---
 
@@ -69,7 +69,7 @@ The **Fuji Excursion** limited express runs directly from **Shinjuku Station** t
 
 Weekend times are different. Always check the latest timetable before booking.
 
-**JR Pass users:** the nationwide Japan Rail Pass covers Shinjuku–Otsuki only. From Otsuki to Kawaguchiko (Fujikyu Railway) you pay extra: fare about ¥1,170 + express fee ¥600 = about ¥1,770 one way. Buying the express fee on board costs ¥260 more, so buy it in advance.
+**JR Pass users:** the nationwide Japan Rail Pass covers Shinjuku–Otsuki only. From Otsuki to Kawaguchiko (Fujikyu Railway) you pay extra: fare ¥1,170 [CHECK: official fare table] + express fee ¥600 [CHECK: see the price in the official fee table] = ¥1,770 one way. Buying the express fee on board costs ¥260 more, so buy it in advance. [CHECK: only source is a 2019 JR East page]
 - The **JR Tokyo Wide Pass** may cover the Fujikyu section too. [CHECK]
 
 **Backup option:** If the Fuji Excursion is full, take the "Kaiji" limited express from Shinjuku to **Otsuki**, then change to the Fujikyu Railway (for example the "Fujisan View Express") to Kawaguchiko. It takes about 20 minutes longer, and the Fujikyu section cannot be booked on Eki-net.
@@ -80,11 +80,11 @@ Weekend times are different. Always check the latest timetable before booking.
 
 Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arrive at **Kawaguchiko Station**.
 
-- Time: about 1 hour 35–45 minutes without traffic
+- Time: about 1 hour 35–45 minutes without traffic [CHECK: official timetable]
 - Fare: ¥2,200 one way for adults (Highway Bus.com official fare table, checked November 2026). Children half price. No round-trip discount.
 - The same bus also stops at **Fuji-Q Highland** (same fare), and continues to Oshino Hakkai and Lake Yamanakako. In summer some buses go up to the Mt. Fuji 5th Station.
 - Frequency: every 10 minutes to 1 hour
-- Toilet: buses on this route usually have a toilet on board. There is **no rest stop** on the way, so this is your only option during the ride.
+- Toilet: buses on this route usually have a toilet on board. There is **no rest stop** on the way. [CHECK: not yet seen on an official page]
 - All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out.
 - Traffic can add an hour on Sunday evenings and holidays.
 
@@ -94,7 +94,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 |---|---|---|
 | Time | About 2 hours, reliable | About 2 hours, traffic-dependent |
 | Price | Higher | Lower |
-| Comfort | More legroom, can walk around | Seat belt required. Buses usually have a toilet on board. |
+| Comfort | More legroom, can walk around | Seat belt required. Buses usually have a toilet on board. [CHECK] |
 | Best for | Tight schedules, return trip on busy days | Budget travelers, weekday trips |
 
 **Our recommendation:** Bus there in the morning (cheaper, little traffic), train back in the evening (avoids Sunday traffic jams).
