@@ -63,6 +63,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 - Fare: ¥2,200 one way for adults (Highway Bus.com official fare table, checked November 2026). Children half price. No round-trip discount.
 - The same bus also stops at **Fuji-Q Highland** (same fare), and continues to Oshino Hakkai and Lake Yamanakako. In summer some buses go up to the Mt. Fuji 5th Station.
 - Frequency: every 10 minutes to 1 hour
+- Toilet: buses on this route usually have a toilet on board. There is **no rest stop** on the way, so this is your only option during the ride.
 - All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out.
 - Traffic can add an hour on Sunday evenings and holidays.
 
@@ -72,7 +73,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 |---|---|---|
 | Time | About 2 hours, reliable | About 2 hours, traffic-dependent |
 | Price | Higher | Lower |
-| Comfort | More legroom, can walk around | Seat belt required |
+| Comfort | More legroom, can walk around | Seat belt required. Buses usually have a toilet on board. |
 | Best for | Tight schedules, return trip on busy days | Budget travelers, weekday trips |
 
 **Our recommendation:** Bus there in the morning (cheaper, little traffic), train back in the evening (avoids Sunday traffic jams).
