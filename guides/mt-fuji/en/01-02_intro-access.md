@@ -44,12 +44,32 @@ Mt. Fuji hides behind clouds more often than most visitors expect. Timing matter
 
 The **Fuji Excursion** limited express runs directly from **Shinjuku Station** to **Kawaguchiko Station**.
 
-- Time: about 1 hour 56–58 minutes, no transfers
-- Fare: ¥4,200 one way for adults (ticket + reserved-seat express fee; JR East Eki-net reference price, checked November 2026)
-- Morning departures from Shinjuku include 8:30 and 9:30 (example timetable, November 2026). Check the latest timetable when you book.
-- Book in advance on JR East "Eki-net". Morning trains can be almost full even on weekdays, and weekends and cherry blossom / autumn leaf season sell out fast.
+- Time: about 1 hour 54–58 minutes, no transfers
+- Fare: ¥4,200 one way for adults (ticket ¥2,580 + express fee ¥1,620). To Shimoyoshida (for Chureito Pagoda): ¥4,010. (Fujikyu Railway and JR East official sites, checked November 2026.)
+- Stops: Shinjuku → Tachikawa → Hachioji → Otsuki → Tsuru-Bunkadaigakumae → **Shimoyoshida (Chureito Pagoda)** → Mt. Fuji → **Fuji-Q Highland** → Kawaguchiko
+- Only **4 round trips a day** (plus 1 extra on some dates). There are no non-reserved cars: buy a reserved seat, or a "seat-unspecified" ticket.
+- Tickets go on sale **one month before, at 10 a.m.** Book on **"JR-EAST Train Reservation"** (the English booking site for overseas visitors) or Eki-net. Morning trains can be almost full even on weekdays.
 - **Important:** The Fuji Excursion is only 3 cars. Between Shinjuku and Otsuki it is coupled to another express train ("Azusa" or "Kaiji"). **Make sure you board Cars 1–3**, or you will end up going somewhere else.
-- **JR Pass users:** the nationwide Japan Rail Pass covers Shinjuku–Otsuki only. From Otsuki to Kawaguchiko (Fujikyu Railway) you pay extra: fare ¥1,170 + express fee ¥600 = about ¥1,770 one way. Buying the express fee on board costs ¥260 more, so buy it in advance. (Express fee and on-board surcharge confirmed on Fujikyu and JR East official sites, November 2026.) [CHECK: fare ¥1,170]
+
+**Weekday timetable (from March 14, 2026, Fujikyu official site):**
+
+| To Kawaguchiko | Leave Shinjuku | Arrive Kawaguchiko |
+|---|---|---|
+| Fuji Excursion 3 | 7:30 | 9:28 |
+| Fuji Excursion 7 | 8:30 | 10:26 |
+| Fuji Excursion 11 | 9:30 | 11:28 |
+| Fuji Excursion 15 | 10:30 | 12:24 |
+
+| To Tokyo | Leave Kawaguchiko | Arrive Shinjuku |
+|---|---|---|
+| Fuji Excursion 32 | 14:08 | 16:08 |
+| Fuji Excursion 36 | 14:58 | 16:59 |
+| Fuji Excursion 44 | 16:48 | 18:48 |
+| Fuji Excursion 48 | 17:41 | 19:48 |
+
+Weekend times are different. Always check the latest timetable before booking.
+
+**JR Pass users:** the nationwide Japan Rail Pass covers Shinjuku–Otsuki only. From Otsuki to Kawaguchiko (Fujikyu Railway) you pay extra: fare about ¥1,170 + express fee ¥600 = about ¥1,770 one way. Buying the express fee on board costs ¥260 more, so buy it in advance.
 - The **JR Tokyo Wide Pass** may cover the Fujikyu section too. [CHECK]
 
 **Backup option:** If the Fuji Excursion is full, take the "Kaiji" limited express from Shinjuku to **Otsuki**, then change to the Fujikyu Railway (for example the "Fujisan View Express") to Kawaguchiko. It takes about 20 minutes longer, and the Fujikyu section cannot be booked on Eki-net.
