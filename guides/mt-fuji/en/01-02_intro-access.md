@@ -124,7 +124,16 @@ From Kawaguchiko Station, retro-style sightseeing buses loop around the lakes.
 | Green Line (Lake Saiko area) | Lake Saiko, Saiko Iyashi-no-Sato Nenba, Saiko Bat Cave, Fugaku Wind Cave (last stop) | Chapter 3: place 5 |
 | Blue Line (Narusawa / Lake Shojiko / Lake Motosu) | Mt. Fuji World Heritage Center, Narusawa Ice Cave, Fugaku Wind Cave, Lake Shojiko ("Kodaki Fuji View Point"), Lake Motosu | Chapter 3: place 8 |
 
-- Pass: the **Mt. Fuji 1-Day Pass (North Area)** costs ¥1,500 for adults and ¥750 for children, sold at the bus ticket office at Kawaguchiko Station. (Fujikyu Bus official route map.) [CHECK: which lines it covers; 2-day pass price]
+- **Bus passes** ("Kawaguchiko, Saiko, Motosuko Sightseeing Coupon"): unlimited rides on all three lines (Red, Green, Blue) and on regular route buses inside the area (except the Fuji Shibazakura shuttle bus).
+
+| Pass | Adults (junior high and up) | Children (elementary school) |
+|---|---|---|
+| 1-Day Pass | ¥1,500 | ¥750 |
+| 2-Day Pass | ¥2,000 | ¥1,000 |
+| 2-Day Pass + Panoramic Ropeway round trip + Lake Kawaguchiko cruise (or Oishi Park boat line one way) | ¥3,300 | ¥1,650 |
+
+  Buy at the bus ticket office at Kawaguchiko Station, or online on Fujikyu Bus's "Fujiyama Connect" site (online sales close at 12:00 noon on the day of use). The 2-Day Pass is valid for two days from the date you choose. Online cancellation is free until the day before; on the day, the full price is charged. (Fujikyu Bus official site and Fujiyama Connect, checked November 2026.)
+- **Tip:** if you plan more than about three bus rides, the 1-Day Pass usually pays off. [CHECK: single-ride fares]
 - Pay with cash or IC card (Suica / PASMO). [CHECK]
 - **Red Line timetable:** from Kawaguchiko Station, first bus 9:00, then about every 15 minutes, last bus 17:45. Back from Oishi Park, first bus 9:27, last bus 18:27 (arrives at the station 18:54). Oishi Park to the station takes about 27 minutes. (Fujikyu Bus official timetable, checked November 2026.)
 - **Green Line timetable:** from Kawaguchiko Station, first bus 9:10, then every 30 minutes, last bus 16:40. Kawaguchiko Station to Saiko Iyashi-no-Sato Nenba takes about 40 minutes; to Fugaku Wind Cave about 49 minutes. (Fujikyu Bus official timetable, checked November 2026.) Back to the station: last bus from Saiko Iyashi-no-Sato Nenba 17:40 (arrives Kawaguchiko Station 18:15); Nenba to the station takes about 35 minutes.
