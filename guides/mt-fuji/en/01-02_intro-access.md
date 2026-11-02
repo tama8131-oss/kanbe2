@@ -121,12 +121,13 @@ From Kawaguchiko Station, retro-style sightseeing buses loop around the lakes.
 | Line | Main stops | Useful for |
 |---|---|---|
 | Red Line (Kawaguchiko area) | Ropeway ("Yuransen / Ropeway Iriguchi" stop), Kawaguchiko Music Forest Museum, Itchiku Kubota Art Museum, Oishi Park ("Kawaguchiko Natural Living Center" stop) | Chapter 3: places 2 and 4 |
-| Green Line (Saiko area) | Saiko Iyashi-no-Sato Nenba [CHECK: route] | Chapter 3: place 5 |
+| Green Line (Lake Saiko area) | Lake Saiko, Saiko Iyashi-no-Sato Nenba, Saiko Bat Cave, Fugaku Wind Cave (last stop) | Chapter 3: place 5 |
 | Blue Line (Narusawa / Lake Shojiko / Lake Motosu) | Narusawa, Lake Shojiko, Lake Motosu [CHECK: main stops] | Chapter 3: place 8 |
 
 - Pass: the **Mt. Fuji 1-Day Pass (North Area)** costs ¥1,500 for adults and ¥750 for children, sold at the bus ticket office at Kawaguchiko Station. (Fujikyu Bus official route map.) [CHECK: which lines it covers; 2-day pass price]
 - Pay with cash or IC card (Suica / PASMO). [CHECK]
 - **Red Line timetable:** from Kawaguchiko Station, first bus 9:00, then about every 15 minutes, last bus 17:45. Back from Oishi Park, first bus 9:27, last bus 18:27 (arrives at the station 18:54). Oishi Park to the station takes about 27 minutes. (Fujikyu Bus official timetable, checked November 2026.)
-- Green and Blue Line timetables: [CHECK]
+- **Green Line timetable:** from Kawaguchiko Station, first bus 9:10, then every 30 minutes, last bus 16:40. Kawaguchiko Station to Saiko Iyashi-no-Sato Nenba takes about 40 minutes; to Fugaku Wind Cave about 49 minutes. (Fujikyu Bus official timetable, checked November 2026.) Last bus back to the station: [CHECK]
+- Blue Line timetable: [CHECK]
 
 **Tip:** Chureito Pagoda (place 1) and Oshino Hakkai (place 3) are **not** on these loop lines. See Chapter 3 for how to reach them.

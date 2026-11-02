@@ -48,7 +48,7 @@ A 3-minute ride up from the shore of Lake Kawaguchiko. At the top: wide views of
 
 A rebuilt village of about 20 thatched-roof houses with Mt. Fuji in the background. Inside are craft workshops, small museums and snack stands.
 
-- **Access:** Green Line sightseeing bus, **"Saiko Iyashi-no-Sato Nenba"** stop, about 40 minutes from Kawaguchiko Station [CHECK]
+- **Access:** Green Line sightseeing bus, **"Saiko Iyashi-no-Sato Nenba"** stop, about 40 minutes from Kawaguchiko Station. Buses every 30 minutes; last bus from the station 16:40. (Fujikyu Bus official timetable)
 - **Time needed:** 1–1.5 hours
 - **Cost:** About ¥500 [CHECK]
 - **Good to know:** Some workshops let you rent a kimono and take photos. [CHECK]
