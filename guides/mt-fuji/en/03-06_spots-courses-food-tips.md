@@ -21,7 +21,7 @@ The famous photo: a red five-story pagoda with Mt. Fuji behind it. In April it i
 
 The classic "Fuji across the lake" view. Flower fields in summer (lavender in late June–July) and red maples in autumn.
 
-- **Access:** Red Line sightseeing bus, **"Kawaguchiko Natural Living Center"** stop [CHECK]
+- **Access:** Red Line sightseeing bus, **"Kawaguchiko Natural Living Center (Oishi Park)"** stop, the last stop of the line (Fujikyu Bus official timetable)
 - **Time needed:** 1 hour
 - **Cost:** Free
 - **Good to know:** The shop at the Natural Living Center sells blueberry soft-serve ice cream. [CHECK]
@@ -39,7 +39,7 @@ Eight spring-fed ponds of crystal-clear water from Mt. Fuji's snowmelt, in a sma
 
 A 3-minute ride up from the shore of Lake Kawaguchiko. At the top: wide views of Mt. Fuji and the lake.
 
-- **Access:** About 15 minutes on foot from Kawaguchiko Station, or Red Line bus [CHECK]
+- **Access:** Red Line sightseeing bus, **"Yuransen / Ropeway Iriguchi"** stop, about 11 minutes from Kawaguchiko Station (Fujikyu Bus official timetable). Walking from the station: [CHECK]
 - **Time needed:** 1 hour
 - **Cost:** About ¥1,000 round trip [CHECK]
 - **Good to know:** Try the "tanuki dango" (sweet rice dumplings) at the top. [CHECK]
