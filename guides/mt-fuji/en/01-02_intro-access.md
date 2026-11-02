@@ -100,8 +100,8 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 - **Children:** elementary school age and under pay half the adult fare. One preschool child per adult rides free if they sit on your lap; a child who takes their own seat pays the child fare. (Fujikyu Bus official FAQ)
 - You can choose a window or aisle seat when booking, and there are women-only seats.
 - Pay online by credit card, or buy at the ticket counters at Busta Shinjuku, Fuji-Q Highland, Kawaguchiko Station and Mt. Fuji Station.
-- All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out.
-- Traffic can add an hour on Sunday evenings and holidays.
+- All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out. [CHECK: booking window not yet seen on an official page]
+- Traffic can add an hour on Sunday evenings and holidays. [CHECK: not from an official source]
 
 ### Train or bus? Quick comparison
 
