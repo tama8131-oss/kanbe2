@@ -122,12 +122,12 @@ From Kawaguchiko Station, retro-style sightseeing buses loop around the lakes.
 |---|---|---|
 | Red Line (Kawaguchiko area) | Ropeway ("Yuransen / Ropeway Iriguchi" stop), Kawaguchiko Music Forest Museum, Itchiku Kubota Art Museum, Oishi Park ("Kawaguchiko Natural Living Center" stop) | Chapter 3: places 2 and 4 |
 | Green Line (Lake Saiko area) | Lake Saiko, Saiko Iyashi-no-Sato Nenba, Saiko Bat Cave, Fugaku Wind Cave (last stop) | Chapter 3: place 5 |
-| Blue Line (Narusawa / Lake Shojiko / Lake Motosu) | Narusawa, Lake Shojiko, Lake Motosu [CHECK: main stops] | Chapter 3: place 8 |
+| Blue Line (Narusawa / Lake Shojiko / Lake Motosu) | Mt. Fuji World Heritage Center, Narusawa Ice Cave, Fugaku Wind Cave, Lake Shojiko ("Kodaki Fuji View Point"), Lake Motosu | Chapter 3: place 8 |
 
 - Pass: the **Mt. Fuji 1-Day Pass (North Area)** costs ¥1,500 for adults and ¥750 for children, sold at the bus ticket office at Kawaguchiko Station. (Fujikyu Bus official route map.) [CHECK: which lines it covers; 2-day pass price]
 - Pay with cash or IC card (Suica / PASMO). [CHECK]
 - **Red Line timetable:** from Kawaguchiko Station, first bus 9:00, then about every 15 minutes, last bus 17:45. Back from Oishi Park, first bus 9:27, last bus 18:27 (arrives at the station 18:54). Oishi Park to the station takes about 27 minutes. (Fujikyu Bus official timetable, checked November 2026.)
 - **Green Line timetable:** from Kawaguchiko Station, first bus 9:10, then every 30 minutes, last bus 16:40. Kawaguchiko Station to Saiko Iyashi-no-Sato Nenba takes about 40 minutes; to Fugaku Wind Cave about 49 minutes. (Fujikyu Bus official timetable, checked November 2026.) Last bus back to the station: [CHECK]
-- Blue Line timetable: [CHECK]
+- **Blue Line timetable:** buses are much less frequent (about once an hour, with gaps). From Kawaguchiko Station, first bus 9:35, last bus 15:35. Times from the station: Narusawa Ice Cave about 28 minutes, Fugaku Wind Cave about 39 minutes, Lake Motosu about 57 minutes. Back from Lake Motosu Tourist Information Center: first bus 10:45, last bus 16:45. (Fujikyu Bus official timetable, checked November 2026.) Arrival time back at the station: [CHECK]
 
 **Tip:** Chureito Pagoda (place 1) and Oshino Hakkai (place 3) are **not** on these loop lines. See Chapter 3 for how to reach them.
