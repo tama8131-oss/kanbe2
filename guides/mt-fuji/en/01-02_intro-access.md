@@ -103,7 +103,6 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 - Pay online by credit card, or buy at the ticket counters at Busta Shinjuku, Fuji-Q Highland, Kawaguchiko Station and Mt. Fuji Station.
 - All seats reserved. Tickets go on sale **one month before, at 10:00 a.m.** After booking online you must pay (credit card, convenience store, etc.) by the deadline shown, or the booking is cancelled automatically. (Fujikyu Bus official FAQ) Weekend buses sell out.
 - **English help:** the main booking sites (such as Fujiyama Connect) work in English, Chinese and Korean, and the bus ticket counters at Kawaguchiko Station and Mt. Fuji Station may have English- or Chinese-speaking staff. Fujikyu Call Center: 0570-022956. (Fujikyu Bus official FAQ)
-- Traffic can add an hour on Sunday evenings and holidays. [CHECK: not from an official source]
 
 ### Train or bus? Quick comparison
 
@@ -114,7 +113,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 | Comfort | More legroom, can walk around | Seat belt required. No rest stops, toilet on board. |
 | Best for | Tight schedules, return trip on busy days | Budget travelers, weekday trips |
 
-**Our recommendation:** Bus there in the morning (cheaper, little traffic), train back in the evening (avoids Sunday traffic jams).
+**Our recommendation:** Highway buses can be delayed when the roads are busy. If you must be back in Tokyo by a fixed time, the train is the safer choice for the return trip.
 
 ### Getting around: the sightseeing buses
 
