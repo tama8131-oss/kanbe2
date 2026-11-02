@@ -95,12 +95,14 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 - The same bus also stops at **Fuji-Q Highland** (same fare), and continues to Oshino Hakkai and Lake Yamanakako. In summer some buses go up to the Mt. Fuji 5th Station.
 - Frequency: every 10 minutes to 1 hour
 - **No rest stops** on the way, but there is a **toilet on board**. (Fujikyu Bus official FAQ, checked November 2026.)
-- **Cancellation:** you can cancel a booking, but a cancellation fee applies, so check the fee when you book. With a round-trip booking you can cancel just one direction. (Fujikyu Bus official FAQ)
+- **Cancellation:** you can cancel until the bus departs. The fee is ¥110 per one-way ticket (it can differ by route or ticket type). Cancel on the website if you booked online, or at the counter if you bought there. With a round-trip booking you can cancel just one direction. (Fujikyu Bus official FAQ, checked November 2026.)
+- **If you miss the bus:** highway buses leave exactly on time. Once the bus has left, your ticket is **void**: no change to a later bus and no refund. If you might be late, change or cancel **before** departure (online, by phone, or at the counter). (Fujikyu Bus official FAQ)
 - **Luggage:** one suitcase per person goes free of charge in the luggage space under the bus. (Fujikyu Bus official FAQ)
 - **Children:** elementary school age and under pay half the adult fare. One preschool child per adult rides free if they sit on your lap; a child who takes their own seat pays the child fare. (Fujikyu Bus official FAQ)
 - You can choose a window or aisle seat when booking, and there are women-only seats.
 - Pay online by credit card, or buy at the ticket counters at Busta Shinjuku, Fuji-Q Highland, Kawaguchiko Station and Mt. Fuji Station.
-- All seats reserved. Book online from one month before, up to 10 minutes before departure ("Highway Bus.com" or "Hassha Orai Net"). Weekend buses sell out. [CHECK: booking window not yet seen on an official page]
+- All seats reserved. Tickets go on sale **one month before, at 10:00 a.m.** After booking online you must pay (credit card, convenience store, etc.) by the deadline shown, or the booking is cancelled automatically. (Fujikyu Bus official FAQ) Weekend buses sell out.
+- **English help:** the main booking sites (such as Fujiyama Connect) work in English, Chinese and Korean, and the bus ticket counters at Kawaguchiko Station and Mt. Fuji Station may have English- or Chinese-speaking staff. Fujikyu Call Center: 0570-022956. (Fujikyu Bus official FAQ)
 - Traffic can add an hour on Sunday evenings and holidays. [CHECK: not from an official source]
 
 ### Train or bus? Quick comparison
@@ -137,6 +139,7 @@ From Kawaguchiko Station, retro-style sightseeing buses loop around the lakes.
 - **Single fares on the Green Line (adults):** Kawaguchiko Station to Saiko Iyashi-no-Sato Nenba ¥810. (Fujikyu Bus official fare table, checked November 2026.)
 - **Single fares on the Blue Line (adults):** Kawaguchiko Station to Narusawa Ice Cave ¥740, to Fugaku Wind Cave ¥770, to Lake Motosu Tourist Information Center ¥1,470. (Fujikyu Bus official fare table, checked November 2026.) Fare to the "Motosuko" stop itself: [CHECK]
 - **Is the pass worth it?** If you only ride the Red Line (for example station → Ropeway → Oishi Park → station = ¥1,220), single tickets are cheaper than the ¥1,500 1-Day Pass. But a round trip to Nenba on the Green Line alone costs ¥1,620, and to Lake Motosu ¥2,940, so **buy the 1-Day Pass if you ride the Green or Blue Line**.
+- **For overseas visitors:** the **Mt. FUJI Passport** gives 2 days of unlimited rides on route buses and sightseeing buses in the Fuji Five Lakes area. Sold at Fujikyu Bus counters (Mt. Fuji Station, Kawaguchiko Station and others), by the call center, and online. (Fujikyu Bus official FAQ) [CHECK: price and what else it covers]
 - **IC cards:** Suica, PASMO, ICOCA and the other nationwide IC cards work on the sightseeing buses. Touch the card reader **when you get on and when you get off**. (Fujikyu Bus official FAQ, checked November 2026.)
 - **Children:** elementary school age (6–12) pay the child fare, about half the adult fare. Preschool children (1–5) ride free, one per paying passenger, unless they take their own seat. Junior high school students and older pay the adult fare. (Fujikyu Bus official FAQ)
 - **Luggage:** you can bring one bag per person that fits on the rack or your lap. Large suitcases are a problem on these buses (the under-floor luggage space is only on highway buses), so leave big luggage in a coin locker at Kawaguchiko Station first. (Fujikyu Bus official FAQ) [CHECK: coin locker details]
