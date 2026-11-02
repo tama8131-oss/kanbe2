@@ -75,8 +75,9 @@ An amusement park famous for record-breaking roller coasters, with Mt. Fuji view
 
 The view of Mt. Fuji printed on the back of the old ¥1,000 bill. The quietest and least crowded of the five lakes.
 
-- **Access:** Blue Line sightseeing bus, **"Motosuko"** stop, about 57 minutes from Kawaguchiko Station. Buses run only about once an hour; last bus from the station 15:35, last bus back from Lake Motosu 16:45. (Fujikyu Bus official timetable)
-- **Time needed:** 1 hour (plus bus waiting time)
+- **Access:** Blue Line sightseeing bus to **"Lake Motosu Tourist Information Center"** (about 1 hour from Kawaguchiko Station, adult fare ¥1,470), then **about 1 hour on foot** to the viewpoint near "Koansō" [CHECK: exact name and spelling of the viewpoint]. (Bus stop, fare and walking time confirmed by phone with Fujikyu Bus, November 2, 2026.) Buses run only about once an hour; last bus from Kawaguchiko Station 15:35, last bus back from the Tourist Information Center 16:45. (Fujikyu Bus official timetable)
+- **Plan carefully:** with the 1-hour walk each way, you need about 3 hours here. Take a morning bus, and start walking back from the viewpoint by about 15:30 so you do not miss the last bus.
+- **Time needed:** about 3 hours including the walk (plus bus waiting time)
 - **Cost:** Free
 - **Good to know:** In April–May, the Fuji Shibazakura Festival (pink moss phlox) is held nearby. [CHECK]
 
