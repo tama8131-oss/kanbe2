@@ -105,8 +105,9 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | 9:20 | Chureito Pagoda (place 1), before the crowds |
 | 12:00 | Lunch: Yoshida udon near Shimoyoshida (Chapter 5) |
 | 13:30 | Back to Kawaguchiko, Red Line bus to Oishi Park (place 2) |
-| 15:00 | Green Line bus to Saiko Iyashi-no-Sato Nenba (place 5) |
-| 17:00 | Back to Kawaguchiko Station |
+| 14:45 | Red Line bus back from Oishi Park to Kawaguchiko Station (about 27 minutes) |
+| 15:40 | Green Line bus from Kawaguchiko Station, arrive Saiko Iyashi-no-Sato Nenba (place 5) at 16:20 [CHECK: Nenba closing time] |
+| 17:10 | Green Line bus back from Nenba, arrive Kawaguchiko Station 17:45. **The last bus from Nenba is 17:40** (arrives 18:15). |
 
 ### Course C: Rainy-day plan
 
