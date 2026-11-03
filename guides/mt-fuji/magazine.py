@@ -190,7 +190,8 @@ def p_welcome(B, toc_pages):
         f'<span class="tx"><b>{t}</b><span>{s}</span></span><span class="tp">{toc_pages[k]:02d}</span></a>'
         for k, ((t, s), th) in enumerate(zip(T["toc"], thumbs)))
     extra = "".join(f'<a href="#{B.lang}-p{toc_pages[6 + k]}">{t} <b>{toc_pages[6 + k]:02d}</b></a>' for k, t in enumerate(T["extra"]))
-    change = f'<a class="chg" href="#languages">{T["change"]}</a>' if B.lang != "ja" else ""
+    # The "change language" link only makes sense in the all-languages book (it jumps to the picker page).
+    change = f'<a class="chg" href="#languages">{T["change"]}</a>' if B.lang != "ja" and not SINGLE[0] else ""
     body = (f'<p class="eb">Welcome</p><h1>{T["h"]}</h1><p class="lead">{T["p1"]}</p>{alert(T["alert"])}'
             f'<div class="toch">{T["contents"]}<span class="h2en">Contents</span></div><div class="toc">{rows}</div>'
             f'<div class="tocx">{extra}</div><p class="src">{T["disclaimer"]} {change}</p>')
@@ -747,7 +748,11 @@ def know_rows(lang):
     return rows
 
 
+SINGLE = [False]  # True while building a one-language book
+
+
 def build(ja=False, only=None):
+    SINGLE[0] = bool(ja or only)
     import chart
     langs = ["ja"] if ja else [only] if only else [c for c, *_ in i18n.LANGS]
     body = "" if (ja or only) else picker_pages()
@@ -786,6 +791,24 @@ def build(ja=False, only=None):
     return out_html, out_pdf
 
 
+RELEASE_NAMES = {"ko": "Korean-한국어", "zh-hant": "TraditionalChinese-繁體中文", "zh-hans": "SimplifiedChinese-简体中文",
+                 "en": "English", "th": "Thai-ภาษาไทย", "vi": "Vietnamese-TiengViet", "ms": "Malay-BahasaMelayu"}
+
+
+def build_split():
+    """One PDF per language: each file has only that language's pages (plus the photo credits)."""
+    import shutil
+    out = HERE.parent.parent / "mt-fuji-guide-by-language"
+    out.mkdir(exist_ok=True)
+    for code, *_ in i18n.LANGS:
+        _, pdf = build(only=code)
+        shutil.copy(pdf, out / f"Mt-Fuji-Guide-{RELEASE_NAMES[code]}.pdf")
+    print(out)
+
+
 if __name__ == "__main__":
+    if "--split" in sys.argv:
+        build_split()
+        sys.exit()
     only = sys.argv[sys.argv.index("--only") + 1] if "--only" in sys.argv else None
     build(ja="--ja" in sys.argv, only=only)
