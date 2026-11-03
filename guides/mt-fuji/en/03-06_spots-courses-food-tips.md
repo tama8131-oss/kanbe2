@@ -10,12 +10,13 @@ Each place has a quick info box: how to get there, how long to stay, and the cos
 
 ### 1. Arakurayama Sengen Park (Chureito Pagoda)
 
-The famous photo: a red five-story pagoda with Mt. Fuji behind it. In April it is framed by cherry blossoms, in November by red leaves.
+The famous photo: a red five-story pagoda with Mt. Fuji behind it, framed by cherry blossoms in spring. The view changes with every season. [CHECK: cherry blossom and autumn leaf months]
 
 - **Access:** **Shimoyoshida Station**, then **about 25 minutes on foot** to the pagoda (Chureito), including the stairs. (Fujiyoshida City Tourist Guide, official site, checked November 2026.) The Fuji Excursion from Shinjuku stops here, so you can come straight from Tokyo. From Kawaguchiko it is a short ride on the Fujikyu Railway.
 - **Time needed:** 1–1.5 hours
-- **Cost:** Free
-- **Good to know:** You climb about 400 steps to the viewpoint. [CHECK] There is also a gentler slope path. Go early: by 10 a.m. the viewpoint is crowded.
+- **Cost:** [CHECK: admission fee]
+- **Open:** 24 hours. Night illumination: Jan–Feb 16:00–21:50, Mar–Apr 17:00–21:50, May 18:00–21:50, Jun–Sep 19:00–21:50, Oct–Nov 17:00–21:50, Dec 16:00–21:50 (times may change).
+- **Good to know:** The viewing deck is at the top of **398 steps**. (Fujiyoshida City Tourist Guide, official site, checked November 2026.)
 
 ### 2. Lake Kawaguchiko North Shore (Oishi Park)
 
