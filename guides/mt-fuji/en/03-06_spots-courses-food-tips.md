@@ -176,7 +176,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 - **Royal Hotel Kawaguchiko — tattoo-friendly:** day-trip bathing is allowed **with tattoos**.
   - Admission (2 hours): adults ¥1,850 with bath towel or ¥1,000 without; children ¥1,650 with towel or ¥800 without.
   - Hours: 5:00 to 1:00 at night, except **9:30–11:30 (cleaning, no entry)**. Generally no closing days.
-  - The hotel shuttle bus is **for overnight guests only**. Day visitors need to get there on their own. [CHECK: how to get there from Kawaguchiko Station]
+  - The hotel shuttle bus is **for overnight guests only**. Day visitors: about **18 minutes on foot** from Kawaguchiko Station, or about 8–9 minutes by the Red Line or Green Line sightseeing bus (¥180). (Google Maps, November 2026.)
   - (All confirmed by phone with Royal Hotel Kawaguchiko, November 3, 2026.)
 
 ---
