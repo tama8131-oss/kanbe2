@@ -36,7 +36,7 @@ Dates change every year; the official site posts the current flower status. (Fuj
 
 - **Access:** Red Line sightseeing bus, **"Kawaguchiko Natural Living Center (Oishi Park)"** stop, the last stop of the line (Fujikyu Bus official timetable)
 - **Time needed:** 1 hour
-- **Cost:** the Kawaguchiko Natural Living Center is free to enter, and parking is free. (Foundation official site) Park admission: [CHECK]
+- **Cost:** the Kawaguchiko Natural Living Center is free to enter, and parking is free. (Foundation official site) The park itself is **free and open at all times**, with no closing days. (Fujikawaguchiko Town Tourism Federation official site, checked November 2026.)
 - **Facilities:** the Kawaguchiko Natural Living Center, the "Ooishiya" farm produce stand, a gazebo, a playground and a large parking lot. **Toilets (wheelchair accessible) are inside the Natural Living Center.** (Fujikawaguchiko Town official site, checked November 2026.)
 - **Please note:** there are **no trash bins** in the park, so take your trash with you. Dogs must be on a leash. (Fujikawaguchiko Town official site)
 - **Snacks:** soft-serve ice cream at "Oishi Park Cafe" (12 flavors, all ¥550 as of November 2026; **blueberry and lavender** are the regular flavors, others change with the season). Local Oishi blueberry juice ¥800 at the "Mt. Fuji View Cafe". Upstairs, "Kitchen Fujiyama View" has a big window facing Mt. Fuji and sells "Cremia" premium soft-serve, Mt. Fuji–shaped ice candy and roasted sweet potatoes (¥500). Prices and menus change. (Foundation official site, checked November 2026.)
