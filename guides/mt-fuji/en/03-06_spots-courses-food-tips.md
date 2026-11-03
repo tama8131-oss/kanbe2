@@ -80,7 +80,7 @@ A rebuilt village of thatched-roof houses with Mt. Fuji in the background. [CHEC
 - **Access:** Green Line sightseeing bus, **"Saiko Iyashi-no-Sato Nenba"** stop, about 40 minutes from Kawaguchiko Station. Buses every 30 minutes; last bus from the station 16:40. (Fujikyu Bus official timetable)
 - **Time needed:** 1–1.5 hours
 - **Cost:** high school students and adults ¥500, elementary and junior high students ¥250, preschool children free.
-- **Hours:** through November 9:00–17:00 (last entry 16:30); December–February 9:30–16:30 (last entry 16:00). Closing days: [CHECK]
+- **Hours:** through November 9:00–17:00 (last entry 16:30); December–February 9:30–16:30 (last entry 16:00).
 - (Admission and hours confirmed by phone with Saiko Iyashi-no-Sato Nenba, November 3, 2026.)
 
 ### 6. Fuji Subaru Line 5th Station
