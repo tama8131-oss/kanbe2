@@ -157,7 +157,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | 10:30 | Arrive at Kawaguchiko Station |
 | 11:00 | Kawaguchiko Music Forest Museum or Itchiku Kubota Art Museum (indoor; see below. The Music Forest Museum is closed on Tuesdays and Wednesdays) |
 | 13:00 | Lunch: hoto noodles |
-| 14:30 | Day-trip hot spring: Fuji Choubou no Yu Yurari (see below; **no tattoos allowed**) |
+| 14:30 | Day-trip hot spring: Fuji Choubou no Yu Yurari (**no tattoos**) or Royal Hotel Kawaguchiko (**tattoos OK**); see below |
 | 16:30 | Back to the station |
 
 **Rainy-day museums**
@@ -170,9 +170,14 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 - **Fuji Choubou no Yu Yurari** (Narusawa, next to "Michi-no-Eki Narusawa" on the Blue Line): a day-trip hot spring with views of Mt. Fuji.
   - Admission: weekdays adults ¥1,400, children ¥750; Saturdays, Sundays and holidays adults ¥1,700, children ¥800. Junior high students and older pay the adult price.
   - Hours: weekdays 10:00–21:00 (last entry 20:00); Saturdays, Sundays and holidays open one hour longer (last entry 21:00). Closed only twice a year.
-  - **Tattoos: not allowed**, even if covered. If you have a tattoo, choose the museums instead.
+  - **Tattoos: not allowed**, even if covered. If you have a tattoo, choose Royal Hotel Kawaguchiko (below) or the museums instead.
   - Free shuttle bus from Kawaguchiko Station: book on the official website. For the ride back, ask at the front desk.
   - (All confirmed by phone with Yurari, November 3, 2026.)
+- **Royal Hotel Kawaguchiko — tattoo-friendly:** day-trip bathing is allowed **with tattoos**.
+  - Admission (2 hours): adults ¥1,850 with bath towel or ¥1,000 without; children ¥1,650 with towel or ¥800 without.
+  - Hours: 5:00 to 1:00 at night, except **9:30–11:30 (cleaning, no entry)**. Generally no closing days.
+  - The hotel shuttle bus is **for overnight guests only**. Day visitors need to get there on their own. [CHECK: how to get there from Kawaguchiko Station]
+  - (All confirmed by phone with Royal Hotel Kawaguchiko, November 3, 2026.)
 
 ---
 
