@@ -17,16 +17,26 @@ Every place in this guide is in the Fuji Five Lakes area (Yamanashi Prefecture),
 
 ### When can you actually see Mt. Fuji?
 
-Mt. Fuji hides behind clouds more often than most visitors expect. Timing matters more than anything else.
+Mt. Fuji hides behind clouds more often than most visitors expect, so timing matters. Fuji City (Shizuoka Prefecture) checks the mountain every morning at 8 a.m. Here is its record for 2025:
 
-| Season | Chance of a clear view | Notes |
-|---|---|---|
-| Winter (Dec–Feb) | Best | Cold, dry air. Snow-capped peak. |
-| Spring (Mar–May) | Good | Cherry blossoms in April. Haze increases in May. |
-| Summer (Jun–Aug) | Lowest | Rainy season and humidity. Peak often hidden. |
-| Autumn (Sep–Nov) | Good | Red leaves in November. Typhoons possible in September. |
+| Month | Whole mountain visible | Partly visible | Not visible |
+|---|---|---|---|
+| Jan | 19 days | 9 | 3 |
+| Feb | **22 days** | 4 | 2 |
+| Mar | 13 days | 7 | 11 |
+| Apr | 9 days | 9 | 12 |
+| May | 9 days | 10 | 12 |
+| Jun | **2 days** | 9 | 19 |
+| Jul | 5 days | 4 | 22 |
+| Aug | 3 days | 8 | 20 |
+| Sep | 6 days | 11 | 13 |
+| Oct | 10 days | 8 | 13 |
+| Nov | 19 days | 9 | 2 |
+| Dec | 19 days | 7 | 5 |
 
-**Time of day:** Mornings are clearest. Clouds usually build up from late morning. Aim to arrive by 9–10 a.m.
+(Fuji City official "Mt. Fuji observation record", 2025, observed at 8 a.m. from Fuji City Hall.)
+
+**In short:** from November to February the whole mountain was visible on about two days out of three. From June to August it was fully visible on only a few days a month. This record is from one year and from the Shizuoka side of the mountain, so the Fuji Five Lakes area can differ; always check a live camera before you go.
 
 ### What if Fuji is hidden?
 
