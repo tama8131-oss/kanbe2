@@ -32,7 +32,7 @@ Mt. Fuji hides behind clouds more often than most visitors expect. Timing matter
 
 ### What if Fuji is hidden?
 
-1. **Check the live cameras the night before and the morning of your trip.** [CHECK: confirm a reliable live camera site to recommend]
+1. **Check a live camera the night before and the morning of your trip.** For example, Fuji Motosuko Resort (near Lake Motosu) streams a free live camera on YouTube, linked from its official website. No sign-up needed. Search "Fuji Motosuko Resort live camera".
 2. **Have a flexible date.** If you have several days in Tokyo, keep the Fuji day movable and pick the clearest forecast.
 3. **Use the rainy-day plan in Chapter 4.** The area still has great food, hot springs and museums.
 
