@@ -53,7 +53,7 @@ Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks
   - From **Kawaguchiko Station** (buses start here; get off at **"Oshino Hakkai"**):
     - **Route bus:** lines **A1 / A2** (for Gotemba) or **F1 / F2** (for Yamanakako Hirano), 1–2 buses an hour. First bus from Kawaguchiko Station around **6:50**.
     - **Express bus:** about 10 minutes faster and about ¥200–300 more than the route bus. Leaves Kawaguchiko Station every hour from 9:40 to 16:40, **except 12:40**.
-    - (Confirmed by phone with the Oshino Village Tourist Information Center, November 3, 2026.) Route bus fare: [CHECK]
+    - (Confirmed by phone with the Oshino Village Tourist Information Center, November 3, 2026.)
 - **Time needed:** 1 hour
 - **Open:** there is no gate and no opening hours, so you can visit any time. But there are few street lights, so walking around **after dark is not recommended**. (Oshino Village Tourism Association official Q&A, checked November 2026.)
 - **Cost:** free to walk around. One of the eight ponds, **Sokonuke-ike**, is inside the **Hannoki-bayashi Museum** and can only be seen when the museum is open (phone 0555-84-2587). The museum is set in the grounds of an old local family's house, with **thatched-roof farmhouses** thought to date from the 18th century, among the oldest in the Mt. Fuji area. It also has a restaurant serving hoto noodles and soba. Museum hours 9:00–17:00; restaurant 10:30–17:00 (closes early when food runs out). Closed on irregular days (bad weather, family events). Museum admission (tax included): adults (junior high and up) ¥300, children (elementary school) ¥150, small children (age 1 to kindergarten) ¥100; groups of 15 or more get ¥50 off each. Inside you can see the Watanabe family's late-18th-century farmhouse, Edo-period samurai armor and swords, old farm tools and a 1582 document from the Hojo clan. Local legend says Sokonuke-ike ("bottomless pond") is connected underground to Okama-ike: things dropped here were said to float up there. (Hannoki-bayashi official site, checked November 2026.)
@@ -66,7 +66,7 @@ Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks
 
 ### 4. Mt. Fuji Panoramic Ropeway (Mt. Tenjo)
 
-A ropeway up from the shore of Lake Kawaguchiko. At the top: wide views of Mt. Fuji and the lake. [CHECK: ride time]
+A ropeway up from the shore of Lake Kawaguchiko. At the top: wide views of Mt. Fuji and the lake.
 
 - **Access:** Red Line sightseeing bus, **"Yuransen / Ropeway Iriguchi"** stop, about 11 minutes from Kawaguchiko Station (Fujikyu Bus official timetable). Or about **15 minutes on foot** from Kawaguchiko Station.
 - **Time needed:** 1 hour
@@ -76,7 +76,7 @@ A ropeway up from the shore of Lake Kawaguchiko. At the top: wide views of Mt. F
 
 ### 5. Saiko Iyashi-no-Sato Nenba
 
-A rebuilt village of thatched-roof houses with Mt. Fuji in the background. [CHECK: number of houses; what is inside]
+A rebuilt village of thatched-roof houses with Mt. Fuji in the background.
 
 - **Access:** Green Line sightseeing bus, **"Saiko Iyashi-no-Sato Nenba"** stop, about 40 minutes from Kawaguchiko Station. Buses every 30 minutes; last bus from the station 16:40. (Fujikyu Bus official timetable)
 - **Time needed:** 1–1.5 hours
@@ -91,7 +91,7 @@ The highest point you can reach by road on the Yamanashi side, about 2,300 m abo
 - **Access:** Direct Fujikyu bus from Kawaguchiko Station, about **1 hour** one way. The bus runs whenever the road is open; when Yamanashi Prefecture closes the Fuji Subaru Line (for example in bad weather or snow), the bus does not run. (Confirmed by phone with Fujikyu Bus, November 3, 2026.)
 - **Time needed:** 1.5–2 hours
 - **Cost:** bus **¥2,000 one way** for adults. (Confirmed by phone with Fujikyu Bus, November 3, 2026.)
-- **Good to know:** check that the road is open before you go. [CHECK: road season; temperature]
+- **Good to know:** check that the road is open before you go.
 
 ### 7. Fuji-Q Highland
 
@@ -163,7 +163,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 **Rainy-day museums**
 
 - **Itchiku Kubota Art Museum:** kimono art by Itchiku Kubota. Adults ¥1,500; high school and university students ¥900; elementary and junior high students ¥400. Open 10:00–17:00 (last entry 16:30). Closing days change every month, so check the calendar on the museum's official website. Red Line bus, "Kubota Itchiku Bijutsukan" stop, adult fare ¥440 from Kawaguchiko Station. (Admission and hours confirmed by phone with the museum, November 3, 2026.)
-- **Kawaguchiko Music Forest Museum:** European-style gardens and buildings with antique music boxes and automatic musical instruments. Weekday admission: adults ¥1,800; high school and university students ¥1,300; elementary and junior high students ¥1,000; preschool children free. On Saturdays and Sundays, adults and high school/university students pay ¥300 more; elementary and junior high students stay ¥1,000. Open 10:00–17:30 (last entry 17:00). **Closed on Tuesdays and Wednesdays**, with more closing days from January to March, so check the museum's official website. Red Line bus, "Kawaguchiko Music Forest Museum" stop. (Admission, hours and closing days confirmed by phone with the museum, November 3, 2026.) [CHECK: bus fare to this stop]
+- **Kawaguchiko Music Forest Museum:** European-style gardens and buildings with antique music boxes and automatic musical instruments. Weekday admission: adults ¥1,800; high school and university students ¥1,300; elementary and junior high students ¥1,000; preschool children free. On Saturdays and Sundays, adults and high school/university students pay ¥300 more; elementary and junior high students stay ¥1,000. Open 10:00–17:30 (last entry 17:00). **Closed on Tuesdays and Wednesdays**, with more closing days from January to March, so check the museum's official website. Red Line bus, "Kawaguchiko Music Forest Museum" stop. (Admission, hours and closing days confirmed by phone with the museum, November 3, 2026.)
 
 **Rainy-day hot spring**
 
