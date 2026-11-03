@@ -21,12 +21,14 @@ The famous photo: a red five-story pagoda with Mt. Fuji behind it, framed by che
 
 ### 2. Lake Kawaguchiko North Shore (Oishi Park)
 
-The classic "Fuji across the lake" view. Flower fields in summer (lavender in late June–July) and red maples in autumn.
+The classic "Fuji across the lake" view, with seasonal flowers. [CHECK: flower seasons]
 
 - **Access:** Red Line sightseeing bus, **"Kawaguchiko Natural Living Center (Oishi Park)"** stop, the last stop of the line (Fujikyu Bus official timetable)
 - **Time needed:** 1 hour
-- **Cost:** Free
-- **Good to know:** The shop at the Natural Living Center sells blueberry soft-serve ice cream. [CHECK]
+- **Cost:** [CHECK: admission fee]
+- **Facilities:** the Kawaguchiko Natural Living Center, the "Ooishiya" farm produce stand, a gazebo, a playground and a large parking lot. **Toilets (wheelchair accessible) are inside the Natural Living Center.** (Fujikawaguchiko Town official site, checked November 2026.)
+- **Please note:** there are **no trash bins** in the park, so take your trash with you. Dogs must be on a leash. (Fujikawaguchiko Town official site)
+- **Natural Living Center opening hours:** [CHECK]
 
 ### 3. Oshino Hakkai
 
