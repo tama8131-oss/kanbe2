@@ -96,7 +96,7 @@ The highest point you can reach by road on the Yamanashi side, about 2,300 m abo
 
 An amusement park famous for record-breaking roller coasters, with Mt. Fuji views from the rides.
 
-- **Access:** Fujikyu Railway, **Fuji-Q Highland Station** (one stop from Kawaguchiko) [CHECK]
+- **Access:** Fujikyu Railway, **Fuji-Q Highland Station**, the stop just before Kawaguchiko; the Fuji Excursion stops here too. The highway bus from Busta Shinjuku also stops at Fuji-Q Highland. (Fujikyu Railway and Highway Bus.com official sites, checked November 2026.)
 - **Time needed:** Half a day to a full day
 - **Cost:** Free entry; pay per ride or buy a day pass [CHECK]
 - **Good to know:** Lines for the big coasters can be 1–2 hours on weekends.
