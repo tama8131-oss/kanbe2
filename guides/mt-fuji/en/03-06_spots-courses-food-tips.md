@@ -51,7 +51,7 @@ Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks
   - From **Mt. Fuji Station** (Fujikyu Railway): Fujikyu route bus, about 15–25 minutes. (Oshino Village Tourism Association official access page, checked November 2026; the page gives both times.) The "Fujikko-go" bus, covered by the Mt. FUJI Passport, also runs to Oshino Hakkai.
   - Direct from **Shinjuku**: the Chuo Highway Bus to the Fuji Five Lakes continues past Fuji-Q Highland to Oshino Hakkai, about 2 hours 20 minutes in total. (Official access page)
   - From **Kawaguchiko Station** (buses start here; get off at **"Oshino Hakkai"**):
-    - **Route bus:** lines **A1 / A2** (for Gotemba) or **F1 / F2** (for Yamanakako Hirano), 1–2 buses an hour. First bus: [CHECK]
+    - **Route bus:** lines **A1 / A2** (for Gotemba) or **F1 / F2** (for Yamanakako Hirano), 1–2 buses an hour. First bus from Kawaguchiko Station around **6:50**.
     - **Express bus:** about 10 minutes faster and about ¥200–300 more than the route bus. Leaves Kawaguchiko Station every hour from 9:40 to 16:40, **except 12:40**.
     - (Confirmed by phone with the Oshino Village Tourist Information Center, November 3, 2026.) Route bus fare: [CHECK]
 - **Time needed:** 1 hour
