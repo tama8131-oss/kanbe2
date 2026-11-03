@@ -75,12 +75,13 @@ A 3-minute ride up from the shore of Lake Kawaguchiko. At the top: wide views of
 
 ### 5. Saiko Iyashi-no-Sato Nenba
 
-A rebuilt village of about 20 thatched-roof houses with Mt. Fuji in the background. Inside are craft workshops, small museums and snack stands.
+A rebuilt village of thatched-roof houses with Mt. Fuji in the background. [CHECK: number of houses; what is inside]
 
 - **Access:** Green Line sightseeing bus, **"Saiko Iyashi-no-Sato Nenba"** stop, about 40 minutes from Kawaguchiko Station. Buses every 30 minutes; last bus from the station 16:40. (Fujikyu Bus official timetable)
 - **Time needed:** 1–1.5 hours
-- **Cost:** About ¥500 [CHECK]
-- **Good to know:** Some workshops let you rent a kimono and take photos. [CHECK]
+- **Cost:** high school students and adults ¥500, elementary and junior high students ¥250, preschool children free.
+- **Hours:** through November 9:00–17:00 (last entry 16:30); December–February 9:30–16:30 (last entry 16:00). Closing days: [CHECK]
+- (Admission and hours confirmed by phone with Saiko Iyashi-no-Sato Nenba, November 3, 2026.)
 
 ### 6. Fuji Subaru Line 5th Station
 
@@ -137,7 +138,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | 12:00 | Lunch: Yoshida udon near Shimoyoshida (Chapter 5) |
 | 13:30 | Back to Kawaguchiko, Red Line bus to Oishi Park (place 2) |
 | 14:45 | Red Line bus back from Oishi Park to Kawaguchiko Station (about 27 minutes) |
-| 15:40 | Green Line bus from Kawaguchiko Station, arrive Saiko Iyashi-no-Sato Nenba (place 5) at 16:20 [CHECK: Nenba closing time] |
+| 15:40 | Green Line bus from Kawaguchiko Station, arrive Saiko Iyashi-no-Sato Nenba (place 5) at 16:20. Last entry is 16:30, so do not miss this bus. **December–February the last entry is 16:00: take the 15:10 bus instead (arrives about 15:50).** |
 | 17:10 | Green Line bus back from Nenba, arrive Kawaguchiko Station 17:45. **The last bus from Nenba is 17:40** (arrives 18:15). |
 
 ### Course C: Rainy-day plan
