@@ -64,6 +64,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .sheet a:hover { background: rgba(196,71,58,.12); }
 @media (prefers-reduced-motion: no-preference) { .sheet.turn { animation: turn .22s ease; } }
 @keyframes turn { from { opacity: .35; transform: translateX(var(--dx, 0)); } to { opacity: 1; transform: none; } }
+@media (max-width: 560px) { #stage { padding: 6px; } }
+.zoomhint { position: absolute; right: 8px; bottom: 8px; width: 34px; height: 34px; border-radius: 50%; border: 0;
+  background: rgba(31,42,68,.82); color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+
+/* ---------- zoomed page: tap the page to read it large, scroll around, pinch works too ---------- */
+#zoom { position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column; background: var(--ground); }
+#zscroll { flex: 1; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y pinch-zoom; }
+#zsheet { position: relative; background: #f6f2ea; margin: 0 auto; }
+#zsheet img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+#zsheet a { position: absolute; display: block; border-radius: 4px; }
+.zl { font-size: 13px; color: var(--muted); }
 </style>
 
 <section id="pick" aria-label="Choose your language">
@@ -82,11 +93,26 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     <button class="chip" id="toc" aria-label="Contents">☰</button>
     <div class="count" aria-live="polite"><span id="pn">1</span><small>/</small><span id="pt">35</span></div>
   </div>
-  <div id="stage"><div class="sheet" id="sheet"><img id="pic" alt=""><div id="hot"></div></div></div>
+  <div id="stage"><div class="sheet" id="sheet"><img id="pic" alt=""><div id="hot"></div><button class="zoomhint" id="zbtn" aria-label="Zoom in">🔍</button></div></div>
   <div class="bar bottom">
     <button class="nav" id="prev" aria-label="Previous page">‹</button>
     <div class="track"><i id="prog"></i></div>
     <button class="nav" id="next" aria-label="Next page">›</button>
+  </div>
+</section>
+
+<section id="zoom" hidden aria-label="Zoomed page">
+  <div class="bar top">
+    <button class="chip" id="zclose" aria-label="Close zoom">✕</button>
+    <button class="nav" id="zout" aria-label="Smaller">－</button>
+    <button class="nav" id="zin" aria-label="Larger">＋</button>
+    <div class="count"><span id="zpn">1</span><small>/</small><span id="zpt">35</span></div>
+  </div>
+  <div id="zscroll"><div id="zsheet"><img id="zpic" alt=""><div id="zhot"></div></div></div>
+  <div class="bar bottom">
+    <button class="nav" id="zprev" aria-label="Previous page">‹</button>
+    <div class="track"><i id="zprog"></i></div>
+    <button class="nav" id="znext" aria-label="Next page">›</button>
   </div>
 </section>
 
@@ -115,6 +141,50 @@ function fit() {
   $('sheet').style.height = (pw / RATIO) + 'px';
 }
 
+// tappable areas from the PDF (contents rows, QR codes, booking links) laid over a page picture
+function links(box, list) {
+  box.innerHTML = '';
+  for (const l of list) {
+    const a = document.createElement('a');
+    a.style.left = l.b[0] * 100 + '%'; a.style.top = l.b[1] * 100 + '%';
+    a.style.width = l.b[2] * 100 + '%'; a.style.height = l.b[3] * 100 + '%';
+    if (l.u) { a.href = l.u; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', l.u); }
+    else { a.href = '#' + lang.code; a.setAttribute('aria-label', 'Page ' + (l.p + 1)); a.onclick = e => { e.preventDefault(); show(l.p, l.p > page ? 1 : -1); }; }
+    box.appendChild(a);
+  }
+}
+
+// ---- zoom: the page drawn larger (sharp picture), scroll to read, ＋/－ to change size
+const ZOOMS = [1.6, 2.2, 3.0, 4.0];
+let zi = 1;
+function zsize() {
+  const vw = $('zscroll').clientWidth;
+  const w = Math.round(Math.min(vw, ($('zscroll').clientHeight) * RATIO) * ZOOMS[zi]);
+  $('zsheet').style.width = w + 'px'; $('zsheet').style.height = Math.round(w / RATIO) + 'px';
+  $('zout').disabled = zi === 0; $('zin').disabled = zi === ZOOMS.length - 1;
+}
+function zshow() {
+  const P = lang.pages;
+  $('zpic').src = P[page].h; $('zpic').alt = `${lang.name} ${page + 1}/${P.length}`;
+  links($('zhot'), P[page].l);
+  $('zpn').textContent = page + 1; $('zpt').textContent = P.length;
+  $('zprog').style.width = ((page + 1) / P.length * 100) + '%';
+  $('zprev').disabled = page === 0; $('znext').disabled = page === P.length - 1;
+}
+function zopen(fx, fy) {
+  $('zoom').hidden = false; zsize(); zshow();
+  const s = $('zscroll'), z = $('zsheet');
+  s.scrollLeft = fx * z.offsetWidth - s.clientWidth / 2;
+  s.scrollTop = fy * z.offsetHeight - s.clientHeight / 2;
+}
+function zrescale(step) {
+  const s = $('zscroll'), z = $('zsheet');
+  const cx = (s.scrollLeft + s.clientWidth / 2) / z.offsetWidth, cy = (s.scrollTop + s.clientHeight / 2) / z.offsetHeight;
+  zi = Math.max(0, Math.min(ZOOMS.length - 1, zi + step)); zsize();
+  s.scrollLeft = cx * z.offsetWidth - s.clientWidth / 2; s.scrollTop = cy * z.offsetHeight - s.clientHeight / 2;
+}
+function zturn(d) { show(page + d, d); $('zscroll').scrollTop = 0; $('zscroll').scrollLeft = 0; }
+
 function show(n, dir) {
   const P = lang.pages;
   page = Math.max(0, Math.min(P.length - 1, n));
@@ -124,15 +194,8 @@ function show(n, dir) {
   if (dir !== undefined) sheet.classList.add('turn');
   $('pic').src = P[page].i;
   $('pic').alt = `${lang.name} ${page + 1}/${P.length}`;
-  const hot = $('hot'); hot.innerHTML = '';
-  for (const l of P[page].l) {
-    const a = document.createElement('a');
-    a.style.left = l.b[0] * 100 + '%'; a.style.top = l.b[1] * 100 + '%';
-    a.style.width = l.b[2] * 100 + '%'; a.style.height = l.b[3] * 100 + '%';
-    if (l.u) { a.href = l.u; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', l.u); }
-    else { a.href = '#' + lang.code; a.setAttribute('aria-label', 'Page ' + (l.p + 1)); a.onclick = e => { e.preventDefault(); show(l.p, l.p > page ? 1 : -1); }; }
-    hot.appendChild(a);
-  }
+  links($('hot'), P[page].l);
+  if (!$('zoom').hidden) zshow();
   $('pn').textContent = page + 1; $('pt').textContent = P.length;
   $('prog').style.width = ((page + 1) / P.length * 100) + '%';
   $('prev').disabled = page === 0; $('next').disabled = page === P.length - 1;
@@ -143,6 +206,7 @@ function show(n, dir) {
 function route() {
   const code = location.hash.slice(1);
   const L = BOOK.langs.find(x => x.code === code);
+  $('zoom').hidden = true;
   if (!L) { lang = null; $('read').hidden = true; $('pick').hidden = false; document.title = 'Mt. Fuji Guide Book'; return; }
   lang = L;
   $('pick').hidden = true; $('read').hidden = false;
@@ -165,9 +229,21 @@ $('stage').addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY
 $('stage').addEventListener('pointerup', e => {
   if (sx === null) return;
   const dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
-  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(page + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { show(page + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); return; }
+  // a plain tap on the page (not on a link) opens it large, centred where you tapped
+  if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && !e.target.closest('a, button')) {
+    const r = $('sheet').getBoundingClientRect();
+    if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
+      zopen((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height);
+  }
 });
-addEventListener('resize', () => lang && fit());
+$('zbtn').onclick = () => zopen(.5, 0);
+$('zclose').onclick = () => { $('zoom').hidden = true; };
+$('zin').onclick = () => zrescale(1);
+$('zout').onclick = () => zrescale(-1);
+$('zprev').onclick = () => zturn(-1);
+$('znext').onclick = () => zturn(1);
+addEventListener('resize', () => { if (lang) fit(); if (!$('zoom').hidden) zsize(); });
 addEventListener('hashchange', route);
 route();
 </script>

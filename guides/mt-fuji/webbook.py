@@ -41,6 +41,13 @@ def build():
             Image.frombytes("RGB", (pix.width, pix.height), pix.samples).save(OUT / name, "WEBP", quality=72)
         return name
 
+    def sharp(i):  # larger picture used only when a page is zoomed in
+        name = f"img/h{i:03d}.webp"
+        if not (OUT / name).exists():
+            pix = doc[i].get_pixmap(dpi=280)
+            Image.frombytes("RGB", (pix.width, pix.height), pix.samples).save(OUT / name, "WEBP", quality=70)
+        return name
+
     for code, name, flags, _, go in i18n.LANGS:
         own = list(range(start, start + PAGES_PER_LANG)) + [credits]
         index = {g: k for k, g in enumerate(own)}
@@ -54,7 +61,7 @@ def build():
                     links.append({"b": box, "u": ln["uri"]})
                 elif ln.get("page") in index:
                     links.append({"b": box, "p": index[ln["page"]]})
-            pages.append({"i": picture(g), "l": links})
+            pages.append({"i": sharp(g), "h": sharp(g), "l": links})  # one sharp picture per page (artifact file-count limit)
         langs.append({"code": code, "name": name, "flags": flags, "go": go, "pages": pages})
         start += PAGES_PER_LANG
     shutil.copy(HERE / "photos" / "cover-pagoda.jpg", OUT / "img" / "cover.jpg")
@@ -63,7 +70,7 @@ def build():
     html = (HERE / "webbook.html").read_text(encoding="utf-8").replace("/*DATA*/null", data)
     (OUT / "index.html").write_text(html, encoding="utf-8")
     size = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
-    print(OUT, f"{len(list((OUT / 'img').glob('*.webp')))} pictures, {size / 1e6:.1f} MB")
+    print(OUT, f"{len(list((OUT / 'img').glob('p*.webp')))} pages, {len(list((OUT / 'img').glob('h*.webp')))} zoom pictures, {size / 1e6:.1f} MB")
 
 
 if __name__ == "__main__":
