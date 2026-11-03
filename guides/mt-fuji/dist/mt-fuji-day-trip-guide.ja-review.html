@@ -1,52 +1,72 @@
 <!doctype html><html lang="ja"><head><meta charset="utf-8">
 <title>Mt. Fuji Day Trip Guide from Tokyo</title><style>
-@page { size: A5; margin: 14mm 12mm 16mm 12mm; }
-:root { --ink:#1f2933; --muted:#5b6770; --fuji:#1d4e89; --sun:#c8372d; --line:#d9dee3; --soft:#f2f5f8; }
-* { box-sizing: border-box; }
-body { font-family: "Noto Sans CJK JP", "Noto Sans", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.5; margin: 0; }
-.cover { height: 180mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; }
-.cover .mark { width: 120px; margin: 0 auto 18px; }
-.cover h1 { font-size: 24pt; line-height: 1.15; color: var(--fuji); margin: 0 0 10px; border: 0; }
-.cover .sub { font-size: 11pt; color: var(--muted); margin-bottom: 26px; }
-.cover .badge { display: inline-block; margin: 0 auto; padding: 6px 14px; border: 1.5px solid var(--sun); color: var(--sun); border-radius: 20px; font-weight: 700; font-size: 9pt; }
+@page { size: A5; margin: 15mm 12mm 17mm 12mm; background: #f6efe0;
+  @bottom-center { content: counter(page); font-family: "Noto Serif CJK JP", serif; font-size: 8pt; color: #8a7d68; } }
+@page :first { margin: 0; background: #1b2a4a; @bottom-center { content: none; } }
+:root { --ink:#2b2622; --muted:#7a6e5d; --ai:#1b2a4a; --shu:#b7382b; --gold:#a8842f; --line:#d8ccb4; --soft:#efe5d1; --paper:#f6efe0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Noto Sans CJK JP", "Noto Sans", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.55; margin: 0; }
+h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
+.cover { width: 148mm; height: 210mm; position: relative; color: #f6efe0; text-align: center; page-break-after: always;
+  background-color: #1b2a4a; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'><g fill='none' stroke='%23ffffff' stroke-opacity='0.16' stroke-width='1.2'><circle cx='0' cy='20' r='19'/><circle cx='0' cy='20' r='13'/><circle cx='0' cy='20' r='7'/><circle cx='40' cy='20' r='19'/><circle cx='40' cy='20' r='13'/><circle cx='40' cy='20' r='7'/><circle cx='20' cy='10' r='19'/><circle cx='20' cy='10' r='13'/><circle cx='20' cy='10' r='7'/></g></svg>"); background-size: 26px 13px; overflow: hidden; }
+.cover .frame { position: absolute; inset: 9mm; border: 1.2px solid #a8842f; }
+.cover .frame:after { content: ""; position: absolute; inset: 2mm; border: 0.6px solid rgba(168,132,47,.7); }
+.cover .inner { position: absolute; top: 30mm; left: 0; right: 0; }
+.cover .eyebrow { font-family: "Noto Serif CJK JP", serif; letter-spacing: .35em; font-size: 9pt; color: #d9c08a; }
+.cover .art { width: 112mm; margin: 8mm auto 4mm; display: block; }
+.cover h1 { font-size: 23pt; line-height: 1.2; margin: 2mm 0 3mm; color: #fffaf0; font-weight: 700; }
+.cover .sub { font-size: 9.5pt; color: #e8dcc2; margin: 0 14mm 7mm; }
+.cover .badge { display: inline-block; padding: 5px 14px; border: 1px solid #d9c08a; color: #f3e3b5; font-size: 8.5pt; letter-spacing: .05em; }
+.cover .seal { position: absolute; right: 20mm; bottom: 22mm; width: 15mm; height: 15mm; background: #b7382b; color: #fff;
+  font-family: "Noto Serif CJK JP", serif; font-size: 10pt; line-height: 1.05; display: flex; align-items: center; justify-content: center;
+  text-align: center; border-radius: 2px; transform: rotate(-4deg); writing-mode: vertical-rl; letter-spacing: .05em; }
 .note { page-break-after: always; }
-.note h2 { margin-top: 0; }
-.toc ol { padding-left: 18px; }
-.toc li { margin: 4px 0; }
-h1 { font-size: 15pt; }
-h2 { font-size: 15pt; color: var(--fuji); border-bottom: 2px solid var(--fuji); padding-bottom: 4px; margin: 0 0 10px; page-break-before: always; }
-h2.first { page-break-before: auto; }
-h3 { font-size: 11.5pt; color: var(--sun); margin: 16px 0 6px; page-break-after: avoid; }
+.toc ol { padding-left: 20px; }
+.toc li { margin: 5px 0; border-bottom: 1px dotted var(--line); padding-bottom: 3px; }
+.chap { page-break-before: always; display: flex; align-items: stretch; gap: 10px; margin: 0 0 4px; }
+.chap.first { page-break-before: auto; }
+.chap .kanji { background: var(--shu); color: #fff; font-family: "Noto Serif CJK JP", serif; font-size: 15pt; font-weight: 700;
+  writing-mode: vertical-rl; letter-spacing: .12em; padding: 8px 6px; border-radius: 2px; min-height: 22mm; display: flex; align-items: center; }
+.chap .t { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+.chap .num { font-family: "Noto Serif CJK JP", serif; color: var(--gold); letter-spacing: .2em; font-size: 8.5pt; text-transform: uppercase; }
+.chap h2 { font-size: 16pt; color: var(--ai); margin: 2px 0 0; line-height: 1.25; }
+.band { height: 9px; margin: 6px 0 12px; background-color: var(--paper); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'><g fill='none' stroke='%231b2a4a' stroke-opacity='0.22' stroke-width='1.2'><circle cx='0' cy='20' r='19'/><circle cx='0' cy='20' r='13'/><circle cx='0' cy='20' r='7'/><circle cx='40' cy='20' r='19'/><circle cx='40' cy='20' r='13'/><circle cx='40' cy='20' r='7'/><circle cx='20' cy='10' r='19'/><circle cx='20' cy='10' r='13'/><circle cx='20' cy='10' r='7'/></g></svg>"); background-size: 18px 9px;
+  border-top: 1.5px solid var(--ai); }
+h3 { font-size: 12pt; color: var(--ai); margin: 16px 0 6px; page-break-after: avoid; padding-left: 9px; border-left: 4px solid var(--shu); }
 p { margin: 6px 0; }
 ul, ol { margin: 6px 0; padding-left: 18px; }
 li { margin: 3px 0; }
-strong { color: #111; }
-table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; page-break-inside: avoid; }
-th { background: var(--fuji); color: #fff; text-align: left; padding: 4px 6px; }
+li::marker { color: var(--shu); }
+strong { color: #1a1612; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; page-break-inside: avoid; background: #fbf7ee; }
+th { background: var(--ai); color: #f6efe0; text-align: left; padding: 4px 6px; font-family: "Noto Serif CJK JP", serif; font-weight: 600; }
 td { border-bottom: 1px solid var(--line); padding: 4px 6px; vertical-align: top; }
 tr:nth-child(even) td { background: var(--soft); }
 hr { display: none; }
 .src { color: var(--muted); font-size: 7.6pt; }
 .foot { color: var(--muted); font-size: 8pt; }
 </style></head>
-<body><section class="cover">
-<svg class="mark" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
-<circle cx="92" cy="18" r="10" fill="#c8372d"/>
-<polygon points="10,66 52,14 66,14 110,66" fill="#1d4e89"/>
-<polygon points="40,29 52,14 66,14 78,29 70,25 63,31 56,24 48,31" fill="#ffffff"/>
+<body><section class="cover"><div class="frame"></div><div class="inner">
+<div class="eyebrow">東京 ・ 富士五湖</div>
+<svg class="art" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+<circle cx="222" cy="44" r="24" fill="#b7382b"/>
+<path d="M20 140 L128 32 Q150 22 172 32 L280 140 Z" fill="#f6efe0" fill-opacity="0.12"/>
+<path d="M40 140 L132 44 Q150 34 168 44 L260 140 Z" fill="#2f4a7a"/>
+<path d="M107 70 L132 44 Q150 34 168 44 L193 70 Q182 64 174 74 Q165 62 158 74 Q150 63 142 74 Q134 62 126 74 Q118 64 107 70 Z" fill="#fffaf0"/>
+<path d="M0 140 Q40 128 80 140 T160 140 T240 140 T320 140 V150 H0 Z" fill="#a8842f" fill-opacity="0.55"/>
 </svg>
 <h1>東京から行く<br>富士山日帰りガイド</h1>
-<div class="sub">【確認用 日本語版】<br>販売するのは英語版。中身は同じ</div>
-<div><span class="badge">2026年11月に確認した情報</span></div>
-</section><section class="note">
-<h2 class="first">はじめに</h2>
+<div class="sub">【確認用 日本語版】販売するのは英語版。中身は同じ</div>
+<div class="badge">2026年11月に確認した情報</div></div>
+<div class="seal">富士</div></section><section class="note">
+<div class="chap first"><div class="kanji">序</div><div class="t"><div class="num">はじめに</div><h2>はじめに</h2></div></div><div class="band"></div>
 <p>このガイドの料金・時刻表・営業時間はすべて、<strong>2026年11月</strong>に公式サイトか、運営している会社への電話で確かめたものです。それ以外の情報を使ったところは、そう書いています。</p>
 <p>日本の料金や時刻は変わることがあります（特に時刻表が変わる春や、税金・燃料費が変わるとき）。<strong>出かける前に、各章に出てくる公式サイトを見てください。</strong>特に電車・バス・営業日。</p>
 <div class="toc"><h3>目次</h3><ol>
 <li>出かける前に</li><li>東京からの行き方</li><li>行く価値のある8か所</li>
 <li>そのまま使えるモデルコース</li><li>ご当地グルメ</li><li>知っておくと便利なこと</li><li>乗り換え案内図</li><li>持ち物チェックリスト</li></ol></div>
 <p class="foot">このガイドは個人が作った旅行ガイドで、出てくる会社や施設とは関係ありません。</p>
-</section><h2>第1章　出かける前に</h2>
+</section><div class="chap"><div class="kanji">旅支度</div><div class="t"><div class="num">第1章</div><h2>出かける前に</h2></div></div><div class="band"></div>
 <h3>このガイドの使い方</h3>
 <p>このガイドの目的はひとつ。東京から日帰りで富士山を見に行くときに、ややこしい乗り物や悪いタイミングで時間をムダにしないようにすることです。</p>
 <ul>
@@ -150,7 +170,7 @@ hr { display: none; }
 <li><strong>日にちに余裕を持つ。</strong> 東京に何日かいるなら、富士山の日は動かせるようにして、一番晴れそうな日を選ぶ。</li>
 <li><strong>第4章の雨の日コースを使う。</strong> 食べ物・温泉・美術館もある。</li>
 </ol>
-<h2>第2章　東京からの行き方</h2>
+<div class="chap"><div class="kanji">道</div><div class="t"><div class="num">第2章</div><h2>東京からの行き方</h2></div></div><div class="band"></div>
 <h3>A：電車で行く</h3>
 <p>特急<strong>「富士回遊」</strong>が、<strong>新宿駅</strong>から<strong>河口湖駅</strong>まで乗り換えなしで走っています。</p>
 <ul>
@@ -402,7 +422,7 @@ hr { display: none; }
 <li><strong>ブルーラインの時刻：</strong> 本数がかなり少ない（約1時間に1本、抜けている時間もある）。河口湖駅発 始発9:35、最終15:35。駅から：鳴沢氷穴約28分、富岳風穴約39分、本栖湖約57分。本栖湖観光案内所発 始発10:45、最終16:45。（同上）本栖湖発の最終16:45は河口湖駅着17:45。帰りは約1時間。</li>
 </ul>
 <p><strong>ヒント：</strong> 五重塔（①）と忍野八海（③）は、この周遊バスでは行けない。行き方は第3章を見ること。</p>
-<h2>第3章　行く価値のある8か所</h2>
+<div class="chap"><div class="kanji">名所</div><div class="t"><div class="num">第3章</div><h2>行く価値のある8か所</h2></div></div><div class="band"></div>
 <p>それぞれの場所に、行き方・かかる時間・料金をまとめています。</p>
 <h3>① 新倉山浅間公園（五重塔）</h3>
 <p>有名な写真の場所：赤い五重塔のうしろに富士山。春は桜にかこまれます。桜は<strong>4月中旬</strong>、紅葉は<strong>11月中旬</strong>ごろが見ごろ（目安。毎年変わる）。<span class="src">（2026年11月3日 ふじよしだ観光振興サービスに電話で確認）</span></p>
@@ -559,7 +579,7 @@ hr { display: none; }
 <li><strong>料金：</strong> 無料</li>
 <li><strong>知っておくと便利：</strong> 毎年春、湖の近くの<strong>富士本栖湖リゾート</strong>で<strong>富士芝桜まつり</strong>がある。富士山の前に約50万株のピンクの芝桜。2026年は4月11日〜5月24日（花の具合で毎年変わる）。日にちと入園料は富士本栖湖リゾートの公式サイトで確かめること。<span class="src">（富士本栖湖リゾート公式で2026年11月に確認）</span></li>
 </ul>
-<h2>第4章　そのまま使えるモデルコース</h2>
+<div class="chap"><div class="kanji">行程</div><div class="t"><div class="num">第4章</div><h2>そのまま使えるモデルコース</h2></div></div><div class="band"></div>
 <p>時間はすべて、河口湖駅に10:30ごろ着いて17時ごろ帰る前提です。</p>
 <h3>コースA：のんびり1日（はじめての人向け）</h3>
 <table>
@@ -693,7 +713,7 @@ hr { display: none; }
 </ul>
 </li>
 </ul>
-<h2>第5章　ご当地グルメ</h2>
+<div class="chap"><div class="kanji">味</div><div class="t"><div class="num">第5章</div><h2>ご当地グルメ</h2></div></div><div class="band"></div>
 <h3>ほうとう</h3>
 <p>太くて平たい小麦の麺を、かぼちゃや野菜と一緒に味噌のスープで煮こんだ料理。鉄の鍋でグツグツの状態で出てくる。温まってお腹いっぱいになる、寒い日にぴったりの料理。</p>
 <ul>
@@ -712,7 +732,7 @@ hr { display: none; }
 <li>メニューの写真を指さして注文してOK。</li>
 <li>日本ではチップはいらない。</li>
 </ul>
-<h2>第6章　知っておくと便利なこと</h2>
+<div class="chap"><div class="kanji">心得</div><div class="t"><div class="num">第6章</div><h2>知っておくと便利なこと</h2></div></div><div class="band"></div>
 <h3>混雑をさけるには</h3>
 <ul>
 <li>9〜10時までに着く。ツアーバスは昼前に来る。</li>
@@ -772,7 +792,7 @@ hr { display: none; }
 </tr>
 </tbody>
 </table>
-<h2>乗り換え案内図</h2><svg viewBox="0 0 560 485" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto"><line x1="260" y1="230" x2="135" y2="70" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="180" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="290" stroke="#2e8b57" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="400" stroke="#1d6fd1" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="70" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="180" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="290" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="400" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><rect x="40" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="40" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="53" font-size="10" fill="#fff" font-weight="700">レッドライン</text><text x="48" y="76" font-size="13" font-weight="700" fill="#1f2933">④ ロープウェイ</text><text x="48" y="94" font-size="10.5" fill="#5b6770">約11分（徒歩なら約15分）</text><rect x="40" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="150" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="163" font-size="10" fill="#fff" font-weight="700">レッドライン</text><text x="48" y="186" font-size="13" font-weight="700" fill="#1f2933">② 大石公園</text><text x="48" y="204" font-size="10.5" fill="#5b6770">約27分</text><rect x="40" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#2e8b57" stroke-width="2"/><rect x="40" y="260" width="190" height="18" rx="8" fill="#2e8b57"/><text x="48" y="273" font-size="10" fill="#fff" font-weight="700">グリーンライン</text><text x="48" y="296" font-size="13" font-weight="700" fill="#1f2933">⑤ いやしの里根場</text><text x="48" y="314" font-size="10.5" fill="#5b6770">約40分</text><rect x="40" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#1d6fd1" stroke-width="2"/><rect x="40" y="370" width="190" height="18" rx="8" fill="#1d6fd1"/><text x="48" y="383" font-size="10" fill="#fff" font-weight="700">ブルーライン</text><text x="48" y="406" font-size="13" font-weight="700" fill="#1f2933">⑧ 本栖湖</text><text x="48" y="424" font-size="10.5" fill="#5b6770">約1時間＋徒歩約1時間</text><rect x="330" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="40" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="53" font-size="10" fill="#fff" font-weight="700">富士急行線</text><text x="338" y="76" font-size="13" font-weight="700" fill="#1f2933">⑦ 富士急ハイランド</text><text x="338" y="94" font-size="10.5" fill="#5b6770">1駅</text><rect x="330" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="150" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="163" font-size="10" fill="#fff" font-weight="700">富士急行線</text><text x="338" y="186" font-size="13" font-weight="700" fill="#1f2933">① 五重塔</text><text x="338" y="204" font-size="10.5" fill="#5b6770">下吉田駅＋徒歩25分</text><rect x="330" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="260" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="273" font-size="10" fill="#fff" font-weight="700">路線バス</text><text x="338" y="296" font-size="13" font-weight="700" fill="#1f2933">③ 忍野八海</text><text x="338" y="314" font-size="10.5" fill="#5b6770">A1/A2かF1/F2</text><rect x="330" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="370" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="383" font-size="10" fill="#fff" font-weight="700">直行バス</text><text x="338" y="406" font-size="13" font-weight="700" fill="#1f2933">⑥ 五合目</text><text x="338" y="424" font-size="10.5" fill="#5b6770">約1時間</text><circle cx="260" cy="230" r="52" fill="#1d4e89"/><text x="260" y="235.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">河口湖駅</text><text x="260" y="470" font-size="11" fill="#5b6770" text-anchor="middle">東京（新宿）へ：富士回遊・高速バス（第2章）</text></svg><p class="src">位置や距離は正確ではありません。時間は第2章・第3章の確認済みの情報です。</p><h2>持ち物チェックリスト</h2>
+<div class="chap"><div class="kanji">地図</div><div class="t"><div class="num">おまけ</div><h2>乗り換え案内図</h2></div></div><div class="band"></div><svg viewBox="0 0 560 485" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto"><line x1="260" y1="230" x2="135" y2="70" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="180" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="290" stroke="#2e8b57" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="400" stroke="#1d6fd1" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="70" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="180" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="290" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="400" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><rect x="40" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="40" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="53" font-size="10" fill="#fff" font-weight="700">レッドライン</text><text x="48" y="76" font-size="13" font-weight="700" fill="#1f2933">④ ロープウェイ</text><text x="48" y="94" font-size="10.5" fill="#5b6770">約11分（徒歩なら約15分）</text><rect x="40" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="150" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="163" font-size="10" fill="#fff" font-weight="700">レッドライン</text><text x="48" y="186" font-size="13" font-weight="700" fill="#1f2933">② 大石公園</text><text x="48" y="204" font-size="10.5" fill="#5b6770">約27分</text><rect x="40" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#2e8b57" stroke-width="2"/><rect x="40" y="260" width="190" height="18" rx="8" fill="#2e8b57"/><text x="48" y="273" font-size="10" fill="#fff" font-weight="700">グリーンライン</text><text x="48" y="296" font-size="13" font-weight="700" fill="#1f2933">⑤ いやしの里根場</text><text x="48" y="314" font-size="10.5" fill="#5b6770">約40分</text><rect x="40" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#1d6fd1" stroke-width="2"/><rect x="40" y="370" width="190" height="18" rx="8" fill="#1d6fd1"/><text x="48" y="383" font-size="10" fill="#fff" font-weight="700">ブルーライン</text><text x="48" y="406" font-size="13" font-weight="700" fill="#1f2933">⑧ 本栖湖</text><text x="48" y="424" font-size="10.5" fill="#5b6770">約1時間＋徒歩約1時間</text><rect x="330" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="40" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="53" font-size="10" fill="#fff" font-weight="700">富士急行線</text><text x="338" y="76" font-size="13" font-weight="700" fill="#1f2933">⑦ 富士急ハイランド</text><text x="338" y="94" font-size="10.5" fill="#5b6770">1駅</text><rect x="330" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="150" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="163" font-size="10" fill="#fff" font-weight="700">富士急行線</text><text x="338" y="186" font-size="13" font-weight="700" fill="#1f2933">① 五重塔</text><text x="338" y="204" font-size="10.5" fill="#5b6770">下吉田駅＋徒歩25分</text><rect x="330" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="260" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="273" font-size="10" fill="#fff" font-weight="700">路線バス</text><text x="338" y="296" font-size="13" font-weight="700" fill="#1f2933">③ 忍野八海</text><text x="338" y="314" font-size="10.5" fill="#5b6770">御殿場行きか山中湖平野行き</text><rect x="330" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="370" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="383" font-size="10" fill="#fff" font-weight="700">直行バス</text><text x="338" y="406" font-size="13" font-weight="700" fill="#1f2933">⑥ 五合目</text><text x="338" y="424" font-size="10.5" fill="#5b6770">約1時間</text><circle cx="260" cy="230" r="52" fill="#1b2a4a"/><text x="260" y="235.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">河口湖駅</text><text x="260" y="470" font-size="11" fill="#5b6770" text-anchor="middle">東京（新宿）へ：富士回遊・高速バス（第2章）</text></svg><p class="src">位置や距離は正確ではありません。時間は第2章・第3章の確認済みの情報です。</p><div class="chap"><div class="kanji">持物</div><div class="t"><div class="num">おまけ</div><h2>持ち物チェックリスト</h2></div></div><div class="band"></div>
 <ul>
 <li>☐ 電車かバスの切符（先に予約しておく）</li>
 <li>☐ 現金も少し（現金だけの小さいお店もある）</li>

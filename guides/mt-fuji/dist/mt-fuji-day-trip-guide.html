@@ -1,45 +1,65 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <title>Mt. Fuji Day Trip Guide from Tokyo</title><style>
-@page { size: A5; margin: 14mm 12mm 16mm 12mm; }
-:root { --ink:#1f2933; --muted:#5b6770; --fuji:#1d4e89; --sun:#c8372d; --line:#d9dee3; --soft:#f2f5f8; }
-* { box-sizing: border-box; }
-body { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.5; margin: 0; }
-.cover { height: 180mm; display: flex; flex-direction: column; justify-content: center; text-align: center; page-break-after: always; }
-.cover .mark { width: 120px; margin: 0 auto 18px; }
-.cover h1 { font-size: 24pt; line-height: 1.15; color: var(--fuji); margin: 0 0 10px; border: 0; }
-.cover .sub { font-size: 11pt; color: var(--muted); margin-bottom: 26px; }
-.cover .badge { display: inline-block; margin: 0 auto; padding: 6px 14px; border: 1.5px solid var(--sun); color: var(--sun); border-radius: 20px; font-weight: 700; font-size: 9pt; }
+@page { size: A5; margin: 15mm 12mm 17mm 12mm; background: #f6efe0;
+  @bottom-center { content: counter(page); font-family: "Noto Serif CJK JP", serif; font-size: 8pt; color: #8a7d68; } }
+@page :first { margin: 0; background: #1b2a4a; @bottom-center { content: none; } }
+:root { --ink:#2b2622; --muted:#7a6e5d; --ai:#1b2a4a; --shu:#b7382b; --gold:#a8842f; --line:#d8ccb4; --soft:#efe5d1; --paper:#f6efe0; }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.55; margin: 0; }
+h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
+.cover { width: 148mm; height: 210mm; position: relative; color: #f6efe0; text-align: center; page-break-after: always;
+  background-color: #1b2a4a; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'><g fill='none' stroke='%23ffffff' stroke-opacity='0.16' stroke-width='1.2'><circle cx='0' cy='20' r='19'/><circle cx='0' cy='20' r='13'/><circle cx='0' cy='20' r='7'/><circle cx='40' cy='20' r='19'/><circle cx='40' cy='20' r='13'/><circle cx='40' cy='20' r='7'/><circle cx='20' cy='10' r='19'/><circle cx='20' cy='10' r='13'/><circle cx='20' cy='10' r='7'/></g></svg>"); background-size: 26px 13px; overflow: hidden; }
+.cover .frame { position: absolute; inset: 9mm; border: 1.2px solid #a8842f; }
+.cover .frame:after { content: ""; position: absolute; inset: 2mm; border: 0.6px solid rgba(168,132,47,.7); }
+.cover .inner { position: absolute; top: 30mm; left: 0; right: 0; }
+.cover .eyebrow { font-family: "Noto Serif CJK JP", serif; letter-spacing: .35em; font-size: 9pt; color: #d9c08a; }
+.cover .art { width: 112mm; margin: 8mm auto 4mm; display: block; }
+.cover h1 { font-size: 23pt; line-height: 1.2; margin: 2mm 0 3mm; color: #fffaf0; font-weight: 700; }
+.cover .sub { font-size: 9.5pt; color: #e8dcc2; margin: 0 14mm 7mm; }
+.cover .badge { display: inline-block; padding: 5px 14px; border: 1px solid #d9c08a; color: #f3e3b5; font-size: 8.5pt; letter-spacing: .05em; }
+.cover .seal { position: absolute; right: 20mm; bottom: 22mm; width: 15mm; height: 15mm; background: #b7382b; color: #fff;
+  font-family: "Noto Serif CJK JP", serif; font-size: 10pt; line-height: 1.05; display: flex; align-items: center; justify-content: center;
+  text-align: center; border-radius: 2px; transform: rotate(-4deg); writing-mode: vertical-rl; letter-spacing: .05em; }
 .note { page-break-after: always; }
-.note h2 { margin-top: 0; }
-.toc ol { padding-left: 18px; }
-.toc li { margin: 4px 0; }
-h1 { font-size: 15pt; }
-h2 { font-size: 15pt; color: var(--fuji); border-bottom: 2px solid var(--fuji); padding-bottom: 4px; margin: 0 0 10px; page-break-before: always; }
-h2.first { page-break-before: auto; }
-h3 { font-size: 11.5pt; color: var(--sun); margin: 16px 0 6px; page-break-after: avoid; }
+.toc ol { padding-left: 20px; }
+.toc li { margin: 5px 0; border-bottom: 1px dotted var(--line); padding-bottom: 3px; }
+.chap { page-break-before: always; display: flex; align-items: stretch; gap: 10px; margin: 0 0 4px; }
+.chap.first { page-break-before: auto; }
+.chap .kanji { background: var(--shu); color: #fff; font-family: "Noto Serif CJK JP", serif; font-size: 15pt; font-weight: 700;
+  writing-mode: vertical-rl; letter-spacing: .12em; padding: 8px 6px; border-radius: 2px; min-height: 22mm; display: flex; align-items: center; }
+.chap .t { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
+.chap .num { font-family: "Noto Serif CJK JP", serif; color: var(--gold); letter-spacing: .2em; font-size: 8.5pt; text-transform: uppercase; }
+.chap h2 { font-size: 16pt; color: var(--ai); margin: 2px 0 0; line-height: 1.25; }
+.band { height: 9px; margin: 6px 0 12px; background-color: var(--paper); background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='20' viewBox='0 0 40 20'><g fill='none' stroke='%231b2a4a' stroke-opacity='0.22' stroke-width='1.2'><circle cx='0' cy='20' r='19'/><circle cx='0' cy='20' r='13'/><circle cx='0' cy='20' r='7'/><circle cx='40' cy='20' r='19'/><circle cx='40' cy='20' r='13'/><circle cx='40' cy='20' r='7'/><circle cx='20' cy='10' r='19'/><circle cx='20' cy='10' r='13'/><circle cx='20' cy='10' r='7'/></g></svg>"); background-size: 18px 9px;
+  border-top: 1.5px solid var(--ai); }
+h3 { font-size: 12pt; color: var(--ai); margin: 16px 0 6px; page-break-after: avoid; padding-left: 9px; border-left: 4px solid var(--shu); }
 p { margin: 6px 0; }
 ul, ol { margin: 6px 0; padding-left: 18px; }
 li { margin: 3px 0; }
-strong { color: #111; }
-table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; page-break-inside: avoid; }
-th { background: var(--fuji); color: #fff; text-align: left; padding: 4px 6px; }
+li::marker { color: var(--shu); }
+strong { color: #1a1612; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; page-break-inside: avoid; background: #fbf7ee; }
+th { background: var(--ai); color: #f6efe0; text-align: left; padding: 4px 6px; font-family: "Noto Serif CJK JP", serif; font-weight: 600; }
 td { border-bottom: 1px solid var(--line); padding: 4px 6px; vertical-align: top; }
 tr:nth-child(even) td { background: var(--soft); }
 hr { display: none; }
 .src { color: var(--muted); font-size: 7.6pt; }
 .foot { color: var(--muted); font-size: 8pt; }
 </style></head>
-<body><section class="cover">
-<svg class="mark" viewBox="0 0 120 70" xmlns="http://www.w3.org/2000/svg">
-<circle cx="92" cy="18" r="10" fill="#c8372d"/>
-<polygon points="10,66 52,14 66,14 110,66" fill="#1d4e89"/>
-<polygon points="40,29 52,14 66,14 78,29 70,25 63,31 56,24 48,31" fill="#ffffff"/>
+<body><section class="cover"><div class="frame"></div><div class="inner">
+<div class="eyebrow">TOKYO · FUJI FIVE LAKES</div>
+<svg class="art" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+<circle cx="222" cy="44" r="24" fill="#b7382b"/>
+<path d="M20 140 L128 32 Q150 22 172 32 L280 140 Z" fill="#f6efe0" fill-opacity="0.12"/>
+<path d="M40 140 L132 44 Q150 34 168 44 L260 140 Z" fill="#2f4a7a"/>
+<path d="M107 70 L132 44 Q150 34 168 44 L193 70 Q182 64 174 74 Q165 62 158 74 Q150 63 142 74 Q134 62 126 74 Q118 64 107 70 Z" fill="#fffaf0"/>
+<path d="M0 140 Q40 128 80 140 T160 140 T240 140 T320 140 V150 H0 Z" fill="#a8842f" fill-opacity="0.55"/>
 </svg>
 <h1>Mt. Fuji Day Trip Guide<br>from Tokyo</h1>
-<div class="sub">Trains, buses, the 8 best places, ready-made itineraries,<br>local food and rainy-day plans</div>
-<div><span class="badge">Information checked November 2026</span></div>
-</section><section class="note">
-<h2 class="first">Before you start</h2>
+<div class="sub">Trains, buses, the 8 best places, ready-made itineraries, local food and rainy-day plans</div>
+<div class="badge">Information checked November 2026</div></div>
+<div class="seal">富士</div></section><section class="note">
+<div class="chap first"><div class="kanji">序</div><div class="t"><div class="num">Welcome</div><h2>Before you start</h2></div></div><div class="band"></div>
 <p>Every fare, timetable and opening time in this guide was checked in <strong>November 2026</strong> against official websites or by phone with the operators themselves. Where we use another source, we say so.</p>
 <p>Prices and times in Japan do change, often in spring (when timetables are revised) and when tax or fuel costs change. <strong>Before you travel, check the official websites</strong> mentioned in each section, especially for trains, buses and opening days.</p>
 <div class="toc"><h3>Contents</h3><ol>
@@ -47,7 +67,7 @@ hr { display: none; }
 <li>Ready-Made Itineraries</li><li>Local Food</li><li>Good to Know</li><li>Route Diagram</li><li>Packing Checklist</li></ol></div>
 <p class="foot">This guide is an independent travel guide. It is not affiliated with any of the companies or places it mentions.</p>
 </section><hr />
-<h2>Chapter 1: Before You Go</h2>
+<div class="chap"><div class="kanji">旅支度</div><div class="t"><div class="num">Chapter 1</div><h2>Before You Go</h2></div></div><div class="band"></div>
 <h3>How to use this guide</h3>
 <p>This guide is built for one thing: helping you see Mt. Fuji on a day trip from Tokyo, without wasting time on confusing transport or bad timing.</p>
 <ul>
@@ -152,7 +172,7 @@ hr { display: none; }
 <li><strong>Use the rainy-day plan in Chapter 4.</strong> The area still has great food, hot springs and museums.</li>
 </ol>
 <hr />
-<h2>Chapter 2: Getting There from Tokyo</h2>
+<div class="chap"><div class="kanji">道</div><div class="t"><div class="num">Chapter 2</div><h2>Getting There from Tokyo</h2></div></div><div class="band"></div>
 <h3>Option A: Train</h3>
 <p>The <strong>Fuji Excursion</strong> limited express runs directly from <strong>Shinjuku Station</strong> to <strong>Kawaguchiko Station</strong>.</p>
 <ul>
@@ -404,7 +424,7 @@ hr { display: none; }
 <li><strong>Blue Line timetable:</strong> buses are much less frequent (about once an hour, with gaps). From Kawaguchiko Station, first bus 9:35, last bus 15:35. Times from the station: Narusawa Ice Cave about 28 minutes, Fugaku Wind Cave about 39 minutes, Lake Motosu about 57 minutes. Back from Lake Motosu Tourist Information Center: first bus 10:45, last bus 16:45. <span class="src">(Fujikyu Bus official timetable, checked November 2026.)</span> The last bus from Lake Motosu (16:45) arrives at Kawaguchiko Station at 17:45; the ride back takes about 1 hour.</li>
 </ul>
 <p><strong>Tip:</strong> Chureito Pagoda (place 1) and Oshino Hakkai (place 3) are <strong>not</strong> on these loop lines. See Chapter 3 for how to reach them.</p>
-<h2>Chapter 3: The 8 Best Places</h2>
+<div class="chap"><div class="kanji">名所</div><div class="t"><div class="num">Chapter 3</div><h2>The 8 Best Places</h2></div></div><div class="band"></div>
 <p>Each place has a quick info box: how to get there, how long to stay, and the cost.</p>
 <h3>1. Arakurayama Sengen Park (Chureito Pagoda)</h3>
 <p>The famous photo: a red five-story pagoda with Mt. Fuji behind it, framed by cherry blossoms in spring. Cherry blossoms are best around <strong>mid-April</strong> and autumn leaves around <strong>mid-November</strong> (approximate; it changes every year). <span class="src">(Confirmed by phone with Fujiyoshida Kanko Shinko Service, November 3, 2026.)</span></p>
@@ -562,7 +582,7 @@ hr { display: none; }
 <li><strong>Good to know:</strong> every spring the <strong>Fuji Shibazakura Festival</strong> is held at <strong>Fuji Motosuko Resort</strong> near the lake: about 500,000 pink moss phlox plants in front of Mt. Fuji. In 2026 it ran from April 11 to May 24 (dates depend on the flowers and change every year). Check the official Fuji Motosuko Resort site for the dates and admission. <span class="src">(Fuji Motosuko Resort official site, checked November 2026.)</span></li>
 </ul>
 <hr />
-<h2>Chapter 4: Ready-Made Itineraries</h2>
+<div class="chap"><div class="kanji">行程</div><div class="t"><div class="num">Chapter 4</div><h2>Ready-Made Itineraries</h2></div></div><div class="band"></div>
 <p>All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave around 5 p.m.</p>
 <h3>Course A: Relaxed day (first-timers)</h3>
 <table>
@@ -697,7 +717,7 @@ hr { display: none; }
 </li>
 </ul>
 <hr />
-<h2>Chapter 5: Local Food</h2>
+<div class="chap"><div class="kanji">味</div><div class="t"><div class="num">Chapter 5</div><h2>Local Food</h2></div></div><div class="band"></div>
 <h3>Hoto</h3>
 <p>Thick, flat wheat noodles simmered with pumpkin and vegetables in a miso soup, served bubbling in an iron pot. Warm and filling, perfect on a cold day.</p>
 <ul>
@@ -717,7 +737,7 @@ hr { display: none; }
 <li>Tipping is not expected in Japan.</li>
 </ul>
 <hr />
-<h2>Chapter 6: Good to Know</h2>
+<div class="chap"><div class="kanji">心得</div><div class="t"><div class="num">Chapter 6</div><h2>Good to Know</h2></div></div><div class="band"></div>
 <h3>Avoiding crowds</h3>
 <ul>
 <li>Arrive by 9–10 a.m. Tour buses arrive late morning.</li>
@@ -778,7 +798,7 @@ hr { display: none; }
 </tbody>
 </table>
 <hr />
-<h2>Getting Around: Route Diagram</h2><svg viewBox="0 0 560 485" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto"><line x1="260" y1="230" x2="135" y2="70" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="180" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="290" stroke="#2e8b57" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="400" stroke="#1d6fd1" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="70" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="180" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="290" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="400" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><rect x="40" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="40" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="53" font-size="10" fill="#fff" font-weight="700">Red Line</text><text x="48" y="76" font-size="13" font-weight="700" fill="#1f2933">④ Ropeway</text><text x="48" y="94" font-size="10.5" fill="#5b6770">about 11 min or 15 min on foot</text><rect x="40" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="150" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="163" font-size="10" fill="#fff" font-weight="700">Red Line</text><text x="48" y="186" font-size="13" font-weight="700" fill="#1f2933">② Oishi Park</text><text x="48" y="204" font-size="10.5" fill="#5b6770">about 27 min</text><rect x="40" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#2e8b57" stroke-width="2"/><rect x="40" y="260" width="190" height="18" rx="8" fill="#2e8b57"/><text x="48" y="273" font-size="10" fill="#fff" font-weight="700">Green Line</text><text x="48" y="296" font-size="13" font-weight="700" fill="#1f2933">⑤ Iyashi-no-Sato Nenba</text><text x="48" y="314" font-size="10.5" fill="#5b6770">about 40 min</text><rect x="40" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#1d6fd1" stroke-width="2"/><rect x="40" y="370" width="190" height="18" rx="8" fill="#1d6fd1"/><text x="48" y="383" font-size="10" fill="#fff" font-weight="700">Blue Line</text><text x="48" y="406" font-size="13" font-weight="700" fill="#1f2933">⑧ Lake Motosu</text><text x="48" y="424" font-size="10.5" fill="#5b6770">about 1 hour + 1 hour on foot</text><rect x="330" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="40" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="53" font-size="10" fill="#fff" font-weight="700">Fujikyu Railway</text><text x="338" y="76" font-size="13" font-weight="700" fill="#1f2933">⑦ Fuji-Q Highland</text><text x="338" y="94" font-size="10.5" fill="#5b6770">one stop</text><rect x="330" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="150" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="163" font-size="10" fill="#fff" font-weight="700">Fujikyu Railway</text><text x="338" y="186" font-size="13" font-weight="700" fill="#1f2933">① Chureito Pagoda</text><text x="338" y="204" font-size="10.5" fill="#5b6770">Shimoyoshida Sta. + 25 min on foot</text><rect x="330" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="260" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="273" font-size="10" fill="#fff" font-weight="700">Route bus</text><text x="338" y="296" font-size="13" font-weight="700" fill="#1f2933">③ Oshino Hakkai</text><text x="338" y="314" font-size="10.5" fill="#5b6770">A1/A2 or F1/F2</text><rect x="330" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="370" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="383" font-size="10" fill="#fff" font-weight="700">Direct bus</text><text x="338" y="406" font-size="13" font-weight="700" fill="#1f2933">⑥ 5th Station</text><text x="338" y="424" font-size="10.5" fill="#5b6770">about 1 hour</text><circle cx="260" cy="230" r="52" fill="#1d4e89"/><text x="260" y="227.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Kawaguchiko</text><text x="260" y="243.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Station</text><text x="260" y="470" font-size="11" fill="#5b6770" text-anchor="middle">⇧ To Tokyo (Shinjuku): Fuji Excursion / Highway bus (Chapter 2)</text></svg><p class="src">Diagram only. Distances and positions are not to scale. All times are from Chapters 2 and 3.</p><h2>Packing Checklist</h2>
+<div class="chap"><div class="kanji">地図</div><div class="t"><div class="num">Extras</div><h2>Getting Around: Route Diagram</h2></div></div><div class="band"></div><svg viewBox="0 0 560 485" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto"><line x1="260" y1="230" x2="135" y2="70" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="180" stroke="#c8372d" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="290" stroke="#2e8b57" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="135" y2="400" stroke="#1d6fd1" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="70" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="180" stroke="#555555" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="290" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><line x1="260" y1="230" x2="425" y2="400" stroke="#8a5a00" stroke-width="5" stroke-linecap="round"/><rect x="40" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="40" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="53" font-size="10" fill="#fff" font-weight="700">Red Line</text><text x="48" y="76" font-size="13" font-weight="700" fill="#1f2933">④ Ropeway</text><text x="48" y="94" font-size="10.5" fill="#5b6770">about 11 min or 15 min on foot</text><rect x="40" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#c8372d" stroke-width="2"/><rect x="40" y="150" width="190" height="18" rx="8" fill="#c8372d"/><text x="48" y="163" font-size="10" fill="#fff" font-weight="700">Red Line</text><text x="48" y="186" font-size="13" font-weight="700" fill="#1f2933">② Oishi Park</text><text x="48" y="204" font-size="10.5" fill="#5b6770">about 27 min</text><rect x="40" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#2e8b57" stroke-width="2"/><rect x="40" y="260" width="190" height="18" rx="8" fill="#2e8b57"/><text x="48" y="273" font-size="10" fill="#fff" font-weight="700">Green Line</text><text x="48" y="296" font-size="13" font-weight="700" fill="#1f2933">⑤ Iyashi-no-Sato Nenba</text><text x="48" y="314" font-size="10.5" fill="#5b6770">about 40 min</text><rect x="40" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#1d6fd1" stroke-width="2"/><rect x="40" y="370" width="190" height="18" rx="8" fill="#1d6fd1"/><text x="48" y="383" font-size="10" fill="#fff" font-weight="700">Blue Line</text><text x="48" y="406" font-size="13" font-weight="700" fill="#1f2933">⑧ Lake Motosu</text><text x="48" y="424" font-size="10.5" fill="#5b6770">about 1 hour + 1 hour on foot</text><rect x="330" y="40" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="40" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="53" font-size="10" fill="#fff" font-weight="700">Fujikyu Railway</text><text x="338" y="76" font-size="13" font-weight="700" fill="#1f2933">⑦ Fuji-Q Highland</text><text x="338" y="94" font-size="10.5" fill="#5b6770">one stop</text><rect x="330" y="150" width="190" height="64" rx="8" fill="#fff" stroke="#555555" stroke-width="2"/><rect x="330" y="150" width="190" height="18" rx="8" fill="#555555"/><text x="338" y="163" font-size="10" fill="#fff" font-weight="700">Fujikyu Railway</text><text x="338" y="186" font-size="13" font-weight="700" fill="#1f2933">① Chureito Pagoda</text><text x="338" y="204" font-size="10.5" fill="#5b6770">Shimoyoshida Sta. + 25 min on foot</text><rect x="330" y="260" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="260" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="273" font-size="10" fill="#fff" font-weight="700">Route bus</text><text x="338" y="296" font-size="13" font-weight="700" fill="#1f2933">③ Oshino Hakkai</text><text x="338" y="314" font-size="10.5" fill="#5b6770">bus for Gotemba or Yamanakako Hirano</text><rect x="330" y="370" width="190" height="64" rx="8" fill="#fff" stroke="#8a5a00" stroke-width="2"/><rect x="330" y="370" width="190" height="18" rx="8" fill="#8a5a00"/><text x="338" y="383" font-size="10" fill="#fff" font-weight="700">Direct bus</text><text x="338" y="406" font-size="13" font-weight="700" fill="#1f2933">⑥ 5th Station</text><text x="338" y="424" font-size="10.5" fill="#5b6770">about 1 hour</text><circle cx="260" cy="230" r="52" fill="#1b2a4a"/><text x="260" y="227.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Kawaguchiko</text><text x="260" y="243.0" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Station</text><text x="260" y="470" font-size="11" fill="#5b6770" text-anchor="middle">⇧ To Tokyo (Shinjuku): Fuji Excursion / Highway bus (Chapter 2)</text></svg><p class="src">Diagram only. Distances and positions are not to scale. All times are from Chapters 2 and 3.</p><div class="chap"><div class="kanji">持物</div><div class="t"><div class="num">Extras</div><h2>Packing Checklist</h2></div></div><div class="band"></div>
 
 <ul>
 <li>☐ Train or bus ticket (booked in advance)</li>
