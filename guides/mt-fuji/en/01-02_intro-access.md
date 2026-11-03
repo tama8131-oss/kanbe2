@@ -1,7 +1,5 @@
 # Mt. Fuji Day Trip Guide from Tokyo
 
-> Draft v0.1 (2026-11-01). Items marked **[CHECK]** must be verified on official sites before publishing. Only information seen on an official page counts as verified.
-
 ---
 
 ## Chapter 1: Before You Go
@@ -101,7 +99,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 - **Children:** elementary school age and under pay half the adult fare. One preschool child per adult rides free if they sit on your lap; a child who takes their own seat pays the child fare. (Fujikyu Bus official FAQ)
 - You can choose a window or aisle seat when booking, and there are women-only seats.
 - Pay online by credit card, or buy at the ticket counters at Busta Shinjuku, Fuji-Q Highland, Kawaguchiko Station and Mt. Fuji Station.
-- All seats reserved. Tickets go on sale **one month before, at 10:00 a.m.** After booking online you must pay (credit card, convenience store, etc.) by the deadline shown, or the booking is cancelled automatically. (Fujikyu Bus official FAQ) Weekend buses sell out.
+- All seats reserved. Tickets go on sale **one month before, at 10:00 a.m.** After booking online you must pay (credit card, convenience store, etc.) by the deadline shown, or the booking is cancelled automatically. (Fujikyu Bus official FAQ)
 - **English help:** the main booking sites (such as Fujiyama Connect) work in English, Chinese and Korean, and the bus ticket counters at Kawaguchiko Station and Mt. Fuji Station may have English- or Chinese-speaking staff. Fujikyu Call Center: 0570-022956. (Fujikyu Bus official FAQ)
 
 ### Train or bus? Quick comparison
@@ -117,7 +115,7 @@ Buses leave from **Shinjuku Expressway Bus Terminal ("Busta Shinjuku")** and arr
 
 ### Getting around: the sightseeing buses
 
-From Kawaguchiko Station, retro-style sightseeing buses loop around the lakes.
+From Kawaguchiko Station, sightseeing buses loop around the lakes.
 
 | Line | Main stops | Useful for |
 |---|---|---|

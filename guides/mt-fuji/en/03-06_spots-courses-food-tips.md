@@ -1,9 +1,3 @@
-# Mt. Fuji Day Trip Guide from Tokyo (Chapters 3–6 + Extras)
-
-> Draft v0.1 (2026-11-01). Items marked **[CHECK]** must be verified on official sites before publishing.
-
----
-
 ## Chapter 3: The 8 Best Places
 
 Each place has a quick info box: how to get there, how long to stay, and the cost.
@@ -86,7 +80,7 @@ A rebuilt village of thatched-roof houses with Mt. Fuji in the background.
 
 ### 6. Fuji Subaru Line 5th Station
 
-The highest point you can reach by road on the Yamanashi side, about 2,300 m above sea level. You are standing on Mt. Fuji itself.
+Ride a bus up onto the slopes of Mt. Fuji itself.
 
 - **Access:** Direct Fujikyu bus from Kawaguchiko Station, about **1 hour** one way. The bus runs whenever the road is open; when Yamanashi Prefecture closes the Fuji Subaru Line (for example in bad weather or snow), the bus does not run. (Confirmed by phone with Fujikyu Bus, November 3, 2026.)
 - **Time needed:** 1.5–2 hours
@@ -95,7 +89,7 @@ The highest point you can reach by road on the Yamanashi side, about 2,300 m abo
 
 ### 7. Fuji-Q Highland
 
-An amusement park famous for record-breaking roller coasters, with Mt. Fuji views from the rides.
+An amusement park at the foot of Mt. Fuji, famous for its roller coasters.
 
 - **Access:** Fujikyu Railway, **Fuji-Q Highland Station**, the stop just before Kawaguchiko; the Fuji Excursion stops here too. The highway bus from Busta Shinjuku also stops at Fuji-Q Highland. (Fujikyu Railway and Highway Bus.com official sites, checked November 2026.)
 - **Time needed:** Half a day to a full day
@@ -112,7 +106,7 @@ An amusement park famous for record-breaking roller coasters, with Mt. Fuji view
 
 ### 8. Lake Motosu (the ¥1,000 bill view)
 
-The view of Mt. Fuji printed on the back of the old ¥1,000 bill. The quietest and least crowded of the five lakes.
+The view of Mt. Fuji printed on the back of the old ¥1,000 bill.
 
 - **Access:** Blue Line sightseeing bus to **"Lake Motosu Tourist Information Center"** (about 1 hour from Kawaguchiko Station, adult fare ¥1,470), then **about 1 hour on foot** to the viewpoint near **Koansō (浩庵荘)**. Show the Japanese name to locals if you need directions. (Bus stop, fare and walking time confirmed by phone with Fujikyu Bus, November 2, 2026.) Buses run only about once an hour; last bus from Kawaguchiko Station 15:35, last bus back from the Tourist Information Center 16:45. (Fujikyu Bus official timetable)
 - **Plan carefully:** with the 1-hour walk each way, you need about 3 hours here. Take a morning bus, and start walking back from the viewpoint by about 15:30 so you do not miss the last bus.
@@ -130,7 +124,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 
 | Time | Plan |
 |---|---|
-| 10:30 | Arrive at Kawaguchiko Station. Buy a sightseeing bus pass. |
+| 10:30 | Arrive at Kawaguchiko Station. This course uses only the Red Line, so single tickets are cheaper than the 1-Day Pass (Chapter 2). |
 | 11:00 | Mt. Fuji Panoramic Ropeway (place 4) |
 | 12:30 | Lunch: hoto noodles near the station (Chapter 5) |
 | 14:00 | Red Line bus to Oishi Park (place 2) |
@@ -196,7 +190,6 @@ Thick, flat wheat noodles simmered with pumpkin and vegetables in a miso soup, s
 Fujiyoshida's local udon: very thick and very firm. It is served in a soy-miso soup with cabbage and seasoned horse meat or beef.
 
 - **Price:** cheap. Example: at **Miura Udon** (near Shimoyoshida Station, handy after Chureito Pagoda), most bowls are up to about ¥900, and the most popular "niku udon" (horse meat and cabbage) is about ¥700. Extra noodles about ¥300. (Menu listed on Google, November 2026; prices may change.)
-- **Good to know:** Many shops open only at lunchtime and close when the noodles run out.
 
 ### How to order
 
@@ -245,17 +238,13 @@ The area has had serious problems with overtourism. Locals will appreciate it if
 
 ## Extras
 
-### One-page map
-
-[To be drawn: Kawaguchiko Station at the center, the 8 places, train line and the three bus lines in different colors.]
-
 ### Packing checklist
 
 - [ ] Train or bus ticket (booked in advance)
-- [ ] Cash (¥5,000–10,000)
+- [ ] Some cash (small shops may be cash only)
 - [ ] IC card (Suica / PASMO)
-- [ ] Warm jacket (it is colder than Tokyo, especially at the 5th Station)
-- [ ] Comfortable walking shoes (about 400 steps at Chureito Pagoda)
+- [ ] Warm jacket
+- [ ] Comfortable walking shoes (398 steps at Chureito Pagoda)
 - [ ] Phone battery pack
 - [ ] Small bag for your trash
 - [ ] Umbrella or rain jacket
