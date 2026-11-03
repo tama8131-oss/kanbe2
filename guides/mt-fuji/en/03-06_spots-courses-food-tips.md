@@ -106,7 +106,8 @@ An amusement park famous for record-breaking roller coasters, with Mt. Fuji view
 | Afternoon Pass (from 13:00) | ¥4,100–6,000 | ¥3,800–5,700 | ¥3,500–4,200 | ¥1,700–2,100 |
 
   Buy online or at the park. No refunds or changes after purchase, and some rides are not covered by the passes. Check the monthly price calendar on the official site before you go. (Fuji-Q Highland official site, checked November 2026.)
-- **Opening hours:** [CHECK]
+- **Opening hours:** change every day, and **the park is closed on some days**. For example, in January 2027 it opens 9:00–19:00 on New Year holidays but mostly 10:00–17:00, and is closed on several Wednesdays and Thursdays (January 13, 14, 20, 21, 27 and 28). Some rides also close for inspection on certain days. **Always check the monthly calendar on the official site before you go.** (Fuji-Q Highland official site, January 2027 calendar, checked November 2026.)
+- **Closed for construction:** the Ferris wheel (until January 31, 2027), "Tentekomai" (until late July 2027, planned) and "Red Tower" (until further notice). (Fuji-Q Highland official site)
 
 ### 8. Lake Motosu (the ¥1,000 bill view)
 
