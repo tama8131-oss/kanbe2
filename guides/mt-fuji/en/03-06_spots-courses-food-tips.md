@@ -118,7 +118,7 @@ The view of Mt. Fuji printed on the back of the old ¥1,000 bill. The quietest a
 - **Plan carefully:** with the 1-hour walk each way, you need about 3 hours here. Take a morning bus, and start walking back from the viewpoint by about 15:30 so you do not miss the last bus.
 - **Time needed:** about 3 hours including the walk (plus bus waiting time)
 - **Cost:** Free
-- **Good to know:** In April–May, the Fuji Shibazakura Festival (pink moss phlox) is held nearby. [CHECK]
+- **Good to know:** every spring the **Fuji Shibazakura Festival** is held at **Fuji Motosuko Resort** near the lake: about 500,000 pink moss phlox plants in front of Mt. Fuji. In 2026 it ran from April 11 to May 24 (dates depend on the flowers and change every year). Check the official Fuji Motosuko Resort site for the dates and admission. (Fuji Motosuko Resort official site, checked November 2026.)
 
 ---
 
