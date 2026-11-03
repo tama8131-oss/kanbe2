@@ -12,7 +12,7 @@ Each place has a quick info box: how to get there, how long to stay, and the cos
 
 The famous photo: a red five-story pagoda with Mt. Fuji behind it. In April it is framed by cherry blossoms, in November by red leaves.
 
-- **Access:** **Shimoyoshida Station**, then about 10 minutes on foot. [CHECK: walking time] The Fuji Excursion from Shinjuku stops here, so you can come straight from Tokyo. From Kawaguchiko it is a short ride on the Fujikyu Railway.
+- **Access:** **Shimoyoshida Station**, then **about 25 minutes on foot** to the pagoda (Chureito), including the stairs. (Fujiyoshida City Tourist Guide, official site, checked November 2026.) The Fuji Excursion from Shinjuku stops here, so you can come straight from Tokyo. From Kawaguchiko it is a short ride on the Fujikyu Railway.
 - **Time needed:** 1–1.5 hours
 - **Cost:** Free
 - **Good to know:** You climb about 400 steps to the viewpoint. [CHECK] There is also a gentler slope path. Go early: by 10 a.m. the viewpoint is crowded.
@@ -103,7 +103,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | Time | Plan |
 |---|---|
 | 7:30 | Fuji Excursion 3 from Shinjuku, get off at Shimoyoshida |
-| 9:20 | Chureito Pagoda (place 1), before the crowds |
+| 9:20 | Chureito Pagoda (place 1), before the crowds. About 25 minutes on foot from Shimoyoshida Station. [CHECK: arrival time at Shimoyoshida] |
 | 12:00 | Lunch: Yoshida udon near Shimoyoshida (Chapter 5) |
 | 13:30 | Back to Kawaguchiko, Red Line bus to Oishi Park (place 2) |
 | 14:45 | Red Line bus back from Oishi Park to Kawaguchiko Station (about 27 minutes) |
