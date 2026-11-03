@@ -1,11 +1,13 @@
 """Build the Mt. Fuji guide PDF from the English Markdown chapters.
 
-Usage: python3 guides/mt-fuji/build_pdf.py
+Usage: python3 guides/mt-fuji/build_pdf.py [--ja]
 Output: guides/mt-fuji/dist/mt-fuji-day-trip-guide.pdf
+        (--ja: Japanese review copy for checking, mt-fuji-day-trip-guide.ja-review.pdf)
 """
 import pathlib
 import re
 import subprocess
+import sys
 
 import markdown
 
@@ -71,8 +73,27 @@ NOTE = """<section class="note">
 </section>"""
 
 
-def build():
-    md_text = "\n\n".join(p.read_text(encoding="utf-8") for p in SRC)
+COVER_JA = f"""<section class="cover">
+{FUJI_SVG}
+<h1>東京から行く<br>富士山日帰りガイド</h1>
+<div class="sub">【確認用 日本語版】<br>販売するのは英語版。中身は同じ</div>
+<div><span class="badge">2026年11月に確認した情報</span></div>
+</section>"""
+
+NOTE_JA = """<section class="note">
+<h2 class="first">はじめに</h2>
+<p>このガイドの料金・時刻表・営業時間はすべて、<strong>2026年11月</strong>に公式サイトか、運営している会社への電話で確かめたものです。それ以外の情報を使ったところは、そう書いています。</p>
+<p>日本の料金や時刻は変わることがあります（特に時刻表が変わる春や、税金・燃料費が変わるとき）。<strong>出かける前に、各章に出てくる公式サイトを見てください。</strong>特に電車・バス・営業日。</p>
+<div class="toc"><h3>目次</h3><ol>
+<li>出かける前に</li><li>東京からの行き方</li><li>行く価値のある8か所</li>
+<li>そのまま使えるモデルコース</li><li>ご当地グルメ</li><li>知っておくと便利なこと</li><li>持ち物チェックリスト</li></ol></div>
+<p class="foot">このガイドは個人が作った旅行ガイドで、出てくる会社や施設とは関係ありません。</p>
+</section>"""
+
+
+def build(ja=False):
+    src = sorted((HERE / "ja-review").glob("*.ja.md")) if ja else SRC
+    md_text = "\n\n".join(p.read_text(encoding="utf-8") for p in src)
     md_text = re.sub(r"^# .*\n", "", md_text, count=1)
     md_text = md_text.replace("- [ ] ", "- ☐ ")
     # Paragraphs indented under a table would otherwise swallow the list that follows.
@@ -84,18 +105,24 @@ def build():
     md_text = re.sub(r"^  - ", "    - ", md_text, flags=re.M)
     body = markdown.markdown(md_text, extensions=["tables", "sane_lists"])
     # Show source notes in small grey text so the main facts stand out.
+    if ja:
+        body = re.sub(r"（([^（）]*(?:公式|電話で確認|Googleマップ|Googleに載|Googleのメニュー)[^（）]*)）", r'<span class="src">（\1）</span>', body)
     body = re.sub(r"\((?=[^()]*(?:official|Confirmed by phone|confirmed by phone|Google Maps|Google, November))([^()]*(?:\([^()]*\)[^()]*)*)\)",
                   r'<span class="src">(\1)</span>', body)
     body = body.replace("<h2>Extras</h2>", "<h2>Packing Checklist</h2>").replace("<h3>Packing checklist</h3>", "")
-    html = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
-<title>Mt. Fuji Day Trip Guide from Tokyo</title><style>{CSS}</style></head>
-<body>{COVER}{NOTE}{body}</body></html>"""
+    lang, cover, note = ("ja", COVER_JA, NOTE_JA) if ja else ("en", COVER, NOTE)
+    css = CSS.replace('"Noto Sans", "Noto Sans CJK JP"', '"Noto Sans CJK JP", "Noto Sans"') if ja else CSS
+    html = f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
+<title>Mt. Fuji Day Trip Guide from Tokyo</title><style>{css}</style></head>
+<body>{cover}{note}{body}</body></html>"""
+    out_html = HTML.with_suffix(".ja-review.html") if ja else HTML
+    out_pdf = PDF.with_suffix(".ja-review.pdf") if ja else PDF
     DIST.mkdir(exist_ok=True)
-    HTML.write_text(html, encoding="utf-8")
+    out_html.write_text(html, encoding="utf-8")
     subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
-                    f"--print-to-pdf={PDF}", HTML.as_uri()], check=True, capture_output=True)
-    print(PDF)
+                    f"--print-to-pdf={out_pdf}", out_html.as_uri()], check=True, capture_output=True)
+    print(out_pdf)
 
 
 if __name__ == "__main__":
-    build()
+    build(ja="--ja" in sys.argv)
