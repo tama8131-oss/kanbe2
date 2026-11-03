@@ -16,6 +16,7 @@ import segno
 sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from links import BOOKING, PLACES, maps_url  # noqa: E402
 import i18n  # noqa: E402
+import photos as ph  # noqa: E402
 
 HERE = pathlib.Path(__file__).parent
 SRC = [HERE / "en" / "00_know-before.md", HERE / "en" / "01-02_intro-access.md", HERE / "en" / "03-06_spots-courses-food-tips.md"]
@@ -46,6 +47,7 @@ section.L-zh-hant h1, section.L-zh-hant h2, section.L-zh-hant h3, section.L-zh-h
 section.L-th { font-family: "Noto Sans Thai", "Noto Sans", sans-serif; }
 section.L-th h1, section.L-th h2, section.L-th h3, section.L-th .serif { font-family: "Noto Serif Thai", "Noto Serif", serif; }
 section.L-vi h1, section.L-vi h2, section.L-vi h3, section.L-vi .serif, section.L-ms h1, section.L-ms h2, section.L-ms h3 { font-family: "Noto Serif", serif; }
+section.L-ms { font-size: 8.6pt; }
 section.L-ko { font-family: "Noto Sans CJK KR", sans-serif; }
 section.L-ko h1, section.L-ko h2, section.L-ko h3, section.L-ko .serif { font-family: "Noto Serif CJK KR", serif; }
 .picker { page-break-before: always; page-break-after: always; }
@@ -71,10 +73,30 @@ a.change { display: inline-block; margin-top: 4px; font-size: 8pt; }
 .cover .stats b { display: block; font-family: "Noto Serif CJK JP", serif; font-size: 14pt; font-weight: 400; }
 .cover .stats span { font-size: 6.5pt; letter-spacing: .03em; }
 
+/* photos */
+img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,.30), rgba(0,0,0,0) 32%, rgba(0,0,0,.05) 55%, rgba(0,0,0,.62)); }
+.place { position: relative; height: 36mm; border-radius: 10px; overflow: hidden; margin: 14px 0 8px; color: #fff; break-inside: avoid; break-after: avoid; }
+.place.course { height: 25mm; }
+.place.small { height: 22mm; }
+.place .ph { position: absolute; inset: 0; display: flex; gap: 2px; }
+.place .ph img { flex: 1; min-width: 0; height: 100%; object-fit: cover; }
+.place .pn { position: absolute; left: 9px; bottom: 5px; font-family: "Noto Serif CJK JP", serif; font-size: 30pt; line-height: 1; font-weight: 300; }
+.place h3 { position: absolute; left: 9px; right: 9px; bottom: 7px; margin: 0; color: #fff; font-size: 13pt; line-height: 1.25; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
+.place .pn + h3 { left: 52px; }
+.place h3::after { background: #fff; }
+.place a.nav { position: absolute; right: 7px; top: 7px; background: #fff; border-radius: 6px; padding: 3px 3px 1px; border: 0; text-align: center; line-height: 1; }
+.place a.nav img { width: 15mm; height: 15mm; display: block; }
+.place a.nav span { font-size: 5.5pt; font-weight: 700; letter-spacing: .15em; color: var(--red); }
+.credits { page-break-before: always; }
+.credits table { font-size: 7.6pt; }
+.credits td { padding: 3px 6px; }
+
 /* chapter opener */
-.opener { page-break-before: always; margin: -14mm -12mm 6mm -12mm; height: 46mm; position: relative; overflow: hidden; color: #fff; }
+.opener { page-break-before: always; margin: -14mm -12mm 6mm -12mm; height: 48mm; position: relative; overflow: hidden; color: #fff; }
 .opener.first { page-break-before: auto; }
-.opener svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.opener .ph { position: absolute; inset: 0; display: flex; gap: 2px; }
+.opener .ph img { flex: 1; min-width: 0; height: 100%; object-fit: cover; }
 .opener .lbl { position: absolute; left: 12mm; bottom: 19mm; font-family: "Noto Serif CJK JP", serif; font-size: 7pt; letter-spacing: .35em; }
 .opener .num { position: absolute; left: 11mm; bottom: 8mm; font-family: "Noto Serif CJK JP", serif; font-size: 34pt; line-height: 1; font-weight: 300; }
 .opener h2 { position: absolute; left: 36mm; bottom: 8mm; right: 10mm; margin: 0; font-size: 17pt; line-height: 1.2; text-shadow: 0 1px 6px rgba(0,0,0,.35); }
@@ -211,7 +233,7 @@ def cover(lang, anchor=""):
     stats = "".join(f"<div><b>{a}</b><span>{b}</span></div>" for a, b in T["stats"])
     tag = f'<div class="tag">{T["tag"]}</div>' if T.get("tag") else ""
     ident = f' id="{anchor}"' if anchor else ""
-    return f"""<section class="cover"{ident}>{scene(PALETTES[0], pagoda=True).replace('<svg ', '<svg class="bg" ', 1)}
+    return f"""<section class="cover"{ident}><img class="bg" src="{ph.src('cover')}"><div class="shade"></div>
 <div class="top"><span>DAY TRIP FROM TOKYO</span><span>2026 EDITION</span></div>{tag}
 <div class="titles"><div class="kicker">{T["kicker"]}</div><div class="big">{T["big"]}</div>
 <h1>{T["h1"]}</h1><div class="ed">{T["ed"]}</div></div>
@@ -267,7 +289,54 @@ FINDER = {
 def opener(label, num, title, pal_i, first=False):
     n = f'<div class="num">{num}</div>' if num else ""
     cls = "opener" + (" first" if first else "") + ("" if num else " nonum")
-    return f'<div class="{cls}">{scene(PALETTES[pal_i % len(PALETTES)])}<div class="lbl">{label}</div>{n}<h2>{title}</h2></div>'
+    key = ph.OPENER[int(num)] if num else next(v for k, v in ph.OPENER.items() if isinstance(k, str) and k in label)
+    keys = key if isinstance(key, list) else [key]
+    imgs = "".join(f'<img src="{ph.src(k)}">' for k in keys)
+    return (f'<div class="{cls}"><div class="ph">{imgs}</div><div class="shade"></div>'
+            f'<div class="lbl">{label}</div>{n}<h2>{title}</h2></div>')
+
+
+def photo_banner(keys, num, title, cls=""):
+    imgs = "".join(f'<img src="{ph.src(k)}">' for k in keys)
+    n = f'<div class="pn">{num:02d}</div>' if num else ""
+    nav = ""
+    if num:  # Google Maps directions to this place: scan the QR or tap it.
+        url = maps_url(PLACES[num + 1][3])
+        nav = f'<a class="nav" href="{url}"><img src="{qr_img(url)}"><span>NAVI</span></a>'
+    return f'<div class="place{cls}"><div class="ph n{len(keys)}">{imgs}</div><div class="shade"></div>{n}<h3>{title}</h3>{nav}</div>'
+
+
+def add_photos(body):
+    """Photo headers for the 8 places (Ch3), the 3 courses (Ch4) and Yoshida udon (Ch5)."""
+    parts = re.split(r'(?=<div class="opener)', body)
+    for i, part in enumerate(parts):
+        m = re.search(r'<div class="num">0(\d)</div>', part[:600])
+        if not m or m.group(1) not in "345":
+            continue
+        ch, k = int(m.group(1)), [0]
+
+        def repl(mm):
+            j = k[0]; k[0] += 1
+            title = mm.group(1)
+            if ch == 3 and j < 8:
+                return photo_banner([ph.PLACES[j]], j + 1, re.sub(r"^(\d\.|[①-⑧])\s*", "", title))
+            if ch == 4 and j < 3:
+                return photo_banner(ph.COURSES[j], 0, title, " course")
+            if ch == 5 and j < 2 and ph.FOOD[j]:
+                return photo_banner([ph.FOOD[j]], 0, title, " small")
+            return mm.group(0)
+        parts[i] = re.sub(r"<h3>([^<]*)</h3>", repl, part)
+    return "".join(parts)
+
+
+def credits():
+    rows = "".join(f"<tr><td>{u}</td><td>{a}</td><td>{l}</td></tr>" for f, a, l, u, _ in ph.PHOTOS.values())
+    return ('<section class="credits"><p class="eyebrow">Credits</p><h3 style="font-size:15pt;margin-top:2px">Photo credits</h3>'
+            '<p>Photos from Wikimedia Commons, used under the licences shown (CC0 = no rights reserved; '
+            'CC BY / CC BY-SA: creativecommons.org/licenses). Some photos are cropped to fit the page.</p>'
+            f'<table class="keep"><thead><tr><th>Used for</th><th>Photographer</th><th>Licence</th></tr></thead><tbody>{rows}</tbody></table>'
+            '<p class="foot">This is an independent travel guide. It is not connected with any company or place in it. '
+            'Prices, times and opening hours were checked in November 2026. Please check the official websites before you go.</p></section>')
 
 
 def finder(lang):
@@ -431,8 +500,9 @@ def section(lang):
     body = re.sub(r"\((?=[^()]*(?:official|Confirmed by phone|confirmed by phone|Google Maps|Google, November))([^()]*(?:\([^()]*\)[^()]*)*)\)",
                   r'<span class="src">(\1)</span>', body)
     body = decorate_chapters(body, lang == "ja")
+    body = add_photos(body)
     # The course finder goes right after the essentials page, before Chapter 1.
-    i = body.find('<div class="opener"><svg', body.find("ESSENTIALS") + 1)
+    i = body.find('<div class="opener"><div class="ph">', body.find("ESSENTIALS") + 1)
     body = body[:i] + finder(lang) + body[i:]
     body = body + book_and_nav(lang) + route_map(lang)
     # Short tables stay on one page; long ones (and itineraries) may continue on the next page.
@@ -441,10 +511,6 @@ def section(lang):
     # The essentials table is long: use a smaller font so it fits on one page.
     j = body.find("<table", body.find("ESSENTIALS"))
     body = body[:j] + re.sub(r'^<table( class="keep")?', '<table class="ess"', body[j:], count=1)
-    # In the Chinese and Korean sections the hot-spring part would spill a few lines onto a page of its own.
-    for t in {"zh-hans": "雨天温泉", "zh-hant": "雨天溫泉", "ko": "비 오는 날의 온천"}.get(lang, "").split("|"):
-        if t:
-            body = body.replace(f"<p><strong>{t}</strong></p>", f'<p style="break-before: page"><strong>{t}</strong></p>')
     # A heading should never sit alone at the bottom of a page: keep it with its first paragraph.
     body = re.sub(r"(<h3>[^<]*</h3>\s*<p>.*?</p>)", r'<div class="keepnext">\1</div>', body, flags=re.S)
     # Keep the "when can you see Mt. Fuji" heading, text and table together on one page.
@@ -472,7 +538,7 @@ def build(ja=False):
     css = CSS.replace('"Noto Sans", "Noto Sans CJK JP"', '"Noto Sans CJK JP", "Noto Sans"') if ja else CSS
     html = f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
 <title>{TEXT[lang]["title"]}</title><style>{css}</style></head>
-<body>{body}</body></html>"""
+<body>{body}{credits()}</body></html>"""
     out_html = HTML.with_suffix(".ja-review.html") if ja else HTML
     out_pdf = PDF.with_suffix(".ja-review.pdf") if ja else PDF
     DIST.mkdir(exist_ok=True)
