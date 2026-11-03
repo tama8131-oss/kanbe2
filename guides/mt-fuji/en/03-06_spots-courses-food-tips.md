@@ -66,12 +66,13 @@ Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks
 
 ### 4. Mt. Fuji Panoramic Ropeway (Mt. Tenjo)
 
-A 3-minute ride up from the shore of Lake Kawaguchiko. At the top: wide views of Mt. Fuji and the lake.
+A ropeway up from the shore of Lake Kawaguchiko. At the top: wide views of Mt. Fuji and the lake. [CHECK: ride time]
 
-- **Access:** Red Line sightseeing bus, **"Yuransen / Ropeway Iriguchi"** stop, about 11 minutes from Kawaguchiko Station (Fujikyu Bus official timetable). Walking from the station: [CHECK]
+- **Access:** Red Line sightseeing bus, **"Yuransen / Ropeway Iriguchi"** stop, about 11 minutes from Kawaguchiko Station (Fujikyu Bus official timetable). Or about **15 minutes on foot** from Kawaguchiko Station.
 - **Time needed:** 1 hour
-- **Cost:** About ¥1,000 round trip [CHECK]
-- **Good to know:** Try the "tanuki dango" (sweet rice dumplings) at the top. [CHECK]
+- **Cost:** round trip adults ¥1,200, children ¥600; one way adults ¥800, children ¥400.
+- **Hours:** change with the season; usually **8:30–17:30**. Hours are shorter on inspection days.
+- (Fares, hours and walking time confirmed by phone with Mt. Fuji Panoramic Ropeway, November 3, 2026.)
 
 ### 5. Saiko Iyashi-no-Sato Nenba
 
