@@ -17,6 +17,7 @@ The famous photo: a red five-story pagoda with Mt. Fuji behind it, framed by che
 - **Cost:** [CHECK: admission fee]
 - **Open:** 24 hours. Night illumination: Jan–Feb 16:00–21:50, Mar–Apr 17:00–21:50, May 18:00–21:50, Jun–Sep 19:00–21:50, Oct–Nov 17:00–21:50, Dec 16:00–21:50 (times may change).
 - **Good to know:** The viewing deck is at the top of **398 steps**. (Fujiyoshida City Tourist Guide, official site, checked November 2026.)
+- **Toilets:** available at the park. The park is now very busy with visitors from overseas, and cars are asked not to drive up to the pagoda square, so walk up from Shimoyoshida Station. (Fujiyoshida City Tourist Guide, official site)
 
 ### 2. Lake Kawaguchiko North Shore (Oishi Park)
 
