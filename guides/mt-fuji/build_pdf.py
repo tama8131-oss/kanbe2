@@ -51,7 +51,7 @@ section.L-zh-hant h1, section.L-zh-hant h2, section.L-zh-hant h3, section.L-zh-h
 section.L-th { font-family: "Noto Sans Thai", "Noto Sans", sans-serif; }
 section.L-th h1, section.L-th h2, section.L-th h3, section.L-th .serif { font-family: "Noto Serif Thai", "Noto Serif", serif; }
 section.L-vi h1, section.L-vi h2, section.L-vi h3, section.L-vi .serif, section.L-ms h1, section.L-ms h2, section.L-ms h3 { font-family: "Noto Serif", serif; }
-section.L-ms { font-size: 8.6pt; }
+section.L-ms, section.L-th { font-size: 8.6pt; }
 section.L-ko { font-family: "Noto Sans CJK KR", sans-serif; }
 section.L-ko h1, section.L-ko h2, section.L-ko h3, section.L-ko .serif { font-family: "Noto Serif CJK KR", serif; }
 .picker { page-break-before: always; page-break-after: always; }
@@ -325,7 +325,7 @@ def add_photos(body):
     parts = re.split(r'(?=<div class="opener)', body)
     for i, part in enumerate(parts):
         m = re.search(r'<div class="num">0(\d)</div>', part[:600])
-        if not m or m.group(1) not in "345":
+        if not m or m.group(1) not in "2345":
             continue
         ch, k = int(m.group(1)), [0]
 
@@ -336,6 +336,8 @@ def add_photos(body):
                 return photo_banner([ph.PLACES[j]], j + 1, re.sub(r"^(\d\.|[①-⑧])\s*", "", title))
             if ch == 4 and j < 3:
                 return photo_banner(ph.COURSES[j], 0, title, " course")
+            if ch == 2 and j < 2 and ph.CH2[j]:
+                return photo_banner([ph.CH2[j]], 0, title, " small")
             if ch == 5 and j < 2 and ph.FOOD[j]:
                 return photo_banner([ph.FOOD[j]], 0, title, " small")
             return mm.group(0)

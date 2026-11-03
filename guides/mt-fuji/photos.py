@@ -1,7 +1,8 @@
 """Photos used in the guide (from Wikimedia Commons, same as the photo prototype guide_v1).
 
-Check each licence before selling: CC BY needs the credit line, CC BY-SA also asks that
-changed versions (crops count) keep the same licence. Photos with people are marked.
+Tama confirmed on 2026-11-03 that all of these photos may be used. Keep the credits page:
+CC BY needs the credit line, CC BY-SA asks that changed versions keep the same licence.
+The highway bus photo is shown with its destination sign (Kofu Station) and number plate blurred.
 """
 import pathlib
 
@@ -20,6 +21,7 @@ PHOTOS = {
     "fujiq":   ("fujiq.jpg", "663highland", "CC BY-SA 4.0", "Place 7 · Book & navigate", False),
     "motosu":  ("motosu.jpg", "Supanut Arunoprayote", "CC BY 4.0", "Know before you go · Place 8", False),
     "train":   ("fuji-excursion.jpg", "MaedaAkihiko", "CC0", "Chapter 2", False),
+    "bus":     ("highway-bus.jpg", "Cassiopeia sweet", "Public domain", "Chapter 2 · Highway bus", False),
     "station": ("kawaguchiko-station.jpg", "Seloloving", "CC BY 4.0", "Chapter 6", False),
     "hoto":    ("hoto.jpg", "GiveMeMollusks", "CC0", "Chapter 5", True),
     "udon":    ("yoshida-udon.jpg", "Ocdp", "CC0", "Chapter 5", False),
@@ -32,6 +34,7 @@ OPENER = {"ESSENTIALS": "motosu", "FINDER": "ropeway", 1: "lake", 2: "train", 3:
 PLACES = ["chureito", "lake", "oshino", "ropeway", "nenba", "fifth", "fujiq", "motosu"]
 COURSES = [["ropeway"], ["chureito"], ["itchiku", "music"]]
 FOOD = [None, None]
+CH2 = [None, "bus"]
 
 
 def src(key):
