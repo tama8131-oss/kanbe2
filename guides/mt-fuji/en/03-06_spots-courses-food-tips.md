@@ -160,6 +160,11 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | 14:30 | Day-trip hot spring (onsen) near the lake [CHECK: pick one] |
 | 16:30 | Back to the station |
 
+**Rainy-day museums**
+
+- **Itchiku Kubota Art Museum:** kimono art by Itchiku Kubota. Adults ¥1,500; high school and university students ¥900; elementary and junior high students ¥400. Open 10:00–17:00 (last entry 16:30). Closing days change every month, so check the calendar on the museum's official website. Red Line bus, "Kubota Itchiku Bijutsukan" stop, adult fare ¥440 from Kawaguchiko Station. (Admission and hours confirmed by phone with the museum, November 3, 2026.)
+- **Kawaguchiko Music Forest Museum:** [CHECK]
+
 ---
 
 ## Chapter 5: Local Food
