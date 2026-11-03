@@ -787,8 +787,34 @@ def build(ja=False, only=None):
         print("STILL OVERFLOWING:", over)
     subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
                     f"--print-to-pdf={out_pdf}", out_html.as_uri()], check=True, capture_output=True)
+    finish_pdf(out_pdf, langs, with_picker=not SINGLE[0])
     print(out_pdf)
     return out_html, out_pdf
+
+
+def finish_pdf(pdf, langs, with_picker):
+    """Add a bookmark list (language → chapters) for the viewer's side panel, and compress the file."""
+    import pymupdf
+    doc = pymupdf.open(pdf)
+    toc, start = [], 1
+    if with_picker:
+        toc.append([1, "Choose your language · 언어 · 語言 · 语言 · ภาษา · Ngôn ngữ · Bahasa", 2])
+        start = 3
+    names = {c: n for c, n, *_ in i18n.LANGS}
+    names["ja"] = "日本語（確認用）"
+    for code in langs:
+        W = load_text(code)["welcome"]
+        toc.append([1, names[code], start])
+        items = [(W["extra"][0], 3), (W["extra"][1], 4)] + [(t, n) for (t, _), n in zip(W["toc"], [5, 7, 16, 25, 29, 30])] + \
+                [(W["extra"][2], 32), (W["extra"][3], 34)]
+        toc += [[2, t.replace("&amp;", "&"), start + n - 1] for t, n in items]
+        start += 34
+    toc.append([1, "Photo credits", start])
+    doc.set_toc(toc)
+    tmp = pdf.with_suffix(".tmp.pdf")
+    doc.save(tmp, garbage=4, deflate=True, deflate_images=True, deflate_fonts=True, use_objstms=1)
+    doc.close()
+    tmp.replace(pdf)
 
 
 RELEASE_NAMES = {"ko": "Korean-한국어", "zh-hant": "TraditionalChinese-繁體中文", "zh-hans": "SimplifiedChinese-简体中文",
