@@ -87,10 +87,10 @@ A rebuilt village of thatched-roof houses with Mt. Fuji in the background. [CHEC
 
 The highest point you can reach by road on the Yamanashi side, about 2,300 m above sea level. You are standing on Mt. Fuji itself.
 
-- **Access:** Direct bus from Kawaguchiko Station, about 50 minutes [CHECK]
+- **Access:** Direct Fujikyu bus from Kawaguchiko Station, about **1 hour** one way. The bus runs whenever the road is open; when Yamanashi Prefecture closes the Fuji Subaru Line (for example in bad weather or snow), the bus does not run. (Confirmed by phone with Fujikyu Bus, November 3, 2026.)
 - **Time needed:** 1.5–2 hours
-- **Cost:** Bus about ¥2,000–3,000 round trip [CHECK]
-- **Good to know:** Open roughly mid-April to early December, closed in bad weather. [CHECK] It is 10°C or more colder than at the lake, so bring a jacket even in summer.
+- **Cost:** bus ¥2,000 [CHECK: one way or round trip]
+- **Good to know:** check that the road is open before you go. [CHECK: road season; temperature]
 
 ### 7. Fuji-Q Highland
 
