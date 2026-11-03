@@ -90,7 +90,7 @@ CHART = {
 PHOTO = dict(B="chureito", A="ropeway", E="motosu", D="fifth", C="itchiku")
 
 # Layout in millimetres (chart area is 124 mm wide).
-W, H = 124, 152
+W, H = 124, 146
 PILL, CHIP = 10, 9
 
 
@@ -142,16 +142,16 @@ def chart(lang, title, tips, to_hant=None):
            f'<g fill="none" stroke="#2c3e5c" stroke-width=".35" stroke-dasharray="1.2 .9">{paths}</g></svg>')
     tip_html = "".join(f'<div><strong>{a}</strong> {b}</div>' for a, b in tips)
     return (f'<section class="chart"><div class="chead"><span class="start">Start!</span>'
-            f'<div><p class="eyebrow">COURSE FINDER</p><h2>{title}</h2><p class="lead">{C["lead"]}</p></div></div>'
+            f'<div><p class="eb">Course Finder</p><h2>{title}</h2><p class="lead">{C["lead"]}</p></div></div>'
             f'<div class="cwrap" style="height:{H}mm">{svg}{boxes}</div><div class="ctips">{tip_html}</div></section>')
 
 
 CSS = """
 .chart { page-break-before: always; page-break-after: always; }
 .chead { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 3mm; }
-.chead .start { font-family: "Noto Serif", serif; font-style: italic; font-weight: 700; color: var(--red); font-size: 20pt; transform: rotate(-8deg); }
-.chead h2 { margin: 0; font-size: 15pt; line-height: 1.2; }
-.chead .lead { margin: 1px 0 0; font-size: 7.4pt; color: var(--muted); line-height: 1.35; }
+.chead .start { font-family: "Cormorant Garamond", serif; font-style: italic; font-weight: 600; color: var(--red); font-size: 26pt; transform: rotate(-8deg); }
+.chead h2 { margin: 0; font-family: var(--serif); font-weight: 800; font-size: 15pt; line-height: 1.3; letter-spacing: .04em; }
+.chead .lead { margin: 1px 0 0; font-size: 6.6pt; color: var(--muted); line-height: 1.35; }
 .cwrap { position: relative; width: 124mm; }
 .cwrap .cl { position: absolute; left: 0; top: 0; }
 .cq { position: absolute; display: flex; align-items: center; gap: 4px; background: #fff; border: 1px solid #b7bfd0; border-radius: 6mm;
