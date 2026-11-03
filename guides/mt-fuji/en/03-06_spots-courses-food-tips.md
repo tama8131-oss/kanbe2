@@ -49,8 +49,13 @@ Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks
 
 - **Access:** Local bus from Fujisan Station or Kawaguchiko Station, about 20–30 minutes [CHECK]
 - **Time needed:** 1 hour
-- **Cost:** Free to walk around (some private areas charge a small fee) [CHECK]
-- **Good to know:** Very busy midday. Do not touch or throw coins into the ponds.
+- **Open:** there is no gate and no opening hours, so you can visit any time. But there are few street lights, so walking around **after dark is not recommended**. (Oshino Village Tourism Association official Q&A, checked November 2026.)
+- **Cost:** free to walk around. One of the eight ponds, **Sokonuke-ike**, is inside the Hannoki-bayashi Museum and can only be seen when the museum is open (phone 0555-84-2587). Museum admission: [CHECK]
+- **Wheelchairs:** free wheelchair loan at the tourist information center (only 3, so book ahead: 0555-84-4221). Most ponds can be reached by wheelchair, but **Okama-ike** (down stairs) and **Shobu-ike** (rough path) cannot, and Deguchi-ike is far from the others. (Official Q&A)
+- **Pets:** allowed on a leash; carry them or use a cage inside shops. (Official Q&A)
+- **Winter:** snow usually falls from late November to March, and shady spots can be icy even without snow. (Official Q&A)
+- **Tourist information center:** 0555-84-4222 (weekdays 9:00–17:00, weekends and holidays 9:00–16:00). (Oshino Village Tourism Association official site)
+- **Good to know:** [CHECK: crowds; rules about touching the ponds or throwing coins]
 
 ### 4. Mt. Fuji Panoramic Ropeway (Mt. Tenjo)
 
