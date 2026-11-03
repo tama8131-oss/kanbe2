@@ -17,6 +17,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent))
 from links import BOOKING, PLACES, maps_url  # noqa: E402
 import i18n  # noqa: E402
 import photos as ph  # noqa: E402
+import chart  # noqa: E402
 
 HERE = pathlib.Path(__file__).parent
 SRC = [HERE / "en" / "00_know-before.md", HERE / "en" / "01-02_intro-access.md", HERE / "en" / "03-06_spots-courses-food-tips.md"]
@@ -37,6 +38,9 @@ h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
 a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted var(--navy); }
 
 /* cover */
+.coverslot { page: cover; break-before: page; break-after: page; height: 20px; }
+body > .coverslot:first-child, section > .coverslot:first-child { break-before: auto; }
+.cmark { font-size: 3px; color: #f7f3ec; }
 .cover { page: cover; width: 148mm; height: 210mm; position: relative; overflow: hidden; page-break-before: always; page-break-after: always; color: #fff; }
 body > .cover:first-child { page-break-before: auto; }
 .cover .langs { position: absolute; left: 10mm; right: 10mm; top: 26mm; font-size: 8pt; letter-spacing: .04em; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
@@ -63,11 +67,11 @@ a.change { display: inline-block; margin-top: 4px; font-size: 8pt; }
 .cover .top { position: absolute; top: 10mm; left: 10mm; right: 10mm; display: flex; justify-content: space-between;
   font-family: "Noto Serif CJK JP", serif; font-size: 7pt; letter-spacing: .3em; color: #fff; }
 .cover .tag { position: absolute; top: 17mm; left: 10mm; background: rgba(38,35,31,.55); padding: 2px 7px; font-size: 6.5pt; letter-spacing: .05em; }
-.cover .titles { position: absolute; left: 10mm; right: 10mm; bottom: 34mm; }
-.cover .kicker { display: inline-block; background: var(--red); color: #fff; font-weight: 700; font-size: 9pt; padding: 3px 9px; border-radius: 2px; margin-bottom: 3mm; }
-.cover .big { font-family: "Noto Serif CJK JP", serif; font-size: 44pt; line-height: 1; font-weight: 300; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
-.cover h1 { font-size: 15.5pt; line-height: 1.3; margin: 2mm 0 1mm; text-shadow: 0 1px 6px rgba(0,0,0,.45); }
-.cover .ed { font-family: "Noto Serif CJK JP", serif; font-size: 9.5pt; letter-spacing: .08em; text-shadow: 0 1px 4px rgba(0,0,0,.45); }
+.cover .titles { position: absolute; left: 10mm; right: 10mm; bottom: 31mm; }
+.cover .big { font-family: "Noto Serif CJK JP", serif; font-size: 22pt; line-height: 1; font-weight: 300; letter-spacing: .06em; text-shadow: 0 2px 8px rgba(0,0,0,.35); margin-bottom: 2mm; }
+.cover .kicker { font-weight: 800; font-size: 15pt; line-height: 1.25; text-shadow: 0 1px 6px rgba(0,0,0,.55); }
+.cover h1 { font-size: 20pt; line-height: 1.28; margin: 1.5mm 0 2.5mm; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.cover .ed { display: inline-block; background: var(--red); color: #fff; font-weight: 700; font-size: 10pt; padding: 3px 10px; border-radius: 2px; letter-spacing: .04em; }
 .cover .stats { position: absolute; left: 10mm; right: 10mm; bottom: 10mm; display: grid; grid-template-columns: 1fr 1fr 1fr 1.6fr;
   border-top: 1px solid rgba(255,255,255,.7); padding-top: 3mm; }
 .cover .stats b { display: block; font-family: "Noto Serif CJK JP", serif; font-size: 14pt; font-weight: 400; }
@@ -152,7 +156,7 @@ hr { display: none; }
 .qr .d { font-size: 7.2pt; color: var(--muted); line-height: 1.35; }
 .qr .u { font-size: 6.4pt; color: var(--navy); word-break: break-all; line-height: 1.25; margin-top: 2px; }
 .check { background: #fff3c4; border: 1px solid #e0c34a; border-radius: 8px; padding: 6px 8px; font-size: 8pt; margin: 6px 0; }
-""".replace("FOOTER_LABEL", "MT. FUJI GUIDE  ·  NOVEMBER 2026")
+""".replace("FOOTER_LABEL", "MT. FUJI GUIDE  ·  NOVEMBER 2026") + chart.CSS
 
 PALETTES = [  # sky top, sky bottom, mountain, lake
     ("#8fb4d6", "#f2d9c4", "#4d6488", "#6f8fb3"),
@@ -196,9 +200,9 @@ TEXT = {
     "en": dict(
         top_l="DAY TRIP FROM TOKYO", top_r="2026 EDITION", tag="",
         kicker="First time? No worries!", big="Mt. Fuji",
-        h1="The Complete Yamanashi &amp; Mt. Fuji Area Guide Map", ed="November 2026 Edition",
+        h1="The Complete Yamanashi / Mt. Fuji Area Guide Map", ed="Latest Edition: November 2026",
         stats=[("8", "places worth your time"), ("3", "ready-made courses"), ("2h", "from Shinjuku"), ("11.2026", "every fare &amp; time checked by phone &amp; official sites")],
-        title="First Time? No Worries! The Complete Yamanashi & Mt. Fuji Area Guide Map (November 2026 Edition)",
+        title="First Time? No Worries! The Complete Yamanashi / Mt. Fuji Area Guide Map (Latest Edition: November 2026)",
         welcome="Welcome", before="Before you start",
         p1="Every fare, timetable and opening time in this guide was checked in <strong>November 2026</strong> against official websites or by phone with the operators themselves. Where we use another source, we say so.",
         alert="Prices and times in Japan do change, often in spring (when timetables are revised). <strong>Before you travel, check the official websites</strong> (QR codes in the Book &amp; Navigate section), especially for trains, buses and opening days.",
@@ -233,9 +237,19 @@ def cover(lang, anchor=""):
     stats = "".join(f"<div><b>{a}</b><span>{b}</span></div>" for a, b in T["stats"])
     tag = f'<div class="tag">{T["tag"]}</div>' if T.get("tag") else ""
     ident = f' id="{anchor}"' if anchor else ""
-    return f"""<section class="cover"{ident}><img class="bg" src="{ph.src('cover')}"><div class="shade"></div>
+    # Covers are printed on their own (full-bleed, no margins) and laid over these blank slot pages after printing,
+    # because a 148mm-wide cover inside the normal 124mm text width makes Chrome shrink every page.
+    COVERS.append((lang, cover_html(T, stats, tag)))
+    return f'<section class="coverslot"{ident}><span class="cmark">COVERSLOT</span></section>'
+
+
+COVERS = []
+
+
+def cover_html(T, stats, tag):
+    return f"""<section class="cover"><img class="bg" src="{ph.src('cover')}"><div class="shade"></div>
 <div class="top"><span>DAY TRIP FROM TOKYO</span><span>2026 EDITION</span></div>{tag}
-<div class="titles"><div class="kicker">{T["kicker"]}</div><div class="big">{T["big"]}</div>
+<div class="titles"><div class="big">{T["big"]}</div><div class="kicker">{T["kicker"]}</div>
 <h1>{T["h1"]}</h1><div class="ed">{T["ed"]}</div></div>
 <div class="stats">{stats}</div></section>"""
 
@@ -503,7 +517,7 @@ def section(lang):
     body = add_photos(body)
     # The course finder goes right after the essentials page, before Chapter 1.
     i = body.find('<div class="opener"><div class="ph">', body.find("ESSENTIALS") + 1)
-    body = body[:i] + finder(lang) + body[i:]
+    body = body[:i] + chart.chart(lang, FINDER[lang]["title"], FINDER[lang]["tips"], i18n.to_hant) + body[i:]
     body = body + book_and_nav(lang) + route_map(lang)
     # Short tables stay on one page; long ones (and itineraries) may continue on the next page.
     body = re.sub(r"<table>(.*?)</table>", lambda m: ('<table class="keep">' if m.group(1).count("<tr>") <= 9 and not re.search(r"<th>(Time|時間|时间|시간|เวลา|Giờ|Masa)</th>", m.group(1)) else "<table>") + m.group(1) + "</table>",
@@ -521,7 +535,8 @@ def section(lang):
 
 def picker():
     names = " · ".join(f"{flags} {name}" for _, name, flags, _, _ in i18n.LANGS)
-    front = cover("en").replace('<div class="top">', f'<div class="langs">{names}</div><div class="top">', 1)
+    front = cover("en")
+    COVERS[-1] = ("en", COVERS[-1][1].replace('<div class="top">', f'<div class="langs">{names}</div><div class="top">', 1))
     rows = "".join(
         f'<a class="lang" href="#lang-{code}"><span class="flag">{flags}</span><span class="nm">{name}</span><span class="go">{go}</span></a>'
         for code, name, flags, _, go in i18n.LANGS)
@@ -545,6 +560,27 @@ def build(ja=False):
     out_html.write_text(html, encoding="utf-8")
     subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
                     f"--print-to-pdf={out_pdf}", out_html.as_uri()], check=True, capture_output=True)
+    # Print the covers full-bleed and lay each one over its blank slot page.
+    cov_html = DIST / "covers.html"
+    cov_pdf = DIST / "covers.pdf"
+    cov_html.write_text(f"""<!doctype html><html><head><meta charset="utf-8"><style>{css}
+@page {{ size: A5; margin: 0; @bottom-left {{ content: none; }} @bottom-right {{ content: none; }} }}</style></head>
+<body>{"".join(f'<section class="L-{lg}" lang="{lg}">{h}</section>' for lg, h in COVERS)}</body></html>""", encoding="utf-8")
+    subprocess.run([CHROME, "--headless", "--no-sandbox", "--disable-gpu", "--no-pdf-header-footer",
+                    f"--print-to-pdf={cov_pdf}", cov_html.as_uri()], check=True, capture_output=True)
+    import pymupdf
+    doc, cov = pymupdf.open(out_pdf), pymupdf.open(cov_pdf)
+    slots = [i for i, pg in enumerate(doc) if "COVERSLOT" in pg.get_text()]
+    assert len(slots) == len(COVERS) == len(cov), (len(slots), len(COVERS), len(cov))
+    for k, i in enumerate(slots):
+        doc[i].show_pdf_page(doc[i].rect, cov, k)
+    tmp = out_pdf.with_suffix(".tmp.pdf")
+    doc.save(tmp, garbage=3, deflate=True)
+    doc.close()
+    tmp.replace(out_pdf)
+    cov_html.unlink()
+    cov_pdf.unlink()
+    COVERS.clear()
     print(out_pdf)
 
 

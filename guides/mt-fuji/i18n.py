@@ -21,7 +21,7 @@ LANGS = [
 TEXT = {
     "en": dict(
         kicker="First time? No worries!", big="Mt. Fuji",
-        h1="The Complete Yamanashi &amp; Mt. Fuji Area Guide Map", ed="November 2026 Edition",
+        h1="The Complete Yamanashi / Mt. Fuji Area Guide Map", ed="Latest Edition: November 2026",
         stats=[("8", "places worth your time"), ("3", "ready-made courses"), ("2h", "from Shinjuku"), ("11.2026", "every fare &amp; time checked by phone &amp; official sites")],
         welcome="Welcome", before="Before you start",
         p1="Every fare, timetable and opening time in this guide was checked in <strong>November 2026</strong> against official websites or by phone with the operators themselves. Where we use another source, we say so.",
@@ -36,7 +36,7 @@ TEXT = {
     ),
     "zh-hans": dict(
         kicker="第一次去也放心！", big="Mt. Fuji",
-        h1="山梨・富士山周边旅游指南完全版", ed="2026年11月最新版",
+        h1="山梨／富士山周边导览地图完全版", ed="11月最新版（2026年）",
         stats=[("8", "值得去的地方"), ("3", "推荐行程"), ("2h", "从新宿出发"), ("11.2026", "所有票价和时间都经电话和官网确认")],
         welcome="Welcome", before="写在前面",
         p1="本指南中的所有票价、时刻表和营业时间，都在<strong>2026年11月</strong>通过官网或直接打电话向运营方确认过。使用其他信息来源的地方，都会注明。",
@@ -50,8 +50,8 @@ TEXT = {
         change="🌐 切换语言", essentials="ESSENTIALS", chapter="CHAPTER",
     ),
     "ko": dict(
-        kicker="처음이어도 안심!", big="Mt. Fuji",
-        h1="야마나시·후지산 주변 가이드맵 완전판", ed="2026년 11월 최신판",
+        kicker="처음 가는 사람도 안심!", big="Mt. Fuji",
+        h1="야마나시／후지산 주변 가이드맵 완전판", ed="11월 최신판 (2026년)",
         stats=[("8", "가 볼 만한 곳"), ("3", "추천 코스"), ("2h", "신주쿠에서"), ("11.2026", "요금·시간은 모두 전화와 공식 사이트로 확인")],
         welcome="Welcome", before="시작하기 전에",
         p1="이 가이드의 요금·시간표·영업시간은 모두 <strong>2026년 11월</strong>에 공식 사이트나 운영사에 전화로 직접 확인한 것입니다. 다른 정보를 쓴 곳은 그렇게 적어 두었습니다.",
@@ -179,8 +179,8 @@ PLACE_NAMES = {  # same order as links.PLACES
 }
 
 TEXT["th"] = dict(
-    kicker="มาครั้งแรกก็สบายใจ!", big="Mt. Fuji",
-    h1="คู่มือท่องเที่ยวยามานาชิและภูเขาไฟฟูจิฉบับสมบูรณ์", ed="ฉบับพฤศจิกายน 2026",
+    kicker="มาครั้งแรกก็มั่นใจได้!", big="Mt. Fuji",
+    h1="แผนที่นำเที่ยวยามานาชิ／รอบภูเขาไฟฟูจิ ฉบับสมบูรณ์", ed="ฉบับล่าสุด เดือนพฤศจิกายน 2026",
     stats=[("8", "สถานที่ที่คุ้มค่า"), ("3", "แผนเที่ยวสำเร็จรูป"), ("2h", "จากชินจูกุ"), ("11.2026", "ค่าโดยสารและเวลาทั้งหมดตรวจสอบทางโทรศัพท์และเว็บไซต์ทางการ")],
     welcome="Welcome", before="ก่อนเริ่มต้น",
     p1="ค่าโดยสาร ตารางเวลา และเวลาเปิดทั้งหมดในคู่มือนี้ ได้ตรวจสอบเมื่อ<strong>พฤศจิกายน 2026</strong> จากเว็บไซต์ทางการหรือโทรถามผู้ให้บริการโดยตรง ส่วนที่ใช้แหล่งอื่นเราระบุไว้",
@@ -194,8 +194,8 @@ TEXT["th"] = dict(
     change="🌐 เปลี่ยนภาษา", essentials="ESSENTIALS", chapter="CHAPTER",
 )
 TEXT["vi"] = dict(
-    kicker="Lần đầu cũng yên tâm!", big="Mt. Fuji",
-    h1="Cẩm nang du lịch Yamanashi &amp; núi Phú Sĩ đầy đủ nhất", ed="Ấn bản tháng 11/2026",
+    kicker="Lần đầu đến cũng yên tâm!", big="Mt. Fuji",
+    h1="Bản đồ hướng dẫn Yamanashi / quanh núi Phú Sĩ – Bản đầy đủ", ed="Bản mới nhất tháng 11/2026",
     stats=[("8", "nơi đáng đến"), ("3", "lịch trình có sẵn"), ("2h", "từ Shinjuku"), ("11.2026", "mọi giá vé và giờ giấc đều kiểm tra qua điện thoại và trang chính thức")],
     welcome="Welcome", before="Trước khi bắt đầu",
     p1="Mọi giá vé, lịch chạy và giờ mở cửa trong cẩm nang này đều được kiểm tra vào <strong>tháng 11/2026</strong> trên trang chính thức hoặc gọi điện trực tiếp cho đơn vị vận hành. Chỗ nào dùng nguồn khác, chúng tôi đều ghi rõ.",
@@ -210,7 +210,7 @@ TEXT["vi"] = dict(
 )
 TEXT["ms"] = dict(
     kicker="Kali pertama? Jangan risau!", big="Mt. Fuji",
-    h1="Panduan Lengkap Yamanashi &amp; Kawasan Gunung Fuji", ed="Edisi November 2026",
+    h1="Peta Panduan Lengkap Yamanashi / Sekitar Gunung Fuji", ed="Edisi Terkini November 2026",
     stats=[("8", "tempat yang berbaloi"), ("3", "jadual perjalanan siap"), ("2h", "dari Shinjuku"), ("11.2026", "setiap tambang &amp; masa disemak melalui telefon &amp; laman rasmi")],
     welcome="Welcome", before="Sebelum bermula",
     p1="Setiap tambang, jadual dan waktu operasi dalam panduan ini telah disemak pada <strong>November 2026</strong> di laman rasmi atau melalui telefon terus dengan pengendali. Jika kami guna sumber lain, kami nyatakan.",

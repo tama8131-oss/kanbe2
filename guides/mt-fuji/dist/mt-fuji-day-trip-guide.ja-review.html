@@ -11,6 +11,9 @@ h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
 a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted var(--navy); }
 
 /* cover */
+.coverslot { page: cover; break-before: page; break-after: page; height: 20px; }
+body > .coverslot:first-child, section > .coverslot:first-child { break-before: auto; }
+.cmark { font-size: 3px; color: #f7f3ec; }
 .cover { page: cover; width: 148mm; height: 210mm; position: relative; overflow: hidden; page-break-before: always; page-break-after: always; color: #fff; }
 body > .cover:first-child { page-break-before: auto; }
 .cover .langs { position: absolute; left: 10mm; right: 10mm; top: 26mm; font-size: 8pt; letter-spacing: .04em; text-shadow: 0 1px 4px rgba(0,0,0,.4); }
@@ -21,6 +24,7 @@ section.L-zh-hant h1, section.L-zh-hant h2, section.L-zh-hant h3, section.L-zh-h
 section.L-th { font-family: "Noto Sans Thai", "Noto Sans", sans-serif; }
 section.L-th h1, section.L-th h2, section.L-th h3, section.L-th .serif { font-family: "Noto Serif Thai", "Noto Serif", serif; }
 section.L-vi h1, section.L-vi h2, section.L-vi h3, section.L-vi .serif, section.L-ms h1, section.L-ms h2, section.L-ms h3 { font-family: "Noto Serif", serif; }
+section.L-ms { font-size: 8.6pt; }
 section.L-ko { font-family: "Noto Sans CJK KR", sans-serif; }
 section.L-ko h1, section.L-ko h2, section.L-ko h3, section.L-ko .serif { font-family: "Noto Serif CJK KR", serif; }
 .picker { page-break-before: always; page-break-after: always; }
@@ -36,11 +40,11 @@ a.change { display: inline-block; margin-top: 4px; font-size: 8pt; }
 .cover .top { position: absolute; top: 10mm; left: 10mm; right: 10mm; display: flex; justify-content: space-between;
   font-family: "Noto Serif CJK JP", serif; font-size: 7pt; letter-spacing: .3em; color: #fff; }
 .cover .tag { position: absolute; top: 17mm; left: 10mm; background: rgba(38,35,31,.55); padding: 2px 7px; font-size: 6.5pt; letter-spacing: .05em; }
-.cover .titles { position: absolute; left: 10mm; right: 10mm; bottom: 34mm; }
-.cover .kicker { display: inline-block; background: var(--red); color: #fff; font-weight: 700; font-size: 9pt; padding: 3px 9px; border-radius: 2px; margin-bottom: 3mm; }
-.cover .big { font-family: "Noto Serif CJK JP", serif; font-size: 44pt; line-height: 1; font-weight: 300; text-shadow: 0 2px 8px rgba(0,0,0,.35); }
-.cover h1 { font-size: 15.5pt; line-height: 1.3; margin: 2mm 0 1mm; text-shadow: 0 1px 6px rgba(0,0,0,.45); }
-.cover .ed { font-family: "Noto Serif CJK JP", serif; font-size: 9.5pt; letter-spacing: .08em; text-shadow: 0 1px 4px rgba(0,0,0,.45); }
+.cover .titles { position: absolute; left: 10mm; right: 10mm; bottom: 31mm; }
+.cover .big { font-family: "Noto Serif CJK JP", serif; font-size: 22pt; line-height: 1; font-weight: 300; letter-spacing: .06em; text-shadow: 0 2px 8px rgba(0,0,0,.35); margin-bottom: 2mm; }
+.cover .kicker { font-weight: 800; font-size: 15pt; line-height: 1.25; text-shadow: 0 1px 6px rgba(0,0,0,.55); }
+.cover h1 { font-size: 20pt; line-height: 1.28; margin: 1.5mm 0 2.5mm; text-shadow: 0 1px 8px rgba(0,0,0,.55); }
+.cover .ed { display: inline-block; background: var(--red); color: #fff; font-weight: 700; font-size: 10pt; padding: 3px 10px; border-radius: 2px; letter-spacing: .04em; }
 .cover .stats { position: absolute; left: 10mm; right: 10mm; bottom: 10mm; display: grid; grid-template-columns: 1fr 1fr 1fr 1.6fr;
   border-top: 1px solid rgba(255,255,255,.7); padding-top: 3mm; }
 .cover .stats b { display: block; font-family: "Noto Serif CJK JP", serif; font-size: 14pt; font-weight: 400; }
@@ -125,12 +129,32 @@ hr { display: none; }
 .qr .d { font-size: 7.2pt; color: var(--muted); line-height: 1.35; }
 .qr .u { font-size: 6.4pt; color: var(--navy); word-break: break-all; line-height: 1.25; margin-top: 2px; }
 .check { background: #fff3c4; border: 1px solid #e0c34a; border-radius: 8px; padding: 6px 8px; font-size: 8pt; margin: 6px 0; }
+
+.chart { page-break-before: always; page-break-after: always; }
+.chead { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 3mm; }
+.chead .start { font-family: "Noto Serif", serif; font-style: italic; font-weight: 700; color: var(--red); font-size: 20pt; transform: rotate(-8deg); }
+.chead h2 { margin: 0; font-size: 15pt; line-height: 1.2; }
+.chead .lead { margin: 1px 0 0; font-size: 7.4pt; color: var(--muted); line-height: 1.35; }
+.cwrap { position: relative; width: 124mm; }
+.cwrap .cl { position: absolute; left: 0; top: 0; }
+.cq { position: absolute; display: flex; align-items: center; gap: 4px; background: #fff; border: 1px solid #b7bfd0; border-radius: 6mm;
+  padding: 0 8px; font-size: 7.4pt; line-height: 1.2; box-shadow: 0 1px 2px rgba(44,62,92,.18); }
+.cq .ck { color: var(--red); font-size: 9pt; font-weight: 700; flex: none; }
+.cc { position: absolute; background: var(--navy); color: #fff; display: flex; align-items: center; justify-content: center; text-align: center;
+  font-size: 7pt; line-height: 1.15; font-weight: 700; padding: 0 3px 0 9px; }
+.cc i { position: absolute; left: -2px; top: -2.5mm; background: #fff; color: var(--navy); border: 1px solid var(--navy);
+  font-style: italic; font-family: "Noto Serif", serif; font-size: 6.5pt; padding: 0 3px; line-height: 1.3; }
+.cr { position: absolute; background: #fff; border: 1px solid #b7bfd0; box-shadow: 0 1.5px 3px rgba(44,62,92,.2); overflow: hidden; }
+.cr img { display: block; width: 100%; object-fit: cover; }
+.cr .cb { padding: 3px 5px; line-height: 1.22; }
+.cr b { display: block; font-size: 5.8pt; letter-spacing: .1em; color: var(--red); }
+.cr strong { display: block; font-family: "Noto Serif CJK JP", serif; font-size: 8.2pt; color: var(--navy); }
+.cr span { display: block; font-size: 6.4pt; color: var(--ink); margin-top: 1px; }
+.cr em { display: block; font-style: normal; font-weight: 700; font-size: 6.2pt; color: var(--red); margin-top: 2px; }
+.ctips { display: grid; grid-template-columns: 1fr 1fr; gap: 3px 8px; margin-top: 3mm; font-size: 6.6pt; line-height: 1.3; color: var(--ink); }
+.ctips div { border-left: 2px solid var(--red); padding-left: 5px; }
 </style></head>
-<body><section class="L-ja" lang="ja"><section class="cover" id="lang-ja"><img class="bg" src="file:///home/user/kanbe2/guides/mt-fuji/photos/cover-pagoda.jpg"><div class="shade"></div>
-<div class="top"><span>DAY TRIP FROM TOKYO</span><span>2026 EDITION</span></div><div class="tag">確認用 日本語版｜販売は英語版（中身は同じ）</div>
-<div class="titles"><div class="kicker">初めての人でも安心！</div><div class="big">Mt. Fuji</div>
-<h1>山梨／富士山周辺のガイドマップ完全版</h1><div class="ed">11月最新版（2026年）</div></div>
-<div class="stats"><div><b>8</b><span>行く価値のある場所</span></div><div><b>3</b><span>モデルコース</span></div><div><b>2h</b><span>新宿から</span></div><div><b>11.2026</b><span>料金・時間はすべて電話と公式サイトで確認</span></div></div></section><section class="note"><p class="eyebrow">Welcome</p>
+<body><section class="L-ja" lang="ja"><section class="coverslot" id="lang-ja"><span class="cmark">COVERSLOT</span></section><section class="note"><p class="eyebrow">Welcome</p>
 <h3 style="font-size:16pt;margin-top:2px">はじめに</h3>
 <p>このガイドの料金・時刻表・営業時間はすべて、<strong>2026年11月</strong>に公式サイトか、運営している会社への電話で確かめたものです。それ以外の情報を使ったところは、そう書いています。</p><div class="alert">日本の料金や時刻は変わることがあります（特に時刻表が変わる春）。<strong>出かける前に公式サイトを見てください</strong>（「予約とナビ」のQRコードから開けます）。特に電車・バス・営業日。</div>
 <h3>作った人より</h3><p>富士山への行き方の情報は、たくさんの日本語のサイトにバラバラに載っていて、ネットのかんたんな答えは古かったり、まちがっていたりすることがよくあります。それでこのガイドを作りました。文章はAIの力を借りて書きましたが、料金・時刻表・営業時間はすべて、2026年11月に私自身が公式サイトで確かめ、鉄道やバスの会社、美術館、温泉、観光案内所に電話で確認しました。みなさんの時間の節約になって、富士山を楽しんでもらえたらうれしいです。<strong>― たま</strong></p>
@@ -208,7 +232,7 @@ hr { display: none; }
 </tr>
 </tbody>
 </table>
-<div class="opener nonum"><div class="ph"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/ropeway.jpg"></div><div class="shade"></div><div class="lbl">COURSE FINDER</div><h2>あなたに合うコース診断</h2></div><p>上から順に答えてください。答えによって、第4章の3つのモデルコースのどれが合うかがわかります。</p><div class="finder"><div class="q"><b>Q1</b>前の晩にライブカメラを見る（第1章）。<strong>富士山は見えそう？雨は降らない？</strong></div><div class="arrow">NO →</div><div class="res"><div class="t">コースC・雨の日</div>美術館・ほうとう・日帰り温泉。富士山が隠れていても楽しめる。</div><div class="down">↓ YES</div><div class="gap"></div><div class="q"><b>Q2</b><strong>赤い五重塔の有名な写真は絶対に撮りたい？</strong> 新宿7:30発の富士回遊に乗れる？</div><div class="arrow">YES →</div><div class="res"><div class="t">コースB・写真好きの1日</div>混む前の五重塔、大石公園、かやぶきの里・根場。周遊バスは1日券を買う。</div><div class="down">↓ NO</div><div class="gap"></div><div class="q"><b>Q3</b><strong>はじめての富士山？</strong> 周遊バス1路線だけの、のんびりした1日がいい？</div><div class="arrow">YES →</div><div class="res"><div class="t">コースA・のんびり1日</div>レッドラインでロープウェイ・ほうとう・大石公園。1日券はいらない。</div><div class="down">↓ NO</div><div class="gap"></div><div class="res" style="grid-column:1 / 4;border-style:dashed"><div class="t">自分で組み立てる</div>第3章から選ぶ。忍野八海（河口湖駅からバス）や本栖湖（約3時間かかる）を足す。</div></div><div class="tips"><div class="card"><strong>タトゥーがある？</strong><br>温泉はロイヤルホテル河口湖（タトゥーOK）へ。</div><div class="card"><strong>6〜8月に行く？</strong><br>富士山は隠れがち。コースCも用意しておく。</div><div class="card"><strong>JRパスを持ってる？</strong><br>使えるのは新宿〜大月だけ。第2章へ。</div><div class="card"><strong>大きなスーツケース？</strong><br>河口湖駅の改札を出てすぐのロッカーへ。</div></div><div class="opener"><div class="ph"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/lake-dusk.jpg"></div><div class="shade"></div><div class="lbl">CHAPTER</div><div class="num">01</div><h2>出かける前に</h2></div>
+<section class="chart"><div class="chead"><span class="start">Start!</span><div><p class="eyebrow">COURSE FINDER</p><h2>あなたに合うコース診断</h2><p class="lead">上から質問に答えて、矢印をたどってください。あなたに合う1日がわかります。</p></div></div><div class="cwrap" style="height:152mm"><svg class="cl" viewBox="0 0 124 152" style="width:124mm;height:152mm"><defs><marker id="ah" viewBox="0 0 6 6" refX="5" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L6 3 L0 6 z" fill="#2c3e5c" stroke="none"/></marker></defs><g fill="none" stroke="#2c3e5c" stroke-width=".35" stroke-dasharray="1.2 .9"><path d="M43.5 23 V34" marker-end="url(#ah)"/><path d="M84.5 23 V29 H108 V32" marker-end="url(#ah)"/><path d="M13.65 55 V70" marker-end="url(#ah)"/><path d="M72.35 55 V70" marker-end="url(#ah)"/><path d="M42.95 55 V59 H62 V100 H44 V104" marker-end="url(#ah)"/><path d="M14 91 V104" marker-end="url(#ah)"/><path d="M44 91 V104" marker-end="url(#ah)"/><path d="M80 91 V104" marker-end="url(#ah)"/><path d="M110 91 V104" marker-end="url(#ah)"/></g></svg><div class="cq" style="left:24mm;top:2mm;width:80mm;height:10mm"><span class="ck">✔</span><span>前の晩、ライブカメラ（第1章）を見ると…</span></div><div class="cc" style="left:24mm;top:14mm;width:39mm;height:9mm"><i>A.</i><span>富士山が見えそう</span></div><div class="cc" style="left:65mm;top:14mm;width:39mm;height:9mm"><i>B.</i><span>雲・雨っぽい</span></div><div class="cq" style="left:0mm;top:34mm;width:86mm;height:10mm"><span class="ck">✔</span><span>いちばんしたいのは…</span></div><div class="cc" style="left:0mm;top:46mm;width:27.3mm;height:9mm"><i>A.</i><span>有名な写真を撮る</span></div><div class="cc" style="left:29.3mm;top:46mm;width:27.3mm;height:9mm"><i>B.</i><span>のんびり景色とごはん</span></div><div class="cc" style="left:58.7mm;top:46mm;width:27.3mm;height:9mm"><i>C.</i><span>特別な富士山を見る</span></div><div class="cq" style="left:0mm;top:70mm;width:58mm;height:10mm"><span class="ck">✔</span><span>新宿7:30発の富士回遊に…</span></div><div class="cc" style="left:0mm;top:82mm;width:28mm;height:9mm"><i>A.</i><span>乗れる</span></div><div class="cc" style="left:30mm;top:82mm;width:28mm;height:9mm"><i>B.</i><span>朝は苦手</span></div><div class="cq" style="left:66mm;top:70mm;width:58mm;height:10mm"><span class="ck">✔</span><span>バス停から片道約1時間歩くのは…</span></div><div class="cc" style="left:66mm;top:82mm;width:28mm;height:9mm"><i>A.</i><span>平気</span></div><div class="cc" style="left:96mm;top:82mm;width:28mm;height:9mm"><i>B.</i><span>歩きたくない</span></div><div class="cr" style="left:92mm;top:32mm;width:32mm;height:36mm"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/museum-itchiku.jpg" style="height:14mm"><div class="cb"><b>コースC</b><strong>雨の日</strong><span>美術館・ほうとう・日帰り温泉</span><em>→ 第4章</em></div></div><div class="cr" style="left:0mm;top:104mm;width:28mm;height:48mm"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/chureito.jpg" style="height:22mm"><div class="cb"><b>コースB</b><strong>写真好きの1日</strong><span>混む前の五重塔・大石公園・根場</span><em>→ 第4章</em></div></div><div class="cr" style="left:30mm;top:104mm;width:28mm;height:48mm"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/ropeway.jpg" style="height:22mm"><div class="cb"><b>コースA</b><strong>のんびり1日</strong><span>ロープウェイ・ほうとう・大石公園</span><em>→ 第4章</em></div></div><div class="cr" style="left:66mm;top:104mm;width:28mm;height:48mm"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/motosu.jpg" style="height:22mm"><div class="cb"><b>本栖湖</b><strong>千円札の景色</strong><span>バスと歩きで約3時間</span><em>→ 第3章 ⑧</em></div></div><div class="cr" style="left:96mm;top:104mm;width:28mm;height:48mm"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/fifth-station.jpg" style="height:22mm"><div class="cb"><b>五合目</b><strong>富士山の中腹へ</strong><span>直行バス約1時間。道路が開いている日だけ</span><em>→ 第3章 ⑥</em></div></div></div><div class="ctips"><div><strong>タトゥーがある？</strong> 温泉はロイヤルホテル河口湖（タトゥーOK）へ。</div><div><strong>6〜8月に行く？</strong> 富士山は隠れがち。コースCも用意しておく。</div><div><strong>JRパスを持ってる？</strong> 使えるのは新宿〜大月だけ。第2章へ。</div><div><strong>大きなスーツケース？</strong> 河口湖駅の改札を出てすぐのロッカーへ。</div></div></section><div class="opener"><div class="ph"><img src="file:///home/user/kanbe2/guides/mt-fuji/photos/lake-dusk.jpg"></div><div class="shade"></div><div class="lbl">CHAPTER</div><div class="num">01</div><h2>出かける前に</h2></div>
 <div class="keepnext"><h3>このガイドの使い方</h3>
 <p>このガイドの目的はひとつ。東京から日帰りで富士山を見に行くときに、ややこしい乗り物や悪いタイミングで時間をムダにしないようにすることです。</p></div>
 <ul>
