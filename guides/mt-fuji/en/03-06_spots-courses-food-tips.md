@@ -45,12 +45,12 @@ Dates change every year; the official site posts the current flower status. (Fuj
 
 ### 3. Oshino Hakkai
 
-Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks into the ground and is filtered through layers of lava for **decades** before it comes up here. The ponds were once sacred: pilgrims purified themselves here before climbing Mt. Fuji. Oshino Hakkai is a **Natural Monument of Japan** (1934), one of Japan's **100 best waters** (1985), and part of the **Mt. Fuji World Cultural Heritage** site (2013). (Oshino Village Tourism Association official site, checked November 2026.) [CHECK: thatched-roof houses]
+Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks into the ground and is filtered through layers of lava for **decades** before it comes up here. The ponds were once sacred: pilgrims purified themselves here before climbing Mt. Fuji. Oshino Hakkai is a **Natural Monument of Japan** (1934), one of Japan's **100 best waters** (1985), and part of the **Mt. Fuji World Cultural Heritage** site (2013). (Oshino Village Tourism Association official site, checked November 2026.)
 
 - **Access:** Local bus from Fujisan Station or Kawaguchiko Station, about 20–30 minutes [CHECK]
 - **Time needed:** 1 hour
 - **Open:** there is no gate and no opening hours, so you can visit any time. But there are few street lights, so walking around **after dark is not recommended**. (Oshino Village Tourism Association official Q&A, checked November 2026.)
-- **Cost:** free to walk around. One of the eight ponds, **Sokonuke-ike**, is inside the Hannoki-bayashi Museum and can only be seen when the museum is open (phone 0555-84-2587). Museum admission: [CHECK]
+- **Cost:** free to walk around. One of the eight ponds, **Sokonuke-ike**, is inside the **Hannoki-bayashi Museum** and can only be seen when the museum is open (phone 0555-84-2587). The museum is set in the grounds of an old local family's house, with **thatched-roof farmhouses** thought to date from the 18th century, among the oldest in the Mt. Fuji area. It also has a restaurant serving hoto noodles and soba. (Hannoki-bayashi official site, checked November 2026.) Admission and opening hours: [CHECK]
 - **Wheelchairs:** free wheelchair loan at the tourist information center (only 3, so book ahead: 0555-84-4221). Most ponds can be reached by wheelchair, but **Okama-ike** (down stairs) and **Shobu-ike** (rough path) cannot, and Deguchi-ike is far from the others. (Official Q&A)
 - **Pets:** allowed on a leash; carry them or use a cage inside shops. (Official Q&A)
 - **Winter:** snow usually falls from late November to March, and shady spots can be icy even without snow. (Official Q&A)
