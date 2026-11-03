@@ -32,7 +32,7 @@ CSS = """
 @page :first { margin: 0; background: #1b2a4a; @bottom-center { content: none; } }
 :root { --ink:#2b2622; --muted:#7a6e5d; --ai:#1b2a4a; --shu:#b7382b; --gold:#a8842f; --line:#d8ccb4; --soft:#efe5d1; --paper:#f6efe0; }
 * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; color: var(--ink); font-size: 9.6pt; line-height: 1.55; margin: 0; }
+body { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; color: var(--ink); font-size: 9.3pt; line-height: 1.5; margin: 0; }
 h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
 .cover { width: 148mm; height: 210mm; position: relative; color: #f6efe0; text-align: center; page-break-after: always;
   background-color: #1b2a4a; background-image: url("SEIGAIHA"); background-size: 26px 13px; overflow: hidden; }
@@ -63,10 +63,14 @@ h3.newpage { page-break-before: always; margin-top: 0; }
 h3 { font-size: 12pt; color: var(--ai); margin: 16px 0 6px; page-break-after: avoid; padding-left: 9px; border-left: 4px solid var(--shu); }
 p { margin: 6px 0; }
 ul, ol { margin: 6px 0; padding-left: 18px; }
-li { margin: 3px 0; }
+li { margin: 2px 0; }
 li::marker { color: var(--shu); }
 strong { color: #1a1612; }
-table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; page-break-inside: avoid; background: #fbf7ee; }
+table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; background: #fbf7ee; }
+tr { break-inside: avoid; }
+table.keep { break-inside: avoid; }
+thead { display: table-header-group; }
+h3 + table, h3 + p + table { break-before: avoid; }
 th { background: var(--ai); color: #f6efe0; text-align: left; padding: 4px 6px; font-family: "Noto Serif CJK JP", serif; font-weight: 600; }
 td { border-bottom: 1px solid var(--line); padding: 4px 6px; vertical-align: top; }
 tr:nth-child(even) td { background: var(--soft); }
@@ -97,7 +101,7 @@ NOTE = """<section class="note">
 <p>Prices and times in Japan do change, often in spring (when timetables are revised) and when tax or fuel costs change. <strong>Before you travel, check the official websites</strong> mentioned in each section, especially for trains, buses and opening days.</p>
 <div class="toc"><h3>Contents</h3><ol>
 <li>Before You Go</li><li>Getting There from Tokyo</li><li>The 8 Best Places</li>
-<li>Ready-Made Itineraries</li><li>Local Food</li><li>Good to Know</li><li>Route Diagram</li><li>Packing Checklist</li></ol></div>
+<li>Ready-Made Itineraries</li><li>Local Food</li><li>Good to Know (with packing checklist)</li><li>Route Diagram</li></ol></div>
 <p class="foot">This guide is an independent travel guide. It is not affiliated with any of the companies or places it mentions.</p>
 </section>"""
 
@@ -116,7 +120,7 @@ NOTE_JA = """<section class="note">
 <p>日本の料金や時刻は変わることがあります（特に時刻表が変わる春や、税金・燃料費が変わるとき）。<strong>出かける前に、各章に出てくる公式サイトを見てください。</strong>特に電車・バス・営業日。</p>
 <div class="toc"><h3>目次</h3><ol>
 <li>出かける前に</li><li>東京からの行き方</li><li>行く価値のある8か所</li>
-<li>そのまま使えるモデルコース</li><li>ご当地グルメ</li><li>知っておくと便利なこと</li><li>乗り換え案内図</li><li>持ち物チェックリスト</li></ol></div>
+<li>そのまま使えるモデルコース</li><li>ご当地グルメ</li><li>知っておくと便利なこと（持ち物チェックリスト付き）</li><li>乗り換え案内図</li></ol></div>
 <p class="foot">このガイドは個人が作った旅行ガイドで、出てくる会社や施設とは関係ありません。</p>
 </section>"""
 
@@ -232,11 +236,13 @@ def build(ja=False):
         body = re.sub(r"（([^（）]*(?:公式|電話で確認|Googleマップ|Googleに載|Googleのメニュー)[^（）]*)）", r'<span class="src">（\1）</span>', body)
     body = re.sub(r"\((?=[^()]*(?:official|Confirmed by phone|confirmed by phone|Google Maps|Google, November))([^()]*(?:\([^()]*\)[^()]*)*)\)",
                   r'<span class="src">(\1)</span>', body)
-    body = body.replace("<h2>Extras</h2>", "<h2>Packing Checklist</h2>").replace("<h3>Packing checklist</h3>", "")
+    
     lang, cover, note = ("ja", COVER_JA, NOTE_JA) if ja else ("en", COVER, NOTE)
-    checklist = "<h2>持ち物チェックリスト</h2>" if ja else "<h2>Packing Checklist</h2>"
-    body = body.replace(checklist, route_map(lang) + checklist)
+    body = body + route_map(lang)
     body = decorate_chapters(body, ja)
+    # Short tables stay on one page; long ones may continue on the next page.
+    body = re.sub(r"<table>(.*?)</table>", lambda m: ('<table class="keep">' if m.group(1).count("<tr>") <= 9 and not re.search(r"<th>(Time|時間)</th>", m.group(1)) else "<table>") + m.group(1) + "</table>",
+                  body, flags=re.S)
     # Keep the "when can you see Mt. Fuji" heading, text and table together on one page.
     for h in ("<h3>When can you actually see Mt. Fuji?</h3>", "<h3>富士山はいつ見えるの？</h3>"):
         body = body.replace(h, h.replace("<h3>", '<h3 class="newpage">'))

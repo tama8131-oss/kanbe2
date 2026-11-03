@@ -234,10 +234,6 @@ The area has had serious problems with overtourism. Locals will appreciate it if
 | One ticket to Kawaguchiko, please | Kawaguchiko made ichi-mai kudasai |
 | Can I pay by card? | Kaado de haraemasu ka? |
 
----
-
-## Extras
-
 ### Packing checklist
 
 - [ ] Train or bus ticket (booked in advance)

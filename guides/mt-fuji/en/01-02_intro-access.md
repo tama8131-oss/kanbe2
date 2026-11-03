@@ -15,6 +15,12 @@ This guide is built for one thing: helping you see Mt. Fuji on a day trip from T
 
 Every place in this guide is in the Fuji Five Lakes area (Yamanashi Prefecture), the easiest Fuji area to reach from Tokyo.
 
+### What if Fuji is hidden?
+
+1. **Check a live camera the night before and the morning of your trip.** For example, Fuji Motosuko Resort (near Lake Motosu) streams a free live camera on YouTube, linked from its official website. No sign-up needed. Search "Fuji Motosuko Resort live camera".
+2. **Have a flexible date.** If you have several days in Tokyo, keep the Fuji day movable and pick the clearest forecast.
+3. **Use the rainy-day plan in Chapter 4.** The area still has great food, hot springs and museums.
+
 ### When can you actually see Mt. Fuji?
 
 Mt. Fuji hides behind clouds more often than most visitors expect, so timing matters. Fuji City (Shizuoka Prefecture) checks the mountain every morning at 8 a.m. Here is its record for 2025:
@@ -37,12 +43,6 @@ Mt. Fuji hides behind clouds more often than most visitors expect, so timing mat
 (Fuji City official "Mt. Fuji observation record", 2025, observed at 8 a.m. from Fuji City Hall.)
 
 **In short:** from November to February the whole mountain was visible on about two days out of three. From June to August it was fully visible on only a few days a month. This record is from one year and from the Shizuoka side of the mountain, so the Fuji Five Lakes area can differ; always check a live camera before you go.
-
-### What if Fuji is hidden?
-
-1. **Check a live camera the night before and the morning of your trip.** For example, Fuji Motosuko Resort (near Lake Motosu) streams a free live camera on YouTube, linked from its official website. No sign-up needed. Search "Fuji Motosuko Resort live camera".
-2. **Have a flexible date.** If you have several days in Tokyo, keep the Fuji day movable and pick the clearest forecast.
-3. **Use the rainy-day plan in Chapter 4.** The area still has great food, hot springs and museums.
 
 ---
 
