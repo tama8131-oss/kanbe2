@@ -21,15 +21,27 @@ The famous photo: a red five-story pagoda with Mt. Fuji behind it, framed by che
 
 ### 2. Lake Kawaguchiko North Shore (Oishi Park)
 
-The classic "Fuji across the lake" view, with seasonal flowers. [CHECK: flower seasons]
+The classic "Fuji across the lake" view, with flowers from spring to autumn. It is famous for lavender.
+
+| Flower | Usually at its best |
+|---|---|
+| Nemophila (blue) | mid-April – late May |
+| Roses | late May – mid-June |
+| **Lavender** | **late June – mid-July** |
+| Casablanca lilies | early – late July |
+| Kochia (green) | early August – mid-October |
+| **Kochia (red)** | **early – late October** |
+
+Dates change every year; the official site posts the current flower status. (Fujikawaguchiko Furusato Shinko Foundation official site, checked November 2026.)
 
 - **Access:** Red Line sightseeing bus, **"Kawaguchiko Natural Living Center (Oishi Park)"** stop, the last stop of the line (Fujikyu Bus official timetable)
 - **Time needed:** 1 hour
-- **Cost:** [CHECK: admission fee]
+- **Cost:** the Kawaguchiko Natural Living Center is free to enter, and parking is free. (Foundation official site) Park admission: [CHECK]
 - **Facilities:** the Kawaguchiko Natural Living Center, the "Ooishiya" farm produce stand, a gazebo, a playground and a large parking lot. **Toilets (wheelchair accessible) are inside the Natural Living Center.** (Fujikawaguchiko Town official site, checked November 2026.)
 - **Please note:** there are **no trash bins** in the park, so take your trash with you. Dogs must be on a leash. (Fujikawaguchiko Town official site)
-- **Snacks:** the Natural Living Center sells many kinds of soft-serve ice cream (12 kinds on the 1st floor and 10 kinds of "Cremia" soft-serve on the 2nd floor as of November 2026). Flavors change, so check on the day. (Fujikawaguchiko Furusato Shinko Foundation official site, November 2, 2026 update.)
-- **Natural Living Center:** phone 0555-76-8230. Opening hours: [CHECK]
+- **Snacks:** soft-serve ice cream at "Oishi Park Cafe" (12 flavors, all ¥550 as of November 2026; **blueberry and lavender** are the regular flavors, others change with the season). Local Oishi blueberry juice ¥800 at the "Mt. Fuji View Cafe". Upstairs, "Kitchen Fujiyama View" has a big window facing Mt. Fuji and sells "Cremia" premium soft-serve, Mt. Fuji–shaped ice candy and roasted sweet potatoes (¥500). Prices and menus change. (Foundation official site, checked November 2026.)
+- **Souvenirs:** Mt. Fuji goods, Yamanashi crafts and handmade blueberry jam.
+- **Natural Living Center hours:** open every day. November–February: shop 9:00–17:15, cafes and soft-serve 9:15–16:15, Kitchen Fujiyama View 9:00–16:30. Other months the cafes stay open until 16:45 and the Kitchen until 17:00. Phone 0555-76-8230. (Foundation official site)
 
 ### 3. Oshino Hakkai
 
