@@ -12,7 +12,7 @@ import sys
 import markdown
 
 HERE = pathlib.Path(__file__).parent
-SRC = [HERE / "en" / "01-02_intro-access.md", HERE / "en" / "03-06_spots-courses-food-tips.md"]
+SRC = [HERE / "en" / "00_know-before.md", HERE / "en" / "01-02_intro-access.md", HERE / "en" / "03-06_spots-courses-food-tips.md"]
 DIST = HERE / "dist"
 HTML = DIST / "mt-fuji-day-trip-guide.html"
 PDF = DIST / "mt-fuji-day-trip-guide.pdf"
@@ -48,7 +48,7 @@ h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
   font-family: "Noto Serif CJK JP", serif; font-size: 10pt; line-height: 1.05; display: flex; align-items: center; justify-content: center;
   text-align: center; border-radius: 2px; transform: rotate(-4deg); writing-mode: vertical-rl; letter-spacing: .05em; }
 .note { page-break-after: always; }
-.toc ol { padding-left: 20px; }
+.toc ol { padding-left: 20px; columns: 2; column-gap: 14px; font-size: 8.8pt; }
 .toc li { margin: 5px 0; border-bottom: 1px dotted var(--line); padding-bottom: 3px; }
 .chap { page-break-before: always; display: flex; align-items: stretch; gap: 10px; margin: 0 0 4px; }
 .chap.first { page-break-before: auto; }
@@ -69,6 +69,8 @@ strong { color: #1a1612; }
 table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; background: #fbf7ee; }
 tr { break-inside: avoid; }
 table.keep { break-inside: avoid; }
+table.ess { font-size: 7.9pt; line-height: 1.35; }
+table.ess td { padding: 3px 5px; }
 thead { display: table-header-group; }
 h3 + table, h3 + p + table { break-before: avoid; }
 th { background: var(--ai); color: #f6efe0; text-align: left; padding: 4px 6px; font-family: "Noto Serif CJK JP", serif; font-weight: 600; }
@@ -92,14 +94,16 @@ COVER = f"""<section class="cover"><div class="frame"></div><div class="inner">
 {COVER_ART}
 <h1>Mt. Fuji Day Trip Guide<br>from Tokyo</h1>
 <div class="sub">Trains, buses, the 8 best places, ready-made itineraries, local food and rainy-day plans</div>
-<div class="badge">Information checked November 2026</div></div>
+<div class="badge">Every fare and time checked on official sites and by phone · November 2026</div></div>
 <div class="seal">富士</div></section>"""
 
 NOTE = """<section class="note">
 <div class="chap first"><div class="kanji">序</div><div class="t"><div class="num">Welcome</div><h2>Before you start</h2></div></div><div class="band"></div>
 <p>Every fare, timetable and opening time in this guide was checked in <strong>November 2026</strong> against official websites or by phone with the operators themselves. Where we use another source, we say so.</p>
 <p>Prices and times in Japan do change, often in spring (when timetables are revised) and when tax or fuel costs change. <strong>Before you travel, check the official websites</strong> mentioned in each section, especially for trains, buses and opening days.</p>
-<div class="toc"><h3>Contents</h3><ol>
+<h3>From the author</h3>
+<p>I made this guide because the information on getting to Mt. Fuji is spread across dozens of Japanese websites, and quick online answers are often out of date or simply wrong. The text was written with the help of AI tools, but I checked every fare, timetable and opening time myself, on official websites and by phone with the railway and bus companies, museums, hot springs and tourist offices, in November 2026. I hope it saves you time and lets you enjoy the mountain. <strong>— Tama</strong></p>
+<div class="toc"><h3>Contents</h3><ol><li>Know Before You Go</li>
 <li>Before You Go</li><li>Getting There from Tokyo</li><li>The 8 Best Places</li>
 <li>Ready-Made Itineraries</li><li>Local Food</li><li>Good to Know (with packing checklist)</li><li>Route Diagram</li></ol></div>
 <p class="foot">This guide is an independent travel guide. It is not affiliated with any of the companies or places it mentions.</p>
@@ -111,14 +115,16 @@ COVER_JA = f"""<section class="cover"><div class="frame"></div><div class="inner
 {COVER_ART}
 <h1>東京から行く<br>富士山日帰りガイド</h1>
 <div class="sub">【確認用 日本語版】販売するのは英語版。中身は同じ</div>
-<div class="badge">2026年11月に確認した情報</div></div>
+<div class="badge">料金と時間はすべて公式サイトと電話で確認・2026年11月</div></div>
 <div class="seal">富士</div></section>"""
 
 NOTE_JA = """<section class="note">
 <div class="chap first"><div class="kanji">序</div><div class="t"><div class="num">はじめに</div><h2>はじめに</h2></div></div><div class="band"></div>
 <p>このガイドの料金・時刻表・営業時間はすべて、<strong>2026年11月</strong>に公式サイトか、運営している会社への電話で確かめたものです。それ以外の情報を使ったところは、そう書いています。</p>
 <p>日本の料金や時刻は変わることがあります（特に時刻表が変わる春や、税金・燃料費が変わるとき）。<strong>出かける前に、各章に出てくる公式サイトを見てください。</strong>特に電車・バス・営業日。</p>
-<div class="toc"><h3>目次</h3><ol>
+<h3>作った人より</h3>
+<p>富士山への行き方の情報は、たくさんの日本語のサイトにバラバラに載っていて、ネットのかんたんな答えは古かったり、まちがっていたりすることがよくあります。それでこのガイドを作りました。文章はAIの力を借りて書きましたが、料金・時刻表・営業時間はすべて、2026年11月に私自身が公式サイトで確かめ、鉄道やバスの会社、美術館、温泉、観光案内所に電話で確認しました。みなさんの時間の節約になって、富士山を楽しんでもらえたらうれしいです。<strong>― たま</strong></p>
+<div class="toc"><h3>目次</h3><ol><li>出かける前に知っておくこと</li>
 <li>出かける前に</li><li>東京からの行き方</li><li>行く価値のある8か所</li>
 <li>そのまま使えるモデルコース</li><li>ご当地グルメ</li><li>知っておくと便利なこと（持ち物チェックリスト付き）</li><li>乗り換え案内図</li></ol></div>
 <p class="foot">このガイドは個人が作った旅行ガイドで、出てくる会社や施設とは関係ありません。</p>
@@ -196,6 +202,8 @@ def decorate_chapters(body, ja):
             idx = int(mm.group(1)) - 1 if mm else None
         if idx is not None:
             kanji = CHAPTER_KANJI[idx]
+        elif title in ("Know Before You Go", "出かける前に知っておくこと"):
+            kanji, num = "要点", ("Essentials" if not ja else "まずはここ")
         elif title in ("Packing Checklist", "持ち物チェックリスト"):
             kanji, num = "持物", ("Extras" if not ja else "おまけ")
         else:
@@ -221,7 +229,7 @@ def add_page_numbers(pdf_path):
 def build(ja=False):
     src = sorted((HERE / "ja-review").glob("*.ja.md")) if ja else SRC
     md_text = "\n\n".join(p.read_text(encoding="utf-8") for p in src)
-    md_text = re.sub(r"^# .*\n", "", md_text, count=1)
+    md_text = re.sub(r"^# .*\n", "", md_text, count=1, flags=re.M)
     md_text = md_text.replace("- [ ] ", "- ☐ ")
     # Paragraphs indented under a table would otherwise swallow the list that follows.
     md_text = re.sub(r"\n\n  (?=[A-Z])", "\n\n", md_text)
@@ -243,6 +251,12 @@ def build(ja=False):
     # Short tables stay on one page; long ones may continue on the next page.
     body = re.sub(r"<table>(.*?)</table>", lambda m: ('<table class="keep">' if m.group(1).count("<tr>") <= 9 and not re.search(r"<th>(Time|時間)</th>", m.group(1)) else "<table>") + m.group(1) + "</table>",
                   body, flags=re.S)
+    # The essentials table is long: use a smaller font so it fits on one page.
+    for t in ("Know Before You Go</h2>", "出かける前に知っておくこと</h2>"):
+        i = body.find(t)
+        if i >= 0:
+            j = body.find("<table", i)
+            body = body[:j] + '<table class="ess"' + body[j + len("<table"):]
     # Keep the "when can you see Mt. Fuji" heading, text and table together on one page.
     for h in ("<h3>When can you actually see Mt. Fuji?</h3>", "<h3>富士山はいつ見えるの？</h3>"):
         body = body.replace(h, h.replace("<h3>", '<h3 class="newpage">'))

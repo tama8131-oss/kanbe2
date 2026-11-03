@@ -21,7 +21,7 @@ h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
   font-family: "Noto Serif CJK JP", serif; font-size: 10pt; line-height: 1.05; display: flex; align-items: center; justify-content: center;
   text-align: center; border-radius: 2px; transform: rotate(-4deg); writing-mode: vertical-rl; letter-spacing: .05em; }
 .note { page-break-after: always; }
-.toc ol { padding-left: 20px; }
+.toc ol { padding-left: 20px; columns: 2; column-gap: 14px; font-size: 8.8pt; }
 .toc li { margin: 5px 0; border-bottom: 1px dotted var(--line); padding-bottom: 3px; }
 .chap { page-break-before: always; display: flex; align-items: stretch; gap: 10px; margin: 0 0 4px; }
 .chap.first { page-break-before: auto; }
@@ -42,6 +42,8 @@ strong { color: #1a1612; }
 table { width: 100%; border-collapse: collapse; margin: 8px 0 10px; font-size: 8.6pt; background: #fbf7ee; }
 tr { break-inside: avoid; }
 table.keep { break-inside: avoid; }
+table.ess { font-size: 7.9pt; line-height: 1.35; }
+table.ess td { padding: 3px 5px; }
 thead { display: table-header-group; }
 h3 + table, h3 + p + table { break-before: avoid; }
 th { background: var(--ai); color: #f6efe0; text-align: left; padding: 4px 6px; font-family: "Noto Serif CJK JP", serif; font-weight: 600; }
@@ -62,16 +64,91 @@ hr { display: none; }
 </svg>
 <h1>東京から行く<br>富士山日帰りガイド</h1>
 <div class="sub">【確認用 日本語版】販売するのは英語版。中身は同じ</div>
-<div class="badge">2026年11月に確認した情報</div></div>
+<div class="badge">料金と時間はすべて公式サイトと電話で確認・2026年11月</div></div>
 <div class="seal">富士</div></section><section class="note">
 <div class="chap first"><div class="kanji">序</div><div class="t"><div class="num">はじめに</div><h2>はじめに</h2></div></div><div class="band"></div>
 <p>このガイドの料金・時刻表・営業時間はすべて、<strong>2026年11月</strong>に公式サイトか、運営している会社への電話で確かめたものです。それ以外の情報を使ったところは、そう書いています。</p>
 <p>日本の料金や時刻は変わることがあります（特に時刻表が変わる春や、税金・燃料費が変わるとき）。<strong>出かける前に、各章に出てくる公式サイトを見てください。</strong>特に電車・バス・営業日。</p>
-<div class="toc"><h3>目次</h3><ol>
+<h3>作った人より</h3>
+<p>富士山への行き方の情報は、たくさんの日本語のサイトにバラバラに載っていて、ネットのかんたんな答えは古かったり、まちがっていたりすることがよくあります。それでこのガイドを作りました。文章はAIの力を借りて書きましたが、料金・時刻表・営業時間はすべて、2026年11月に私自身が公式サイトで確かめ、鉄道やバスの会社、美術館、温泉、観光案内所に電話で確認しました。みなさんの時間の節約になって、富士山を楽しんでもらえたらうれしいです。<strong>― たま</strong></p>
+<div class="toc"><h3>目次</h3><ol><li>出かける前に知っておくこと</li>
 <li>出かける前に</li><li>東京からの行き方</li><li>行く価値のある8か所</li>
 <li>そのまま使えるモデルコース</li><li>ご当地グルメ</li><li>知っておくと便利なこと（持ち物チェックリスト付き）</li><li>乗り換え案内図</li></ol></div>
 <p class="foot">このガイドは個人が作った旅行ガイドで、出てくる会社や施設とは関係ありません。</p>
-</section><div class="chap"><div class="kanji">旅支度</div><div class="t"><div class="num">第1章</div><h2>出かける前に</h2></div></div><div class="band"></div>
+</section><div class="chap"><div class="kanji">要点</div><div class="t"><div class="num">まずはここ</div><h2>出かける前に知っておくこと</h2></div></div><div class="band"></div>
+<p>旅行者がよくつまずくポイントで、ネットのかんたんな答えではまちがえていたり、抜けていたりすることが多いものです。どれも2026年11月に、運営している会社などに直接確かめました。くわしくは右の章を見てください。</p>
+<table class="ess">
+<thead>
+<tr>
+<th></th>
+<th>知っておくこと</th>
+<th>章</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>富士回遊は1〜3号車だけに乗る。</strong> ほかの車両は別の場所へ行く。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>JRパスで乗れるのは新宿〜大月だけ。</strong> 大月〜河口湖は1,770円（運賃＋特急料金）が別にかかる。この区間のこどもの特急料金は400円。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>高速バスに乗り遅れたら切符は無効。</strong> 次のバスにも乗れず、払い戻しもなし。出発前に変更かキャンセルを。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>周遊バスに大きなスーツケースは持ちこめない。</strong> 河口湖駅の改札を出てすぐのコインロッカー（700〜1,200円）へ。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>レッドラインだけなら1日券は買わない。</strong> 普通に払う方が安い。グリーンかブルーに乗るなら買う。</td>
+<td>2</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>五重塔は下吉田駅から歩いて約25分。</strong> 398段の階段を含む。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>忍野八海の池は、さわってもいいけど、お金は投げこまない。</strong></td>
+<td>3</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>本栖湖の千円札の景色は、バス停から歩いて約1時間。</strong> バスは約1時間に1本、帰りの最終は16:45。</td>
+<td>3</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>富士急ハイランドは休園日があり、観覧車は2027年1月31日まで運休。</strong></td>
+<td>3</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>夏の富士山は隠れがち。</strong> 2025年の6月、朝8時に全体が見えたのは2日だけ。</td>
+<td>1</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>タトゥー：</strong> 富士眺望の湯ゆらりはNG、ロイヤルホテル河口湖はOK。</td>
+<td>4</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>河口湖音楽と森の美術館は火曜・水曜休み。</strong></td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<div class="chap"><div class="kanji">旅支度</div><div class="t"><div class="num">第1章</div><h2>出かける前に</h2></div></div><div class="band"></div>
 <h3>このガイドの使い方</h3>
 <p>このガイドの目的はひとつ。東京から日帰りで富士山を見に行くときに、ややこしい乗り物や悪いタイミングで時間をムダにしないようにすることです。</p>
 <ul>
