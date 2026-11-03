@@ -105,7 +105,8 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | Time | Plan |
 |---|---|
 | 7:30 | Fuji Excursion 3 from Shinjuku, get off at Shimoyoshida |
-| 9:20 | Chureito Pagoda (place 1), before the crowds. About 25 minutes on foot from Shimoyoshida Station. [CHECK: arrival time at Shimoyoshida] |
+| 9:13 | Arrive at Shimoyoshida Station (weekdays and weekends; Fujikyu Railway official timetable from March 14, 2026) |
+| 9:40 | Chureito Pagoda (place 1), about 25 minutes on foot from the station |
 | 12:00 | Lunch: Yoshida udon near Shimoyoshida (Chapter 5) |
 | 13:30 | Back to Kawaguchiko, Red Line bus to Oishi Park (place 2) |
 | 14:45 | Red Line bus back from Oishi Park to Kawaguchiko Station (about 27 minutes) |
