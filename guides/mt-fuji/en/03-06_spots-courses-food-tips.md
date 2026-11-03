@@ -225,7 +225,7 @@ The area has had serious problems with overtourism. Locals will appreciate it if
 
 ### Money, toilets and luggage
 
-- **Cash:** Small shops and local buses may be cash only. Bring ¥5,000–10,000 in cash. [CHECK]
+- **Cash and IC cards:** Suica, PASMO and other IC cards work on the Fujikyu Railway and the sightseeing buses (Chapter 2). Some small shops and restaurants may only take cash, so carry some cash as well.
 - **Toilets:** Free, clean toilets at stations, parks and convenience stores.
 - **Luggage:** Coin lockers at Kawaguchiko Station. [CHECK: size and price]
 
