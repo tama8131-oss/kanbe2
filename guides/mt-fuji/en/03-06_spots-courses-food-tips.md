@@ -176,7 +176,7 @@ Thick, flat wheat noodles simmered with pumpkin and vegetables in a miso soup, s
 
 Fujiyoshida's local udon: very thick and very firm. It is served in a soy-miso soup with cabbage and seasoned horse meat or beef.
 
-- **Price:** About ¥500–800 [CHECK]
+- **Price:** cheap. Example: at **Miura Udon** (near Shimoyoshida Station, handy after Chureito Pagoda), most bowls are up to about ¥900, and the most popular "niku udon" (horse meat and cabbage) is about ¥700. Extra noodles about ¥300. (Menu listed on Google, November 2026; prices may change.)
 - **Good to know:** Many shops open only at lunchtime and close when the noodles run out.
 
 ### How to order
