@@ -28,7 +28,8 @@ The classic "Fuji across the lake" view, with seasonal flowers. [CHECK: flower s
 - **Cost:** [CHECK: admission fee]
 - **Facilities:** the Kawaguchiko Natural Living Center, the "Ooishiya" farm produce stand, a gazebo, a playground and a large parking lot. **Toilets (wheelchair accessible) are inside the Natural Living Center.** (Fujikawaguchiko Town official site, checked November 2026.)
 - **Please note:** there are **no trash bins** in the park, so take your trash with you. Dogs must be on a leash. (Fujikawaguchiko Town official site)
-- **Natural Living Center opening hours:** [CHECK]
+- **Snacks:** the Natural Living Center sells many kinds of soft-serve ice cream (12 kinds on the 1st floor and 10 kinds of "Cremia" soft-serve on the 2nd floor as of November 2026). Flavors change, so check on the day. (Fujikawaguchiko Furusato Shinko Foundation official site, November 2, 2026 update.)
+- **Natural Living Center:** phone 0555-76-8230. Opening hours: [CHECK]
 
 ### 3. Oshino Hakkai
 
