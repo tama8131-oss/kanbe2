@@ -191,7 +191,7 @@ def p_welcome(B, toc_pages):
         for k, ((t, s), th) in enumerate(zip(T["toc"], thumbs)))
     extra = "".join(f'<a href="#{B.lang}-p{toc_pages[6 + k]}">{t} <b>{toc_pages[6 + k]:02d}</b></a>' for k, t in enumerate(T["extra"]))
     # The "change language" link only makes sense in the all-languages book (it jumps to the picker page).
-    change = f'<a class="chg" href="#languages">{T["change"]}</a>' if B.lang != "ja" and not SINGLE[0] else ""
+    change = f'<a class="chg" href="#languages">{T["change"]}</a>' if not SINGLE[0] else ""
     body = (f'<p class="eb">Welcome</p><h1>{T["h"]}</h1><p class="lead">{T["p1"]}</p>{alert(T["alert"])}'
             f'<div class="toch">{T["contents"]}<span class="h2en">Contents</span></div><div class="toc">{rows}</div>'
             f'<div class="tocx">{extra}</div><p class="src">{T["disclaimer"]} {change}</p>')
@@ -627,7 +627,7 @@ def p_book(B):
     cells = "".join(
         f'<a class="q" href="{url}"><img src="{qr(url)}"><div><b>{names[key][0]}</b><span>{names[key][1]}</span>'
         f'<em>{url.replace("https://", "")}</em></div></a>' for key, *_, url, _ in BOOKING)
-    chk = B.T["bn"].get("check", "") if lang == "ja" else ""
+    chk = B.T["bn"].get("check", "") if REVIEW[0] else ""  # note to Tama, only in her review copy
     chk = f'<div class="alert">{icon("warn")}<div>{chk}</div></div>' if chk else ""
     body = (head("Book &amp; Navigate", BN["h_book"], BN["lead_book"]) + chk + f'<div class="qg">{cells}</div>' + src(BN["fc"]))
     B.page(body, FOOT["bonus"])
@@ -716,8 +716,8 @@ def picker_pages():
              f'<div class="cvtop"><span>DAY TRIP FROM TOKYO</span><span>2026 EDITION</span></div><div class="cvlangs">{names}</div>'
              f'<div class="cvt"><div class="cvk">{T["kicker"]}</div><div class="cvbig">Fuji</div>'
              f'<div class="cvh">{T["h1"]}</div><div class="cved">{T["ed"]}</div></div><div class="cvst">{st}</div></div></section>')
-    pick = (f'<section class="pg picker" id="languages"><div class="in"><p class="eb">Language · 언어 · 語言 · 语言 · ภาษา · Ngôn ngữ · Bahasa</p>'
-            f'<h1>Choose your language</h1><p class="lead">언어를 선택하세요 · 選擇語言 · 选择语言 · เลือกภาษา · Chọn ngôn ngữ · Pilih bahasa — tap to jump</p>'
+    pick = (f'<section class="pg picker" id="languages"><div class="in"><p class="eb">Language · 언어 · 語言 · 语言 · ภาษา · Ngôn ngữ · Bahasa · 言語</p>'
+            f'<h1>Choose your language</h1><p class="lead">언어를 선택하세요 · 選擇語言 · 选择语言 · เลือกภาษา · Chọn ngôn ngữ · Pilih bahasa · 言語を選んでください — tap to jump</p>'
             f'{rows}</div></section>')
     return f'<div class="L L-en" lang="en">{cover}{pick}</div>'
 
@@ -749,10 +749,12 @@ def know_rows(lang):
 
 
 SINGLE = [False]  # True while building a one-language book
+REVIEW = [False]  # True while building Tama's Japanese review copy
 
 
 def build(ja=False, only=None):
     SINGLE[0] = bool(ja or only)
+    REVIEW[0] = bool(ja)
     import chart
     langs = ["ja"] if ja else [only] if only else [c for c, *_ in i18n.LANGS]
     body = "" if (ja or only) else picker_pages()
@@ -798,10 +800,11 @@ def finish_pdf(pdf, langs, with_picker):
     doc = pymupdf.open(pdf)
     toc, start = [], 1
     if with_picker:
-        toc.append([1, "Choose your language · 언어 · 語言 · 语言 · ภาษา · Ngôn ngữ · Bahasa", 2])
+        toc.append([1, "Choose your language · 언어 · 語言 · 语言 · ภาษา · Ngôn ngữ · Bahasa · 言語", 2])
         start = 3
     names = {c: n for c, n, *_ in i18n.LANGS}
-    names["ja"] = "日本語（確認用）"
+    if REVIEW[0]:
+        names["ja"] = "日本語（確認用）"
     for code in langs:
         W = load_text(code)["welcome"]
         toc.append([1, names[code], start])
@@ -817,7 +820,7 @@ def finish_pdf(pdf, langs, with_picker):
     tmp.replace(pdf)
 
 
-RELEASE_NAMES = {"ko": "Korean-한국어", "zh-hant": "TraditionalChinese-繁體中文", "zh-hans": "SimplifiedChinese-简体中文",
+RELEASE_NAMES = {"ja": "Japanese-日本語", "ko": "Korean-한국어", "zh-hant": "TraditionalChinese-繁體中文", "zh-hans": "SimplifiedChinese-简体中文",
                  "en": "English", "th": "Thai-ภาษาไทย", "vi": "Vietnamese-TiengViet", "ms": "Malay-BahasaMelayu"}
 
 

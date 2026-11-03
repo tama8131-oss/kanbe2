@@ -16,6 +16,7 @@ LANGS = [
     ("th", "ภาษาไทย", "🇹🇭", "", "เริ่มอ่าน →"),
     ("vi", "Tiếng Việt", "🇻🇳", "", "Bắt đầu đọc →"),
     ("ms", "Bahasa Melayu", "🇲🇾", "", "Mula membaca →"),
+    ("ja", "日本語", "🇯🇵", "JP", "読みはじめる →"),  # added 2026-11-03 at Tama's request (last: not a visitor language)
 ]
 
 TEXT = {
