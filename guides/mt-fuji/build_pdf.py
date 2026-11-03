@@ -31,7 +31,7 @@ CSS = """
 @page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
 :root { --ink:#26231f; --muted:#7d7466; --red:#c0392b; --navy:#2c3e5c; --line:#e3dccf; --card:#fffdf8; --soft:#f1ebe0; }
 * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; color: var(--ink); font-size: 9pt; line-height: 1.55; margin: 0; }
+body { font-family: "Noto Sans", "Noto Sans CJK JP", sans-serif; color: var(--ink); font-size: 8.8pt; line-height: 1.5; margin: 0; }
 h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
 a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted var(--navy); }
 
@@ -43,15 +43,18 @@ section.L-zh-hans { font-family: "Noto Sans CJK SC", sans-serif; }
 section.L-zh-hans h1, section.L-zh-hans h2, section.L-zh-hans h3, section.L-zh-hans .serif { font-family: "Noto Serif CJK SC", serif; }
 section.L-zh-hant { font-family: "Noto Sans CJK TC", sans-serif; }
 section.L-zh-hant h1, section.L-zh-hant h2, section.L-zh-hant h3, section.L-zh-hant .serif { font-family: "Noto Serif CJK TC", serif; }
+section.L-th { font-family: "Noto Sans Thai", "Noto Sans", sans-serif; }
+section.L-th h1, section.L-th h2, section.L-th h3, section.L-th .serif { font-family: "Noto Serif Thai", "Noto Serif", serif; }
+section.L-vi h1, section.L-vi h2, section.L-vi h3, section.L-vi .serif, section.L-ms h1, section.L-ms h2, section.L-ms h3 { font-family: "Noto Serif", serif; }
 section.L-ko { font-family: "Noto Sans CJK KR", sans-serif; }
 section.L-ko h1, section.L-ko h2, section.L-ko h3, section.L-ko .serif { font-family: "Noto Serif CJK KR", serif; }
 .picker { page-break-before: always; page-break-after: always; }
 .picker h2 { font-size: 18pt; margin: 4mm 0 1mm; }
 .picker .sub { color: var(--muted); font-size: 8.5pt; margin-bottom: 6mm; }
-.picker a.lang { display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--line); background: var(--card); border-radius: 14px;
-  padding: 12px 14px; margin: 0 0 9px; color: var(--ink); text-decoration: none; }
-.picker .flag { font-size: 24pt; line-height: 1; font-family: "Noto Color Emoji"; width: 92px; text-align: center; letter-spacing: 4px; }
-.picker .nm { font-size: 15pt; font-weight: 700; flex: 1; }
+.picker a.lang { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--line); background: var(--card); border-radius: 14px;
+  padding: 8px 12px; margin: 0 0 6px; color: var(--ink); text-decoration: none; }
+.picker .flag { font-size: 12.5pt; line-height: 1; font-family: "Noto Color Emoji"; width: 150px; flex: none; text-align: center; letter-spacing: 0; white-space: nowrap; }
+.picker .nm { font-size: 13pt; font-weight: 700; flex: 1; }
 .picker .go { color: var(--red); font-weight: 700; font-size: 9pt; }
 a.change { display: inline-block; margin-top: 4px; font-size: 8pt; }
 .cover svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
@@ -385,15 +388,15 @@ def route_map(lang):
 def decorate_chapters(body, ja):
     def repl(m):
         title = m.group(1)
-        mm = re.match(r"(?:Chapter (\d): |第(\d)章\s*|제(\d)장\s*)(.*)", title)
+        mm = re.match(r"(?:Chapter (\d): |第(\d)章\s*|제(\d)장\s*|บทที่ (\d) |Chương (\d): |Bab (\d): )(.*)", title)
         if mm:
-            n = next(g for g in mm.groups()[:3] if g)
-            return opener("CHAPTER", f"0{n}", mm.group(4), int(n))
+            n = next(g for g in mm.groups()[:-1] if g)
+            return opener("CHAPTER", f"0{n}", mm.groups()[-1], int(n))
         return opener("ESSENTIALS", "", title, 3)
     return re.sub(r"<h2>(.*?)</h2>", repl, body)
 
 
-for _k in ("zh-hans", "zh-hant", "ko"):
+for _k in ("zh-hans", "zh-hant", "ko", "th", "vi", "ms"):
     TEXT[_k], FINDER[_k], MAP_LABELS[_k] = i18n.TEXT[_k], i18n.FINDER[_k], i18n.MAP_LABELS[_k]
 
 NEWPAGE_H3 = {"en": ["When can you actually see Mt. Fuji?", "Useful Japanese phrases"],
@@ -433,7 +436,7 @@ def section(lang):
     body = body[:i] + finder(lang) + body[i:]
     body = body + book_and_nav(lang) + route_map(lang)
     # Short tables stay on one page; long ones (and itineraries) may continue on the next page.
-    body = re.sub(r"<table>(.*?)</table>", lambda m: ('<table class="keep">' if m.group(1).count("<tr>") <= 9 and not re.search(r"<th>(Time|時間|时间|시간)</th>", m.group(1)) else "<table>") + m.group(1) + "</table>",
+    body = re.sub(r"<table>(.*?)</table>", lambda m: ('<table class="keep">' if m.group(1).count("<tr>") <= 9 and not re.search(r"<th>(Time|時間|时间|시간|เวลา|Giờ|Masa)</th>", m.group(1)) else "<table>") + m.group(1) + "</table>",
                   body, flags=re.S)
     # The essentials table is long: use a smaller font so it fits on one page.
     j = body.find("<table", body.find("ESSENTIALS"))
@@ -456,8 +459,8 @@ def picker():
     rows = "".join(
         f'<a class="lang" href="#lang-{code}"><span class="flag">{flags}</span><span class="nm">{name}</span><span class="go">{go}</span></a>'
         for code, name, flags, _, go in i18n.LANGS)
-    return (front + f'<div class="picker" id="languages"><p class="eyebrow">Language · 语言 · 語言 · 언어</p>'
-            f'<h2 class="serif">Choose your language</h2><div class="sub">选择语言 · 選擇語言 · 언어를 선택하세요 — tap to jump</div>{rows}</div>')
+    return (front + f'<div class="picker" id="languages"><p class="eyebrow">Language · 언어 · 語言 · 语言 · ภาษา · Ngôn ngữ · Bahasa</p>'
+            f'<h2 class="serif">Choose your language</h2><div class="sub">언어를 선택하세요 · 選擇語言 · 选择语言 · เลือกภาษา · Chọn ngôn ngữ · Pilih bahasa — tap to jump</div>{rows}</div>')
 
 
 def build(ja=False):

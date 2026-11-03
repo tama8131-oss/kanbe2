@@ -7,10 +7,15 @@ import opencc
 
 LANGS = [
     # code, native name, flags, font suffix, "start" label
-    ("en", "English", "🇬🇧 🇺🇸", "", "Start reading →"),
-    ("zh-hans", "简体中文", "🇨🇳", "SC", "开始阅读 →"),
-    ("zh-hant", "繁體中文", "🇹🇼 🇭🇰", "TC", "開始閱讀 →"),
+    # Order follows the 2026 visitor ranking (Korea, Taiwan, China, USA, Hong Kong, Thailand,
+    # Australia, Philippines, Vietnam, Malaysia).
     ("ko", "한국어", "🇰🇷", "KR", "읽기 시작 →"),
+    ("zh-hant", "繁體中文", "🇹🇼 🇭🇰", "TC", "開始閱讀 →"),
+    ("zh-hans", "简体中文", "🇨🇳", "SC", "开始阅读 →"),
+    ("en", "English", "🇺🇸 🇦🇺 🇵🇭 🇬🇧", "", "Start reading →"),
+    ("th", "ภาษาไทย", "🇹🇭", "", "เริ่มอ่าน →"),
+    ("vi", "Tiếng Việt", "🇻🇳", "", "Bắt đầu đọc →"),
+    ("ms", "Bahasa Melayu", "🇲🇾", "", "Mula membaca →"),
 ]
 
 TEXT = {
@@ -173,16 +178,178 @@ PLACE_NAMES = {  # same order as links.PLACES
            "사이코 이야시노사토 넨바", "후지 스바루 라인 5합목", "후지큐 하이랜드", "모토스코(고안소 근처)", "로열 호텔 가와구치코(문신 가능)", "후지초보노유 유라리"],
 }
 
+TEXT["th"] = dict(
+    kicker="มาครั้งแรกก็สบายใจ!", big="Mt. Fuji",
+    h1="คู่มือท่องเที่ยวยามานาชิและภูเขาไฟฟูจิฉบับสมบูรณ์", ed="ฉบับพฤศจิกายน 2026",
+    stats=[("8", "สถานที่ที่คุ้มค่า"), ("3", "แผนเที่ยวสำเร็จรูป"), ("2h", "จากชินจูกุ"), ("11.2026", "ค่าโดยสารและเวลาทั้งหมดตรวจสอบทางโทรศัพท์และเว็บไซต์ทางการ")],
+    welcome="Welcome", before="ก่อนเริ่มต้น",
+    p1="ค่าโดยสาร ตารางเวลา และเวลาเปิดทั้งหมดในคู่มือนี้ ได้ตรวจสอบเมื่อ<strong>พฤศจิกายน 2026</strong> จากเว็บไซต์ทางการหรือโทรถามผู้ให้บริการโดยตรง ส่วนที่ใช้แหล่งอื่นเราระบุไว้",
+    alert="ราคาและเวลาในญี่ปุ่นเปลี่ยนได้ โดยเฉพาะฤดูใบไม้ผลิที่มีการปรับตารางเวลา <strong>ก่อนเดินทางโปรดตรวจสอบเว็บไซต์ทางการ</strong> (เปิดได้จาก QR โค้ดในหัวข้อ \"จองและนำทาง\") โดยเฉพาะรถไฟ รถบัส และวันเปิดทำการ",
+    author_h="จากผู้จัดทำ",
+    author="ข้อมูลการเดินทางไปภูเขาไฟฟูจิกระจัดกระจายอยู่ในเว็บไซต์ภาษาญี่ปุ่นมากมาย และคำตอบสั้น ๆ ทางอินเทอร์เน็ตมักล้าสมัยหรือผิด ฉันจึงทำคู่มือนี้ขึ้น เนื้อหาเขียนโดยใช้เครื่องมือ AI ช่วย แต่ค่าโดยสาร ตารางเวลา และเวลาเปิดทุกอย่าง ฉันตรวจสอบเองจากเว็บไซต์ทางการ และโทรถามบริษัทรถไฟ รถบัส พิพิธภัณฑ์ ออนเซ็น และศูนย์ข้อมูลท่องเที่ยว เมื่อพฤศจิกายน 2026 หวังว่าจะช่วยประหยัดเวลาและทำให้คุณสนุกกับภูเขาไฟฟูจิ <strong>— Tama</strong>",
+    contents="สารบัญ",
+    toc=["สิ่งที่ต้องรู้ก่อนออกเดินทาง", "ค้นหาแผนที่ใช่", "ก่อนออกเดินทาง", "การเดินทางจากโตเกียว", "8 สถานที่ที่คุ้มค่า",
+         "แผนเที่ยวสำเร็จรูป", "อาหารท้องถิ่น", "เรื่องน่ารู้ (พร้อมรายการของที่ต้องเตรียม)", "จองและนำทาง (QR โค้ด)", "แผนผังการเดินทาง"],
+    disclaimer="คู่มือนี้เป็นคู่มือท่องเที่ยวที่จัดทำโดยบุคคล ไม่มีความเกี่ยวข้องกับบริษัทหรือสถานที่ที่กล่าวถึง",
+    change="🌐 เปลี่ยนภาษา", essentials="ESSENTIALS", chapter="CHAPTER",
+)
+TEXT["vi"] = dict(
+    kicker="Lần đầu cũng yên tâm!", big="Mt. Fuji",
+    h1="Cẩm nang du lịch Yamanashi &amp; núi Phú Sĩ đầy đủ nhất", ed="Ấn bản tháng 11/2026",
+    stats=[("8", "nơi đáng đến"), ("3", "lịch trình có sẵn"), ("2h", "từ Shinjuku"), ("11.2026", "mọi giá vé và giờ giấc đều kiểm tra qua điện thoại và trang chính thức")],
+    welcome="Welcome", before="Trước khi bắt đầu",
+    p1="Mọi giá vé, lịch chạy và giờ mở cửa trong cẩm nang này đều được kiểm tra vào <strong>tháng 11/2026</strong> trên trang chính thức hoặc gọi điện trực tiếp cho đơn vị vận hành. Chỗ nào dùng nguồn khác, chúng tôi đều ghi rõ.",
+    alert="Giá và giờ ở Nhật có thể thay đổi, nhất là vào mùa xuân khi đổi lịch chạy. <strong>Trước khi đi, hãy xem trang chính thức</strong> (mở bằng mã QR ở phần Đặt vé &amp; Chỉ đường), nhất là tàu, xe buýt và ngày mở cửa.",
+    author_h="Lời người biên soạn",
+    author="Thông tin đi núi Phú Sĩ nằm rải rác trên hàng chục trang web tiếng Nhật, và câu trả lời nhanh trên mạng thường cũ hoặc sai. Vì vậy tôi làm cẩm nang này. Nội dung được viết với sự hỗ trợ của công cụ AI, nhưng mọi giá vé, lịch chạy và giờ mở cửa tôi đều tự kiểm tra trên trang chính thức và gọi điện cho công ty đường sắt, xe buýt, bảo tàng, suối nước nóng và trung tâm du lịch vào tháng 11/2026. Mong cẩm nang giúp bạn tiết kiệm thời gian và tận hưởng núi Phú Sĩ. <strong>— Tama</strong>",
+    contents="Mục lục",
+    toc=["Cần biết trước khi đi", "Tìm lịch trình phù hợp", "Trước khi đi", "Đi từ Tokyo", "8 nơi đáng đến",
+         "Lịch trình có sẵn", "Ẩm thực địa phương", "Điều nên biết (kèm danh sách đồ cần mang)", "Đặt vé &amp; Chỉ đường (mã QR)", "Sơ đồ di chuyển"],
+    disclaimer="Đây là cẩm nang du lịch do cá nhân biên soạn, không liên quan đến các công ty hay địa điểm được nhắc đến.",
+    change="🌐 Đổi ngôn ngữ", essentials="ESSENTIALS", chapter="CHAPTER",
+)
+TEXT["ms"] = dict(
+    kicker="Kali pertama? Jangan risau!", big="Mt. Fuji",
+    h1="Panduan Lengkap Yamanashi &amp; Kawasan Gunung Fuji", ed="Edisi November 2026",
+    stats=[("8", "tempat yang berbaloi"), ("3", "jadual perjalanan siap"), ("2h", "dari Shinjuku"), ("11.2026", "setiap tambang &amp; masa disemak melalui telefon &amp; laman rasmi")],
+    welcome="Welcome", before="Sebelum bermula",
+    p1="Setiap tambang, jadual dan waktu operasi dalam panduan ini telah disemak pada <strong>November 2026</strong> di laman rasmi atau melalui telefon terus dengan pengendali. Jika kami guna sumber lain, kami nyatakan.",
+    alert="Harga dan masa di Jepun boleh berubah, terutamanya pada musim bunga apabila jadual disemak semula. <strong>Sebelum pergi, semak laman rasmi</strong> (kod QR dalam bahagian Tempah &amp; Navigasi), terutamanya untuk kereta api, bas dan hari operasi.",
+    author_h="Daripada penulis",
+    author="Maklumat untuk ke Gunung Fuji tersebar di puluhan laman web berbahasa Jepun, dan jawapan ringkas dalam talian selalunya lapuk atau salah. Sebab itu saya membuat panduan ini. Teksnya ditulis dengan bantuan alat AI, tetapi setiap tambang, jadual dan waktu operasi saya semak sendiri di laman rasmi dan melalui telefon dengan syarikat kereta api dan bas, muzium, mata air panas dan pejabat pelancongan pada November 2026. Semoga ia menjimatkan masa anda dan anda dapat menikmati Gunung Fuji. <strong>— Tama</strong>",
+    contents="Kandungan",
+    toc=["Perkara Penting Sebelum Pergi", "Cari Pelan Anda", "Sebelum Pergi", "Pergi dari Tokyo", "8 Tempat Terbaik",
+         "Jadual Perjalanan Siap", "Makanan Tempatan", "Perlu Tahu (dengan senarai semak barang)", "Tempah &amp; Navigasi (kod QR)", "Rajah Laluan"],
+    disclaimer="Panduan ini ialah panduan pelancongan bebas yang dibuat oleh individu. Ia tiada kaitan dengan mana-mana syarikat atau tempat yang disebut.",
+    change="🌐 Tukar bahasa", essentials="ESSENTIALS", chapter="CHAPTER",
+)
+
+FINDER["th"] = dict(
+    title="ค้นหาแผนที่ใช่", lead="ตอบคำถามจากบนลงล่าง แต่ละคำตอบจะพาไปยังแผนเที่ยวสำเร็จรูป 1 ใน 3 แบบในบทที่ 4",
+    q=["ดูกล้องถ่ายทอดสดคืนก่อน (บทที่ 1) <strong>เห็นภูเขาไฟฟูจิไหม และฝนจะไม่ตกใช่ไหม?</strong>",
+       "<strong>ต้องได้ภาพเจดีย์ห้าชั้นสีแดงอันโด่งดังใช่ไหม</strong> และขึ้น Fuji Excursion 7:30 จากชินจูกุได้ไหม?",
+       "<strong>มาครั้งแรก?</strong> อยากได้วันสบาย ๆ ที่นั่งรถบัสท่องเที่ยวสายเดียวใช่ไหม?"],
+    yes="YES", no="NO",
+    r=[("แผน C · วันฝนตก", "พิพิธภัณฑ์ โฮโตะ และออนเซ็น เที่ยวได้แม้มองไม่เห็นภูเขาไฟฟูจิ"),
+       ("แผน B · คนรักการถ่ายภาพ", "เจดีย์ห้าชั้นก่อนคนเยอะ สวนโออิชิ และหมู่บ้านหลังคามุงจากเนมบะ ซื้อบัตร 1 วัน"),
+       ("แผน A · วันสบาย ๆ", "กระเช้า มื้อกลางวันโฮโตะ และสวนโออิชิบนสายสีแดง จ่ายทีละเที่ยว ไม่ต้องซื้อบัตร"),
+       ("วางแผนเอง", "เลือกจากบทที่ 3: เพิ่มโอชิโนะฮักไก (รถบัสจากคาวากุจิโกะ) หรือทะเลสาบโมโตสึ (ใช้เวลาประมาณ 3 ชั่วโมง)")],
+    tips=[("มีรอยสัก?", "ออนเซ็นให้เลือกโรงแรมรอยัลคาวากุจิโกะ (รอยสักได้)"),
+          ("ไปช่วงมิถุนายน–สิงหาคม?", "ภูเขาไฟฟูจิมักถูกเมฆบัง เตรียมแผน C ไว้สำรอง"),
+          ("มี JR Pass?", "ใช้ได้เฉพาะชินจูกุ–โอสึกิ ดูบทที่ 2"),
+          ("กระเป๋าใบใหญ่?", "ฝากที่ล็อกเกอร์หน้าประตูตรวจตั๋วสถานีคาวากุจิโกะ")])
+FINDER["vi"] = dict(
+    title="Tìm lịch trình phù hợp", lead="Trả lời các câu hỏi từ trên xuống. Mỗi câu trả lời dẫn bạn đến một trong ba lịch trình có sẵn ở Chương 4.",
+    q=["Xem camera trực tiếp tối hôm trước (Chương 1). <strong>Có thấy núi Phú Sĩ và trời có khô ráo không?</strong>",
+       "<strong>Nhất định phải chụp bức ảnh chùa 5 tầng đỏ nổi tiếng</strong>, và bạn đi được chuyến Fuji Excursion 7:30 từ Shinjuku chứ?",
+       "<strong>Lần đầu đến?</strong> Muốn một ngày thong thả chỉ đi một tuyến xe buýt tham quan?"],
+    yes="YES", no="NO",
+    r=[("Lịch trình C · Ngày mưa", "Bảo tàng, mì hoto và suối nước nóng trong ngày. Vẫn vui dù núi Phú Sĩ bị che."),
+       ("Lịch trình B · Mê chụp ảnh", "Chùa 5 tầng trước giờ đông, công viên Oishi và làng mái tranh Nenba. Hãy mua vé 1 ngày."),
+       ("Lịch trình A · Ngày thong thả", "Cáp treo, ăn trưa mì hoto và công viên Oishi trên tuyến Đỏ. Mua vé lẻ, không cần vé ngày."),
+       ("Tự lên kế hoạch", "Chọn từ Chương 3: thêm Oshino Hakkai (xe buýt từ Kawaguchiko) hoặc hồ Motosu (mất khoảng 3 giờ).")],
+    tips=[("Có hình xăm?", "Muốn tắm suối nước nóng, hãy chọn Royal Hotel Kawaguchiko (có hình xăm vẫn được)."),
+          ("Đi tháng 6–8?", "Núi Phú Sĩ hay bị mây che. Chuẩn bị sẵn Lịch trình C."),
+          ("Có JR Pass?", "Chỉ dùng được đoạn Shinjuku–Otsuki. Xem Chương 2."),
+          ("Vali lớn?", "Gửi ở tủ khóa ngay ngoài cửa soát vé ga Kawaguchiko.")])
+FINDER["ms"] = dict(
+    title="Cari Pelan Anda", lead="Jawab soalan dari atas. Setiap jawapan membawa anda ke salah satu daripada tiga jadual perjalanan siap dalam Bab 4.",
+    q=["Lihat kamera langsung pada malam sebelumnya (Bab 1). <strong>Adakah Gunung Fuji kelihatan, dan adakah cuaca kering?</strong>",
+       "<strong>Gambar pagoda merah yang terkenal itu wajib</strong>, dan bolehkah anda naik Fuji Excursion 7:30 dari Shinjuku?",
+       "<strong>Kali pertama?</strong> Mahu hari santai dengan satu laluan bas pelancongan sahaja?"],
+    yes="YES", no="NO",
+    r=[("Pelan C · Hari Hujan", "Muzium, mi hoto dan mata air panas sehari. Sesuai walaupun Gunung Fuji tersembunyi."),
+       ("Pelan B · Peminat Fotografi", "Pagoda Chureito sebelum sesak, Taman Oishi dan kampung beratap jerami Nenba. Beli Pas 1 Hari."),
+       ("Pelan A · Hari Santai", "Kereta kabel, makan tengah hari hoto dan Taman Oishi di Laluan Merah. Bayar sehala; tiada pas diperlukan."),
+       ("Rancang sendiri", "Pilih dari Bab 3: tambah Oshino Hakkai (bas dari Kawaguchiko) atau Tasik Motosu (perlukan kira-kira 3 jam).")],
+    tips=[("Bertatu?", "Untuk mata air panas, pilih Royal Hotel Kawaguchiko (tatu dibenarkan)."),
+          ("Jun hingga Ogos?", "Gunung Fuji kerap tersembunyi. Sediakan Pelan C sebagai sandaran."),
+          ("Ada Japan Rail Pass?", "Hanya meliputi Shinjuku–Otsuki. Lihat Bab 2."),
+          ("Beg pakaian besar?", "Simpan di loker di luar pintu tiket Stesen Kawaguchiko.")])
+
+MAP_LABELS["th"] = dict(
+    title="แผนผังการเดินทาง", note="เป็นแผนผังเท่านั้น ตำแหน่งและระยะทางไม่ตรงตามจริง เวลาทั้งหมดมาจากบทที่ 2 และ 3",
+    station="สถานี<br>คาวากุจิโกะ", rail="Fujikyu Railway", red="สายสีแดง", green="สายสีเขียว", blue="สายสีน้ำเงิน",
+    route="รถบัสประจำทาง", direct="รถบัสตรง",
+    p1="① เจดีย์ห้าชั้น", p1b="สถานีชิโมโยชิดะ＋เดิน 25 นาที", p2="② สวนโออิชิ", p2b="ประมาณ 27 นาที",
+    p3="③ โอชิโนะฮักไก", p3b="รถไปโกเท็มบะหรือยามานากะโกะฮิราโนะ", p4="④ กระเช้า", p4b="ประมาณ 11 นาที (เดิน 15 นาที)",
+    p5="⑤ อิยาชิโนะซาโตะเนมบะ", p5b="ประมาณ 40 นาที", p6="⑥ สถานีที่ 5", p6b="ประมาณ 1 ชั่วโมง",
+    p7="⑦ ฟูจิคิวไฮแลนด์", p7b="1 สถานี", p8="⑧ ทะเลสาบโมโตสึ", p8b="ประมาณ 1 ชม.＋เดิน 1 ชม.",
+    tokyo="กลับโตเกียว (ชินจูกุ): Fuji Excursion หรือรถบัสทางด่วน (บทที่ 2)")
+MAP_LABELS["vi"] = dict(
+    title="Sơ đồ di chuyển", note="Chỉ là sơ đồ, vị trí và khoảng cách không đúng tỉ lệ. Mọi thời gian lấy từ Chương 2 và 3.",
+    station="Ga<br>Kawaguchiko", rail="Fujikyu Railway", red="Tuyến Đỏ", green="Tuyến Xanh lá", blue="Tuyến Xanh dương",
+    route="Xe buýt thường", direct="Xe buýt thẳng",
+    p1="① Chùa 5 tầng", p1b="Ga Shimoyoshida + đi bộ 25 phút", p2="② Công viên Oishi", p2b="khoảng 27 phút",
+    p3="③ Oshino Hakkai", p3b="xe đi Gotemba hoặc Yamanakako Hirano", p4="④ Cáp treo", p4b="khoảng 11 phút (đi bộ 15 phút)",
+    p5="⑤ Iyashi-no-Sato Nenba", p5b="khoảng 40 phút", p6="⑥ Trạm 5", p6b="khoảng 1 giờ",
+    p7="⑦ Fuji-Q Highland", p7b="1 ga", p8="⑧ Hồ Motosu", p8b="khoảng 1 giờ + đi bộ 1 giờ",
+    tokyo="Về Tokyo (Shinjuku): Fuji Excursion hoặc xe buýt cao tốc (Chương 2)")
+MAP_LABELS["ms"] = dict(
+    title="Rajah Laluan", note="Rajah sahaja. Kedudukan dan jarak tidak mengikut skala. Semua masa daripada Bab 2 dan 3.",
+    station="Stesen<br>Kawaguchiko", rail="Fujikyu Railway", red="Laluan Merah", green="Laluan Hijau", blue="Laluan Biru",
+    route="Bas laluan", direct="Bas terus",
+    p1="① Pagoda Chureito", p1b="Stesen Shimoyoshida + 25 minit berjalan", p2="② Taman Oishi", p2b="kira-kira 27 minit",
+    p3="③ Oshino Hakkai", p3b="bas ke Gotemba atau Yamanakako Hirano", p4="④ Kereta kabel", p4b="kira-kira 11 minit (15 minit berjalan)",
+    p5="⑤ Iyashi-no-Sato Nenba", p5b="kira-kira 40 minit", p6="⑥ Stesen ke-5", p6b="kira-kira 1 jam",
+    p7="⑦ Fuji-Q Highland", p7b="1 hentian", p8="⑧ Tasik Motosu", p8b="kira-kira 1 jam + 1 jam berjalan",
+    tokyo="Ke Tokyo (Shinjuku): Fuji Excursion atau bas lebuh raya (Bab 2)")
+
+BN["th"] = dict(title="จองและนำทาง", h_book="ตั๋วและเว็บไซต์ทางการ", h_nav="นำทาง: เส้นทางจากตำแหน่งปัจจุบันของคุณ",
+                lead_book="สแกน QR โค้ดด้วยกล้องโทรศัพท์เพื่อเปิดหน้าเว็บ ใน PDF แตะลิงก์ได้เลย",
+                lead_nav="เปิด Google Maps แสดงเส้นทางรถไฟและรถบัสจากตำแหน่งที่คุณอยู่ตอนนี้",
+                open="เปิดใน Google Maps",
+                fc="รถบัสทางด่วนจองได้ที่ FUJIYAMA CONNECT เว็บไซต์จองของ Fujikyu ด้วย (ค้นหา \"FUJIYAMA CONNECT\")")
+BN["vi"] = dict(title="Đặt vé &amp; Chỉ đường", h_book="Vé &amp; trang chính thức", h_nav="Chỉ đường: lộ trình từ chỗ bạn đang đứng",
+                lead_book="Quét mã QR bằng camera điện thoại để mở trang. Trong PDF bạn cũng có thể chạm vào liên kết.",
+                lead_nav="Mở Google Maps với lộ trình tàu và xe buýt từ chỗ bạn đang đứng.",
+                open="Mở trong Google Maps",
+                fc="Xe buýt cao tốc cũng đặt được trên FUJIYAMA CONNECT, trang đặt vé của Fujikyu (tìm \"FUJIYAMA CONNECT\").")
+BN["ms"] = dict(title="Tempah &amp; Navigasi", h_book="Tiket &amp; laman rasmi", h_nav="Navigasi: arah dari tempat anda berada",
+                lead_book="Imbas kod QR dengan kamera telefon untuk membuka halaman. Dalam PDF anda juga boleh ketik pautan.",
+                lead_nav="Membuka Google Maps dengan arah pengangkutan awam dari tempat anda sekarang.",
+                open="Buka dalam Google Maps",
+                fc="Bas lebuh raya juga boleh ditempah di FUJIYAMA CONNECT, laman tempahan Fujikyu sendiri (cari \"FUJIYAMA CONNECT\").")
+
+BOOK_NAMES["th"] = {"jre": ("JR-EAST Train Reservation", "จอง Fuji Excursion เป็นภาษาอังกฤษ"), "ekinet": ("Eki-net (JR East)", "จอง Fuji Excursion (ภาษาญี่ปุ่น)"),
+                    "hwb": ("Highway Bus.com", "จองรถบัสทางด่วนจากบัสตะชินจูกุ"), "fkrail": ("Fujikyu Railway", "ตารางเวลา ค่าโดยสาร Mt. FUJI Passport"),
+                    "fkbus": ("Fujikyu Bus", "รถบัสท่องเที่ยว ตารางเวลา บัตรโดยสาร"), "fujiq": ("Fuji-Q Highland", "บัตรเล่นและปฏิทินวันเปิด"),
+                    "motosuko": ("Fuji Motosuko Resort", "กล้องถ่ายทอดสดและเทศกาลชิบะซากุระ")}
+BOOK_NAMES["vi"] = {"jre": ("JR-EAST Train Reservation", "Đặt Fuji Excursion bằng tiếng Anh"), "ekinet": ("Eki-net (JR East)", "Đặt Fuji Excursion (tiếng Nhật)"),
+                    "hwb": ("Highway Bus.com", "Đặt xe buýt cao tốc từ Busta Shinjuku"), "fkrail": ("Fujikyu Railway", "Lịch tàu, giá vé, Mt. FUJI Passport"),
+                    "fkbus": ("Fujikyu Bus", "Xe buýt tham quan, lịch chạy, vé xe buýt"), "fujiq": ("Fuji-Q Highland", "Vé trò chơi và lịch mở cửa"),
+                    "motosuko": ("Fuji Motosuko Resort", "Camera trực tiếp và lễ hội Shibazakura")}
+BOOK_NAMES["ms"] = {"jre": ("JR-EAST Train Reservation", "Tempah Fuji Excursion dalam bahasa Inggeris"), "ekinet": ("Eki-net (JR East)", "Tempah Fuji Excursion (bahasa Jepun)"),
+                    "hwb": ("Highway Bus.com", "Tempah bas lebuh raya dari Busta Shinjuku"), "fkrail": ("Fujikyu Railway", "Jadual, tambang, Mt. FUJI Passport"),
+                    "fkbus": ("Fujikyu Bus", "Bas pelancongan, jadual, pas bas"), "fujiq": ("Fuji-Q Highland", "Pas permainan dan kalendar operasi"),
+                    "motosuko": ("Fuji Motosuko Resort", "Kamera langsung dan Festival Shibazakura")}
+
+PLACE_NAMES["th"] = ["สถานีคาวากุจิโกะ", "บัสตะชินจูกุ (รถบัสทางด่วน)", "เจดีย์ห้าชั้น (สวนอาราคุระยามะเซ็นเง็น)", "สวนโออิชิ", "โอชิโนะฮักไก",
+                     "กระเช้าพาโนรามาภูเขาไฟฟูจิ", "ไซโกะอิยาชิโนะซาโตะเนมบะ", "สถานีที่ 5 ฟูจิซูบารุไลน์", "ฟูจิคิวไฮแลนด์",
+                     "ทะเลสาบโมโตสึ (ใกล้โคอันโซ)", "โรงแรมรอยัลคาวากุจิโกะ (รอยสักได้)", "ฟูจิโจโบโนะยุ ยูราริ"]
+PLACE_NAMES["vi"] = ["Ga Kawaguchiko", "Busta Shinjuku (xe buýt cao tốc)", "Chùa 5 tầng (công viên Arakurayama Sengen)", "Công viên Oishi", "Oshino Hakkai",
+                     "Cáp treo toàn cảnh núi Phú Sĩ", "Saiko Iyashi-no-Sato Nenba", "Trạm 5 Fuji Subaru Line", "Fuji-Q Highland",
+                     "Hồ Motosu (gần Koansō)", "Royal Hotel Kawaguchiko (có hình xăm vẫn được)", "Fuji Choubou no Yu Yurari"]
+PLACE_NAMES["ms"] = ["Stesen Kawaguchiko", "Busta Shinjuku (bas lebuh raya)", "Pagoda Chureito (Taman Arakurayama Sengen)", "Taman Oishi", "Oshino Hakkai",
+                     "Kereta Kabel Panorama Gunung Fuji", "Saiko Iyashi-no-Sato Nenba", "Stesen ke-5 Fuji Subaru Line", "Fuji-Q Highland",
+                     "Tasik Motosu (dekat Koansō)", "Royal Hotel Kawaguchiko (tatu dibenarkan)", "Fuji Choubou no Yu Yurari"]
+
 SRC_KEYWORDS = {  # words that mark a "where this was checked" note
     "zh-hans": ["官网", "官方", "电话", "Google"],
     "zh-hant": ["官網", "官方", "電話", "Google"],
     "ko": ["공식", "전화로 확인", "Google"],
+    "th": ["ทางการ", "ยืนยันทางโทรศัพท์", "Google"],
+    "vi": ["chính thức", "Xác nhận qua điện thoại", "xác nhận qua điện thoại", "Google"],
+    "ms": ["rasmi", "Disahkan melalui telefon", "disahkan melalui telefon", "Google"],
 }
 
 NEWPAGE_H3 = {
     "zh-hans": ["什么时候真的能看到富士山？", "实用日语"],
     "zh-hant": ["什麼時候真的能看到富士山？", "實用日語"],
     "ko": ["후지산은 언제 보일까?", "쓸모 있는 일본어 한마디"],
+    "th": ["เห็นภูเขาไฟฟูจิได้เมื่อไหร่?", "ประโยคภาษาญี่ปุ่นที่ใช้ได้"],
+    "vi": ["Khi nào thật sự nhìn thấy núi Phú Sĩ?", "Câu tiếng Nhật hữu ích"],
+    "ms": ["Bilakah Gunung Fuji benar-benar kelihatan?", "Frasa Jepun berguna"],
 }
 
 _TW_FIXES = [("富士迴游", "富士回遊"), ("富士回游", "富士回遊"), ("本棲湖", "本栖湖"), ("捲心菜", "高麗菜"), ("網上", "網路上"),

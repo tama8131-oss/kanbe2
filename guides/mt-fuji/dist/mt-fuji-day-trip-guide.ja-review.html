@@ -6,7 +6,7 @@
 @page cover { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
 :root { --ink:#26231f; --muted:#7d7466; --red:#c0392b; --navy:#2c3e5c; --line:#e3dccf; --card:#fffdf8; --soft:#f1ebe0; }
 * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: "Noto Sans CJK JP", "Noto Sans", sans-serif; color: var(--ink); font-size: 9pt; line-height: 1.55; margin: 0; }
+body { font-family: "Noto Sans CJK JP", "Noto Sans", sans-serif; color: var(--ink); font-size: 8.8pt; line-height: 1.5; margin: 0; }
 h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
 a { color: var(--navy); text-decoration: none; border-bottom: 1px dotted var(--navy); }
 
@@ -18,15 +18,18 @@ section.L-zh-hans { font-family: "Noto Sans CJK SC", sans-serif; }
 section.L-zh-hans h1, section.L-zh-hans h2, section.L-zh-hans h3, section.L-zh-hans .serif { font-family: "Noto Serif CJK SC", serif; }
 section.L-zh-hant { font-family: "Noto Sans CJK TC", sans-serif; }
 section.L-zh-hant h1, section.L-zh-hant h2, section.L-zh-hant h3, section.L-zh-hant .serif { font-family: "Noto Serif CJK TC", serif; }
+section.L-th { font-family: "Noto Sans Thai", "Noto Sans", sans-serif; }
+section.L-th h1, section.L-th h2, section.L-th h3, section.L-th .serif { font-family: "Noto Serif Thai", "Noto Serif", serif; }
+section.L-vi h1, section.L-vi h2, section.L-vi h3, section.L-vi .serif, section.L-ms h1, section.L-ms h2, section.L-ms h3 { font-family: "Noto Serif", serif; }
 section.L-ko { font-family: "Noto Sans CJK KR", sans-serif; }
 section.L-ko h1, section.L-ko h2, section.L-ko h3, section.L-ko .serif { font-family: "Noto Serif CJK KR", serif; }
 .picker { page-break-before: always; page-break-after: always; }
 .picker h2 { font-size: 18pt; margin: 4mm 0 1mm; }
 .picker .sub { color: var(--muted); font-size: 8.5pt; margin-bottom: 6mm; }
-.picker a.lang { display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--line); background: var(--card); border-radius: 14px;
-  padding: 12px 14px; margin: 0 0 9px; color: var(--ink); text-decoration: none; }
-.picker .flag { font-size: 24pt; line-height: 1; font-family: "Noto Color Emoji"; width: 92px; text-align: center; letter-spacing: 4px; }
-.picker .nm { font-size: 15pt; font-weight: 700; flex: 1; }
+.picker a.lang { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--line); background: var(--card); border-radius: 14px;
+  padding: 8px 12px; margin: 0 0 6px; color: var(--ink); text-decoration: none; }
+.picker .flag { font-size: 17pt; line-height: 1; font-family: "Noto Color Emoji"; width: 118px; text-align: center; letter-spacing: 2px; }
+.picker .nm { font-size: 13pt; font-weight: 700; flex: 1; }
 .picker .go { color: var(--red); font-weight: 700; font-size: 9pt; }
 a.change { display: inline-block; margin-top: 4px; font-size: 8pt; }
 .cover svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
