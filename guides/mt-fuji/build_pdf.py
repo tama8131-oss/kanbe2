@@ -59,6 +59,7 @@ h1, h2, h3, .serif { font-family: "Noto Serif CJK JP", serif; }
 .chap h2 { font-size: 16pt; color: var(--ai); margin: 2px 0 0; line-height: 1.25; }
 .band { height: 9px; margin: 6px 0 12px; background-color: var(--paper); background-image: url("SEIGAIHA_INK"); background-size: 18px 9px;
   border-top: 1.5px solid var(--ai); }
+h3.newpage { page-break-before: always; margin-top: 0; }
 h3 { font-size: 12pt; color: var(--ai); margin: 16px 0 6px; page-break-after: avoid; padding-left: 9px; border-left: 4px solid var(--shu); }
 p { margin: 6px 0; }
 ul, ol { margin: 6px 0; padding-left: 18px; }
@@ -236,6 +237,9 @@ def build(ja=False):
     checklist = "<h2>持ち物チェックリスト</h2>" if ja else "<h2>Packing Checklist</h2>"
     body = body.replace(checklist, route_map(lang) + checklist)
     body = decorate_chapters(body, ja)
+    # Keep the "when can you see Mt. Fuji" heading, text and table together on one page.
+    for h in ("<h3>When can you actually see Mt. Fuji?</h3>", "<h3>富士山はいつ見えるの？</h3>"):
+        body = body.replace(h, h.replace("<h3>", '<h3 class="newpage">'))
     css = CSS.replace('"Noto Sans", "Noto Sans CJK JP"', '"Noto Sans CJK JP", "Noto Sans"') if ja else CSS
     html = f"""<!doctype html><html lang="{lang}"><head><meta charset="utf-8">
 <title>Mt. Fuji Day Trip Guide from Tokyo</title><style>{css}</style></head>
