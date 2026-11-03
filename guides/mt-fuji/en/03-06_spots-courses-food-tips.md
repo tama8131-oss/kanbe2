@@ -98,8 +98,15 @@ An amusement park famous for record-breaking roller coasters, with Mt. Fuji view
 
 - **Access:** Fujikyu Railway, **Fuji-Q Highland Station**, the stop just before Kawaguchiko; the Fuji Excursion stops here too. The highway bus from Busta Shinjuku also stops at Fuji-Q Highland. (Fujikyu Railway and Highway Bus.com official sites, checked November 2026.)
 - **Time needed:** Half a day to a full day
-- **Cost:** Free entry; pay per ride or buy a day pass [CHECK]
-- **Good to know:** Lines for the big coasters can be 1–2 hours on weekends.
+- **Cost:** **entry is free**; you pay for rides (single ride tickets from machines inside the park, or a ride pass). Pass prices change by date:
+
+| Pass | Adults (18–64) | Junior high & high school | Elementary school | Age 1+ / 65+ |
+|---|---|---|---|---|
+| One-Day Pass (unlimited rides) | ¥6,000–7,900 | ¥5,500–7,400 | ¥4,400–5,100 | ¥2,100–2,600 |
+| Afternoon Pass (from 13:00) | ¥4,100–6,000 | ¥3,800–5,700 | ¥3,500–4,200 | ¥1,700–2,100 |
+
+  Buy online or at the park. No refunds or changes after purchase, and some rides are not covered by the passes. Check the monthly price calendar on the official site before you go. (Fuji-Q Highland official site, checked November 2026.)
+- **Opening hours:** [CHECK]
 
 ### 8. Lake Motosu (the ¥1,000 bill view)
 
