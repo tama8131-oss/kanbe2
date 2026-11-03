@@ -16,6 +16,7 @@ body { font-family: var(--sans); color: var(--ink); }
 .pg { width: 148mm; height: 210mm; position: relative; overflow: hidden; background: var(--paper); break-after: page; page-break-after: always; }
 .in { position: absolute; left: 0; right: 0; top: 0; bottom: 14mm; padding: 11mm 11mm 0; overflow: hidden; }
 .pg.full .in, .pg.opener .in, .pg.cover .in { padding: 0; }
+.pg.cover .in { bottom: 0; }
 .foot { position: absolute; left: 11mm; right: 11mm; bottom: 7mm; display: flex; justify-content: space-between;
   font-family: "Cormorant Garamond", serif; font-size: 5.6pt; letter-spacing: .32em; color: #9d9384; }
 

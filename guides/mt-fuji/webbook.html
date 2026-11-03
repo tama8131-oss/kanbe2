@@ -1,0 +1,173 @@
+<title>Mt. Fuji Guide Book</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Shippori+Mincho:wght@600;800&display=swap">
+<style>
+/* Layout: one-screen reader. A language picker over the cover photo, then one page at a time,
+   fitted to the screen, with the page counter counting only the chosen language. */
+:root {
+  --ground: #e7e2d9;      /* behind the page */
+  --bar: #f6f2ea;         /* top and bottom bars */
+  --ink: #23211d;
+  --muted: #7c7366;
+  --accent: #c4473a;      /* vermilion, as in the book */
+  --line: #d9d1c4;
+  --shadow: rgba(35, 33, 29, .22);
+  --display: "Shippori Mincho", "Hiragino Mincho ProN", "Noto Serif CJK JP", serif;
+  --italic: "Cormorant Garamond", Georgia, serif;
+  --body: -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --ground: #15171b; --bar: #1e2126; --ink: #ece7de; --muted: #a59d90; --accent: #e0705f; --line: #33363c; --shadow: rgba(0,0,0,.55); color-scheme: dark; }
+}
+:root[data-theme="dark"] { --ground: #15171b; --bar: #1e2126; --ink: #ece7de; --muted: #a59d90; --accent: #e0705f; --line: #33363c; --shadow: rgba(0,0,0,.55); color-scheme: dark; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { background: var(--ground); color: var(--ink); font-family: var(--body); overflow: hidden; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- language picker ---------- */
+#pick { position: fixed; inset: 0; overflow-y: auto; color: #fff; }
+#pick .bg { position: fixed; inset: 0; background-size: cover; background-position: center; }
+#pick .bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,14,24,.35), rgba(10,14,24,.78) 55%, rgba(10,14,24,.92)); }
+#pick .in { position: relative; max-width: 520px; margin: 0 auto; padding-block: calc(28px + env(safe-area-inset-top, 0px)) calc(28px + env(safe-area-inset-bottom, 0px));
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); display: flex; flex-direction: column; gap: 10px; }
+#pick .eb { font-family: var(--italic); font-style: italic; font-weight: 600; color: #f0b3a8; font-size: 15px; margin: 18vh 0 0; }
+#pick h1 { font-family: var(--display); font-weight: 800; font-size: clamp(26px, 7vw, 34px); line-height: 1.25; margin: 0; text-wrap: balance; letter-spacing: .02em; }
+#pick .sub { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.78); margin: 0 0 8px; }
+.lang { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; padding: 13px 16px; border-radius: 12px;
+  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.22); backdrop-filter: blur(6px); }
+.lang:hover { background: rgba(255,255,255,.18); }
+.lang .fl { font-size: 20px; min-width: 64px; letter-spacing: 1px; }
+.lang .nm { flex: 1; font-family: var(--display); font-weight: 800; font-size: 19px; }
+.lang .go { font-size: 12px; color: #f0b3a8; white-space: nowrap; }
+
+/* ---------- reader ---------- */
+#read { position: fixed; inset: 0; display: flex; flex-direction: column; }
+.bar { background: var(--bar); display: flex; align-items: center; gap: 8px; border-color: var(--line); border-style: solid; border-width: 0;
+  padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
+.top { padding-top: calc(8px + env(safe-area-inset-top, 0px)); padding-bottom: 8px; border-bottom-width: 1px; }
+.bottom { padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); border-top-width: 1px; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; font-size: 13px; min-height: 36px; }
+.chip .fl { font-size: 15px; }
+.count { margin-left: auto; font-family: var(--display); font-weight: 600; font-size: 15px; font-variant-numeric: tabular-nums; letter-spacing: .04em; }
+.count small { color: var(--muted); font-size: 12px; margin: 0 2px; }
+.nav { flex: none; width: 46px; height: 40px; border-radius: 10px; border: 1px solid var(--line); background: transparent; font-size: 20px; line-height: 1; }
+.nav:disabled { opacity: .3; cursor: default; }
+.track { flex: 1; min-width: 0; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.track i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s ease; }
+#stage { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 12px; touch-action: pan-y; }
+.sheet { position: relative; box-shadow: 0 6px 24px var(--shadow); background: #f6f2ea; }
+.sheet img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+.sheet a { position: absolute; display: block; border-radius: 4px; }
+.sheet a:hover { background: rgba(196,71,58,.12); }
+@media (prefers-reduced-motion: no-preference) { .sheet.turn { animation: turn .22s ease; } }
+@keyframes turn { from { opacity: .35; transform: translateX(var(--dx, 0)); } to { opacity: 1; transform: none; } }
+</style>
+
+<section id="pick" aria-label="Choose your language">
+  <div class="bg" id="pickbg"></div>
+  <div class="in">
+    <p class="eb">Mt. Fuji Day Trip from Tokyo · 2026</p>
+    <h1>Choose your language</h1>
+    <p class="sub">언어를 선택하세요 · 選擇語言 · 选择语言 · เลือกภาษา · Chọn ngôn ngữ · Pilih bahasa</p>
+    <div id="langs" style="display:flex;flex-direction:column;gap:10px"></div>
+  </div>
+</section>
+
+<section id="read" hidden aria-label="Guide book">
+  <div class="bar top">
+    <button class="chip" id="back" aria-label="Change language"><span class="fl" id="curflag"></span><span id="curname"></span></button>
+    <button class="chip" id="toc" aria-label="Contents">☰</button>
+    <div class="count" aria-live="polite"><span id="pn">1</span><small>/</small><span id="pt">35</span></div>
+  </div>
+  <div id="stage"><div class="sheet" id="sheet"><img id="pic" alt=""><div id="hot"></div></div></div>
+  <div class="bar bottom">
+    <button class="nav" id="prev" aria-label="Previous page">‹</button>
+    <div class="track"><i id="prog"></i></div>
+    <button class="nav" id="next" aria-label="Next page">›</button>
+  </div>
+</section>
+
+<script>
+const BOOK = /*DATA*/null;
+const RATIO = 148 / 210;
+const $ = id => document.getElementById(id);
+let lang = null, page = 0;
+
+function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+// language picker
+$('pickbg').style.backgroundImage = `url(${BOOK.cover})`;
+for (const L of BOOK.langs) {
+  const b = document.createElement('button');
+  b.className = 'lang';
+  b.innerHTML = `<span class="fl">${L.flags}</span><span class="nm">${L.name}</span><span class="go">${L.go}</span>`;
+  b.onclick = () => { location.hash = L.code; };
+  $('langs').appendChild(b);
+}
+
+function fit() {
+  const st = $('stage'), w = st.clientWidth - 24, h = st.clientHeight - 24;
+  let pw = Math.min(w, h * RATIO);
+  $('sheet').style.width = pw + 'px';
+  $('sheet').style.height = (pw / RATIO) + 'px';
+}
+
+function show(n, dir) {
+  const P = lang.pages;
+  page = Math.max(0, Math.min(P.length - 1, n));
+  const sheet = $('sheet');
+  sheet.classList.remove('turn'); void sheet.offsetWidth;
+  sheet.style.setProperty('--dx', dir > 0 ? '24px' : dir < 0 ? '-24px' : '0');
+  if (dir !== undefined) sheet.classList.add('turn');
+  $('pic').src = P[page].i;
+  $('pic').alt = `${lang.name} ${page + 1}/${P.length}`;
+  const hot = $('hot'); hot.innerHTML = '';
+  for (const l of P[page].l) {
+    const a = document.createElement('a');
+    a.style.left = l.b[0] * 100 + '%'; a.style.top = l.b[1] * 100 + '%';
+    a.style.width = l.b[2] * 100 + '%'; a.style.height = l.b[3] * 100 + '%';
+    if (l.u) { a.href = l.u; a.target = '_blank'; a.rel = 'noopener'; a.setAttribute('aria-label', l.u); }
+    else { a.href = '#' + lang.code; a.setAttribute('aria-label', 'Page ' + (l.p + 1)); a.onclick = e => { e.preventDefault(); show(l.p, l.p > page ? 1 : -1); }; }
+    hot.appendChild(a);
+  }
+  $('pn').textContent = page + 1; $('pt').textContent = P.length;
+  $('prog').style.width = ((page + 1) / P.length * 100) + '%';
+  $('prev').disabled = page === 0; $('next').disabled = page === P.length - 1;
+  store('fuji-page-' + lang.code, page);
+  for (const k of [page + 1, page + 2, page - 1]) if (P[k]) { const im = new Image(); im.src = P[k].i; }
+}
+
+function route() {
+  const code = location.hash.slice(1);
+  const L = BOOK.langs.find(x => x.code === code);
+  if (!L) { lang = null; $('read').hidden = true; $('pick').hidden = false; document.title = 'Mt. Fuji Guide Book'; return; }
+  lang = L;
+  $('pick').hidden = true; $('read').hidden = false;
+  $('curflag').textContent = L.flags.split(' ')[0]; $('curname').textContent = L.name;
+  fit();
+  show(+(store('fuji-page-' + L.code) || 0));
+}
+
+$('back').onclick = () => { location.hash = ''; };
+$('toc').onclick = () => show(1, -1);   // page 2 of every language is the welcome page with the contents
+$('prev').onclick = () => show(page - 1, -1);
+$('next').onclick = () => show(page + 1, 1);
+addEventListener('keydown', e => {
+  if (!lang) return;
+  if (e.key === 'ArrowRight') show(page + 1, 1);
+  if (e.key === 'ArrowLeft') show(page - 1, -1);
+});
+let sx = null, sy = null;
+$('stage').addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; });
+$('stage').addEventListener('pointerup', e => {
+  if (sx === null) return;
+  const dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(page + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+});
+addEventListener('resize', () => lang && fit());
+addEventListener('hashchange', route);
+route();
+</script>
