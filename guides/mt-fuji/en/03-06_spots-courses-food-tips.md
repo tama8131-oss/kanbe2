@@ -45,7 +45,7 @@ Dates change every year; the official site posts the current flower status. (Fuj
 
 ### 3. Oshino Hakkai
 
-Eight spring-fed ponds of crystal-clear water from Mt. Fuji's snowmelt, in a small village with thatched-roof houses.
+Eight spring-fed ponds of crystal-clear water. Snow that falls on Mt. Fuji soaks into the ground and is filtered through layers of lava for **decades** before it comes up here. The ponds were once sacred: pilgrims purified themselves here before climbing Mt. Fuji. Oshino Hakkai is a **Natural Monument of Japan** (1934), one of Japan's **100 best waters** (1985), and part of the **Mt. Fuji World Cultural Heritage** site (2013). (Oshino Village Tourism Association official site, checked November 2026.) [CHECK: thatched-roof houses]
 
 - **Access:** Local bus from Fujisan Station or Kawaguchiko Station, about 20–30 minutes [CHECK]
 - **Time needed:** 1 hour
