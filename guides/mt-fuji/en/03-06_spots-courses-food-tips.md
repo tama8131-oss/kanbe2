@@ -157,13 +157,22 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 | 10:30 | Arrive at Kawaguchiko Station |
 | 11:00 | Kawaguchiko Music Forest Museum or Itchiku Kubota Art Museum (indoor; see below. The Music Forest Museum is closed on Tuesdays and Wednesdays) |
 | 13:00 | Lunch: hoto noodles |
-| 14:30 | Day-trip hot spring (onsen) near the lake [CHECK: pick one] |
+| 14:30 | Day-trip hot spring: Fuji Choubou no Yu Yurari (see below; **no tattoos allowed**) |
 | 16:30 | Back to the station |
 
 **Rainy-day museums**
 
 - **Itchiku Kubota Art Museum:** kimono art by Itchiku Kubota. Adults ¥1,500; high school and university students ¥900; elementary and junior high students ¥400. Open 10:00–17:00 (last entry 16:30). Closing days change every month, so check the calendar on the museum's official website. Red Line bus, "Kubota Itchiku Bijutsukan" stop, adult fare ¥440 from Kawaguchiko Station. (Admission and hours confirmed by phone with the museum, November 3, 2026.)
 - **Kawaguchiko Music Forest Museum:** European-style gardens and buildings with antique music boxes and automatic musical instruments. Weekday admission: adults ¥1,800; high school and university students ¥1,300; elementary and junior high students ¥1,000; preschool children free. On Saturdays and Sundays, adults and high school/university students pay ¥300 more; elementary and junior high students stay ¥1,000. Open 10:00–17:30 (last entry 17:00). **Closed on Tuesdays and Wednesdays**, with more closing days from January to March, so check the museum's official website. Red Line bus, "Kawaguchiko Music Forest Museum" stop. (Admission, hours and closing days confirmed by phone with the museum, November 3, 2026.) [CHECK: bus fare to this stop]
+
+**Rainy-day hot spring**
+
+- **Fuji Choubou no Yu Yurari** (Narusawa, next to "Michi-no-Eki Narusawa" on the Blue Line): a day-trip hot spring with views of Mt. Fuji.
+  - Admission: weekdays adults ¥1,400, children ¥750; Saturdays, Sundays and holidays adults ¥1,700, children ¥800. Junior high students and older pay the adult price.
+  - Hours: weekdays 10:00–21:00 (last entry 20:00); Saturdays, Sundays and holidays open one hour longer (last entry 21:00). Closed only twice a year.
+  - **Tattoos: not allowed**, even if covered. If you have a tattoo, choose the museums instead.
+  - Free shuttle bus from Kawaguchiko Station: book on the official website. For the ride back, ask at the front desk.
+  - (All confirmed by phone with Yurari, November 3, 2026.)
 
 ---
 
