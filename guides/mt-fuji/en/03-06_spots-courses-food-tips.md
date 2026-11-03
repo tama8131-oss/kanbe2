@@ -168,7 +168,7 @@ All times assume you arrive at Kawaguchiko Station around 10:30 a.m. and leave a
 
 Thick, flat wheat noodles simmered with pumpkin and vegetables in a miso soup, served bubbling in an iron pot. Warm and filling, perfect on a cold day.
 
-- **Price:** depends on the restaurant, and prices go up from time to time. Example: at Hōtō Kura Fujinari (Kawaguchiko), the signature "Golden Hōtō" with pork or chicken is ¥1,815 (restaurant's own menu on Google, November 2026). Check the menu at the shop. Hōtō Kura Fujinari: 6931 Funatsu, Fujikawaguchiko; open 11:00–20:30 [CHECK: hours from Google Maps only; confirm on the restaurant's website].
+- **Price:** depends on the restaurant, and prices go up from time to time. Example: at Hōtō Kura Fujinari (Kawaguchiko), the signature "Golden Hōtō" with pork or chicken is ¥1,815 (restaurant's own menu on Google, November 2026). Check the menu at the shop. Hōtō Kura Fujinari: 6931 Funatsu, Fujikawaguchiko.
 - **How to eat:** It arrives very hot. Use the small bowl to cool each portion.
 - **Vegetarian?** The soup may contain fish stock. Ask: *"Dashi ni sakana wa haitte imasu ka?"* (Is there fish in the broth?)
 
