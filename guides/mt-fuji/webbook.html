@@ -57,24 +57,17 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .nav:disabled { opacity: .3; cursor: default; }
 .track { flex: 1; min-width: 0; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
 .track i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .2s ease; }
-#stage { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 12px; touch-action: pan-y; }
-.sheet { position: relative; box-shadow: 0 6px 24px var(--shadow); background: #f6f2ea; }
-.sheet img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+#stage { position: relative; flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 6px; overflow: hidden; touch-action: none; }
+.sheet { position: relative; box-shadow: 0 6px 24px var(--shadow); background: #f6f2ea; transform-origin: 0 0; will-change: transform; }
+.sheet img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; pointer-events: none; }
 .sheet a { position: absolute; display: block; border-radius: 4px; }
 .sheet a:hover { background: rgba(196,71,58,.12); }
 @media (prefers-reduced-motion: no-preference) { .sheet.turn { animation: turn .22s ease; } }
-@keyframes turn { from { opacity: .35; transform: translateX(var(--dx, 0)); } to { opacity: 1; transform: none; } }
-@media (max-width: 560px) { #stage { padding: 6px; } }
-.zoomhint { position: absolute; right: 8px; bottom: 8px; width: 34px; height: 34px; border-radius: 50%; border: 0;
-  background: rgba(31,42,68,.82); color: #fff; font-size: 16px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,.25); }
-
-/* ---------- zoomed page: tap the page to read it large, scroll around, pinch works too ---------- */
-#zoom { position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column; background: var(--ground); }
-#zscroll { flex: 1; min-height: 0; overflow: auto; -webkit-overflow-scrolling: touch; touch-action: pan-x pan-y pinch-zoom; }
-#zsheet { position: relative; background: #f6f2ea; margin: 0 auto; }
-#zsheet img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
-#zsheet a { position: absolute; display: block; border-radius: 4px; }
-.zl { font-size: 13px; color: var(--muted); }
+@keyframes turn { from { opacity: .35; } to { opacity: 1; } }
+/* a short hint on how to zoom, in the reader's language, shown when a language opens */
+.hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(31,42,68,.88); color: #fff; font-size: 13px;
+  padding: 8px 14px; border-radius: 999px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
+.hint.on { opacity: 1; }
 </style>
 
 <section id="pick" aria-label="Choose your language">
@@ -93,7 +86,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
     <button class="chip" id="toc" aria-label="Contents">☰</button>
     <div class="count" aria-live="polite"><span id="pn">1</span><small>/</small><span id="pt">35</span></div>
   </div>
-  <div id="stage"><div class="sheet" id="sheet"><img id="pic" alt=""><div id="hot"></div><button class="zoomhint" id="zbtn" aria-label="Zoom in">🔍</button></div></div>
+  <div id="stage"><div class="sheet" id="sheet"><img id="pic" alt=""><div id="hot"></div></div><div class="hint" id="hint"></div></div>
   <div class="bar bottom">
     <button class="nav" id="prev" aria-label="Previous page">‹</button>
     <div class="track"><i id="prog"></i></div>
@@ -101,20 +94,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   </div>
 </section>
 
-<section id="zoom" hidden aria-label="Zoomed page">
-  <div class="bar top">
-    <button class="chip" id="zclose" aria-label="Close zoom">✕</button>
-    <button class="nav" id="zout" aria-label="Smaller">－</button>
-    <button class="nav" id="zin" aria-label="Larger">＋</button>
-    <div class="count"><span id="zpn">1</span><small>/</small><span id="zpt">35</span></div>
-  </div>
-  <div id="zscroll"><div id="zsheet"><img id="zpic" alt=""><div id="zhot"></div></div></div>
-  <div class="bar bottom">
-    <button class="nav" id="zprev" aria-label="Previous page">‹</button>
-    <div class="track"><i id="zprog"></i></div>
-    <button class="nav" id="znext" aria-label="Next page">›</button>
-  </div>
-</section>
+
 
 <script>
 const BOOK = /*DATA*/null;
@@ -154,48 +134,16 @@ function links(box, list) {
   }
 }
 
-// ---- zoom: the page drawn larger (sharp picture), scroll to read, ＋/－ to change size
-const ZOOMS = [1.0, 1.3, 1.6, 2.2, 3.0];  // 1.0 = the whole page fits on the screen
-let zi = 1;            // opens a little larger than the page view; － goes down to the whole page
-function zsize() {
-  const vw = $('zscroll').clientWidth;
-  const w = Math.round(Math.min(vw, ($('zscroll').clientHeight) * RATIO) * ZOOMS[zi]);
-  $('zsheet').style.width = w + 'px'; $('zsheet').style.height = Math.round(w / RATIO) + 'px';
-  $('zout').disabled = zi === 0; $('zin').disabled = zi === ZOOMS.length - 1;
-}
-function zshow() {
-  const P = lang.pages;
-  $('zpic').src = P[page].h; $('zpic').alt = `${lang.name} ${page + 1}/${P.length}`;
-  links($('zhot'), P[page].l);
-  $('zpn').textContent = page + 1; $('zpt').textContent = P.length;
-  $('zprog').style.width = ((page + 1) / P.length * 100) + '%';
-  $('zprev').disabled = page === 0; $('znext').disabled = page === P.length - 1;
-}
-function zopen(fx, fy) {
-  $('zoom').hidden = false; zsize(); zshow();
-  const s = $('zscroll'), z = $('zsheet');
-  s.scrollLeft = fx * z.offsetWidth - s.clientWidth / 2;
-  s.scrollTop = fy * z.offsetHeight - s.clientHeight / 2;
-}
-function zrescale(step) {
-  const s = $('zscroll'), z = $('zsheet');
-  const cx = (s.scrollLeft + s.clientWidth / 2) / z.offsetWidth, cy = (s.scrollTop + s.clientHeight / 2) / z.offsetHeight;
-  zi = Math.max(0, Math.min(ZOOMS.length - 1, zi + step)); zsize();
-  s.scrollLeft = cx * z.offsetWidth - s.clientWidth / 2; s.scrollTop = cy * z.offsetHeight - s.clientHeight / 2;
-}
-function zturn(d) { show(page + d, d); $('zscroll').scrollTop = 0; $('zscroll').scrollLeft = 0; }
-
 function show(n, dir) {
   const P = lang.pages;
   page = Math.max(0, Math.min(P.length - 1, n));
   const sheet = $('sheet');
+  resetZoom(false);
   sheet.classList.remove('turn'); void sheet.offsetWidth;
-  sheet.style.setProperty('--dx', dir > 0 ? '24px' : dir < 0 ? '-24px' : '0');
   if (dir !== undefined) sheet.classList.add('turn');
   $('pic').src = P[page].i;
   $('pic').alt = `${lang.name} ${page + 1}/${P.length}`;
   links($('hot'), P[page].l);
-  if (!$('zoom').hidden) zshow();
   $('pn').textContent = page + 1; $('pt').textContent = P.length;
   $('prog').style.width = ((page + 1) / P.length * 100) + '%';
   $('prev').disabled = page === 0; $('next').disabled = page === P.length - 1;
@@ -206,13 +154,13 @@ function show(n, dir) {
 function route() {
   const code = location.hash.slice(1);
   const L = BOOK.langs.find(x => x.code === code);
-  $('zoom').hidden = true;
   if (!L) { lang = null; $('read').hidden = true; $('pick').hidden = false; document.title = 'Mt. Fuji Guide Book'; return; }
   lang = L;
   $('pick').hidden = true; $('read').hidden = false;
   $('curflag').textContent = L.flags.split(' ')[0]; $('curname').textContent = L.name;
   fit();
   show(+(store('fuji-page-' + L.code) || 0));
+  showHint(L.code);
 }
 
 $('back').onclick = () => { location.hash = ''; };
@@ -224,26 +172,99 @@ addEventListener('keydown', e => {
   if (e.key === 'ArrowRight') show(page + 1, 1);
   if (e.key === 'ArrowLeft') show(page - 1, -1);
 });
-let sx = null, sy = null;
-$('stage').addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; });
-$('stage').addEventListener('pointerup', e => {
-  if (sx === null) return;
-  const dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
-  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { show(page + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); return; }
-  // a plain tap on the page (not on a link) opens it large, centred where you tapped
-  if (Math.abs(dx) < 10 && Math.abs(dy) < 10 && !e.target.closest('a, button')) {
-    const r = $('sheet').getBoundingClientRect();
-    if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom)
-      zopen((e.clientX - r.left) / r.width, (e.clientY - r.top) / r.height);
+// ---- zoom with the fingers, like any photo on a phone:
+// two fingers to zoom in and out, one finger to move around while zoomed, double-tap to zoom in / back.
+// At normal size a sideways swipe turns the page. Ctrl + mouse wheel (or a trackpad pinch) works on a computer.
+let S = 1, TX = 0, TY = 0;
+const MAXS = 4, pts = new Map();
+let g = null, moved = false, lastTap = 0;
+function box() {  // the page's normal position inside the stage, and the stage size
+  const sh = $('sheet'), st = $('stage');
+  return { bx: sh.offsetLeft, by: sh.offsetTop, w: sh.offsetWidth, h: sh.offsetHeight, sw: st.clientWidth, sh: st.clientHeight };
+}
+function clampView() {
+  if (S <= 1.01) { S = 1; TX = 0; TY = 0; return; }
+  const b = box(), W = b.w * S, H = b.h * S;
+  TX = W <= b.sw ? (b.sw - W) / 2 - b.bx : Math.min(-b.bx, Math.max(b.sw - W - b.bx, TX));
+  TY = H <= b.sh ? (b.sh - H) / 2 - b.by : Math.min(-b.by, Math.max(b.sh - H - b.by, TY));
+}
+function paint(anim) {
+  const sh = $('sheet');
+  sh.style.transition = anim ? 'transform .22s ease' : 'none';
+  sh.style.transform = S === 1 ? '' : `translate(${TX}px, ${TY}px) scale(${S})`;
+}
+function zoomTo(px, py, ns, anim) {  // keep the point under (px, py) in place while the size changes
+  const b = box();
+  const cx = (px - b.bx - TX) / S, cy = (py - b.by - TY) / S;
+  S = Math.max(1, Math.min(MAXS, ns));
+  TX = px - b.bx - cx * S; TY = py - b.by - cy * S;
+  clampView(); paint(anim);
+}
+function resetZoom(anim) { S = 1; TX = 0; TY = 0; paint(anim); }
+function local(e) { const r = $('stage').getBoundingClientRect(); return { x: e.clientX - r.left, y: e.clientY - r.top }; }
+function two() { const [a, b] = [...pts.values()]; return { d: Math.hypot(a.x - b.x, a.y - b.y), x: (a.x + b.x) / 2, y: (a.y + b.y) / 2 }; }
+function startPan(p) { g = { t: 'pan', x0: p.x, y0: p.y, tx: TX, ty: TY }; }
+
+const stage = $('stage');
+stage.addEventListener('pointerdown', e => {
+  const p = local(e); pts.set(e.pointerId, p);
+  if (pts.size === 1) { moved = false; startPan(p); }
+  if (pts.size === 2) {
+    const m = two(), b = box();
+    g = { t: 'pinch', d0: m.d, s0: S, cx: (m.x - b.bx - TX) / S, cy: (m.y - b.by - TY) / S };
+    moved = true;
   }
 });
-$('zbtn').onclick = () => zopen(.5, 0);
-$('zclose').onclick = () => { $('zoom').hidden = true; };
-$('zin').onclick = () => zrescale(1);
-$('zout').onclick = () => zrescale(-1);
-$('zprev').onclick = () => zturn(-1);
-$('znext').onclick = () => zturn(1);
-addEventListener('resize', () => { if (lang) fit(); if (!$('zoom').hidden) zsize(); });
+stage.addEventListener('pointermove', e => {
+  if (!pts.has(e.pointerId) || !g) return;
+  const p = local(e); pts.set(e.pointerId, p);
+  if (g.t === 'pinch' && pts.size === 2) {
+    const m = two(), b = box();
+    S = Math.max(1, Math.min(MAXS, g.s0 * m.d / g.d0));
+    TX = m.x - b.bx - g.cx * S; TY = m.y - b.by - g.cy * S;
+    clampView(); paint(false);
+  } else if (g.t === 'pan') {
+    const dx = p.x - g.x0, dy = p.y - g.y0;
+    if (Math.abs(dx) > 8 || Math.abs(dy) > 8) moved = true;
+    if (S > 1) { TX = g.tx + dx; TY = g.ty + dy; clampView(); paint(false); }
+  }
+});
+function lift(e) {
+  if (!pts.has(e.pointerId)) return;
+  const p = local(e); pts.delete(e.pointerId);
+  if (g && g.t === 'pinch') {
+    if (S < 1.05) resetZoom(true); else { clampView(); paint(true); }
+    if (pts.size === 1) startPan([...pts.values()][0]); else g = null;
+    return;
+  }
+  if (!g || pts.size) return;
+  const dx = p.x - g.x0, dy = p.y - g.y0; g = null;
+  if (S === 1 && Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { show(page + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1); return; }
+  if (!moved && !e.target.closest('a')) {
+    const now = Date.now();
+    if (now - lastTap < 320) { lastTap = 0; if (S > 1) resetZoom(true); else zoomTo(p.x, p.y, 2.5, true); }
+    else lastTap = now;
+  }
+}
+stage.addEventListener('pointerup', lift);
+stage.addEventListener('pointercancel', lift);
+// after moving or zooming, don't let the finger lift count as a tap on a link
+stage.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+stage.addEventListener('wheel', e => {
+  if (!lang) return;
+  if (e.ctrlKey) { e.preventDefault(); const p = local(e); zoomTo(p.x, p.y, S * Math.exp(-e.deltaY * 0.01), false); }
+  else if (S > 1) { e.preventDefault(); TX -= e.deltaX; TY -= e.deltaY; clampView(); paint(false); }
+}, { passive: false });
+
+const HINTS = { ko: '두 손가락으로 확대 · 두 번 탭해도 확대', 'zh-hant': '雙指放大・點兩下也能放大', 'zh-hans': '双指放大・双击也能放大',
+  en: 'Pinch to zoom · or double-tap', th: 'ใช้สองนิ้วซูม · หรือแตะสองครั้ง', vi: 'Dùng hai ngón để phóng to · hoặc chạm hai lần',
+  ms: 'Cubit untuk zum · atau ketik dua kali', ja: '2本指で拡大・ダブルタップでも拡大' };
+let hintTimer = null;
+function showHint(code) {
+  const h = $('hint'); h.textContent = '🤏 ' + (HINTS[code] || HINTS.en);
+  h.classList.add('on'); clearTimeout(hintTimer); hintTimer = setTimeout(() => h.classList.remove('on'), 3500);
+}
+addEventListener('resize', () => { if (lang) { fit(); resetZoom(false); } });
 addEventListener('hashchange', route);
 route();
 </script>
