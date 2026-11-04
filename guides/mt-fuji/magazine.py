@@ -74,6 +74,11 @@ def img(key):
     return ph.src(key)
 
 
+def fill(key, pos="center"):
+    """A photo that takes whatever space is left at the bottom of a page (hidden if too little is left)."""
+    return f'<div class="fill"><img src="{img(key)}" style="object-position:{pos}"></div>'
+
+
 def eyebrow(en, local=""):
     return f'<p class="eb">{en}</p>' if not local else f'<p class="eb">{en}</p>'
 
@@ -382,7 +387,7 @@ def p_passport(B):
             note("JR PASS HOLDERS", T["jr"]) + h2(T["good_h"], "Good to know") +
             f'<div class="g2">{card("card", T["c1t"], T["c1"])}{card("child", T["c2t"], T["c2"])}'
             f'{card("bag", T["c3t"], T["c3"], "beige")}{card("bag", T["c4t"], T["c4"] + "<div class=lock><b>700</b>" + T["s"] + " <b>1,000</b>" + T["m"] + " <b>1,200</b>" + T["l"] + "</div>")}</div>'
-            + src(T["src"]))
+            + src(T["src"]) + fill("station", "60% 50%"))
     B.page(body, FOOT["ch2"])
 
 
@@ -397,7 +402,7 @@ def p_looptimes(B):
     body = (head("Loop Bus Times", T["h"], T["lead"]) +
             lc(RED, T["red_t"], [(T["red_r1"], "9:00", "17:45"), (T["red_r2"], "9:27", "18:27")], T["red_f"]) +
             lc(GREEN, T["green_t"], [(T["green_r1"], "9:10", "16:40"), (T["green_r2"], "—", "17:40")], T["green_f"]) +
-            lc(BLUE, T["blue_t"], [(T["blue_r1"], "9:35", "15:35"), (T["blue_r2"], "10:45", "16:45")], T["blue_f"]) + src(T["src"]))
+            lc(BLUE, T["blue_t"], [(T["blue_r1"], "9:35", "15:35"), (T["blue_r2"], "10:45", "16:45")], T["blue_f"]) + src(T["src"]) + fill("nenba", "50% 60%"))
     B.page(body, FOOT["ch2"])
 
 
@@ -565,7 +570,7 @@ def p_courseC(B):
     body = (f'<div class="course top"><span class="tag red">COURSE C</span><span class="eb">Rainy Day</span></div><h1>{T["title"]}</h1>'
             + timeline(items) + h2(T["mus_h"], "Museums") +
             f'<div class="g2"><div class="mus"><img src="{img("itchiku")}"><b>{T["m1t"]}</b><p>{T["m1"]}</p>{m1}</div>'
-            f'<div class="mus"><img src="{img("music")}"><b>{T["m2t"]}</b><p>{T["m2"]}</p>{m2}</div></div>' + src(T["src"]))
+            f'<div class="mus"><img src="{img("music")}"><b>{T["m2t"]}</b><p>{T["m2"]}</p>{m2}</div></div>' + src(T["src"]) + fill("lake", "50% 30%"))
     B.page(body, FOOT["ch4"])
 
 
@@ -601,7 +606,7 @@ def p_good(B):
     c3 = "".join(card(i, a, b) for (a, b), i in zip(T["money"], ["card", "wc", "bag"]))
     body = (head("Chapter 06 · Good to Know", T["h"]) + h2(T["crowd_h"], "Beat the crowds") + f'<div class="g3">{c1}</div>' +
             h2(T["manners_h"], "Respect the locals") + f'<p class="small">{T["manners_lead"]}</p><div class="g2">{c2}</div>' +
-            h2(T["money_h"], "Money, toilets, bags") + f'<div class="g3">{c3}</div>' + src(T["src"]))
+            h2(T["money_h"], "Money, toilets, bags") + f'<div class="g3">{c3}</div>' + src(T["src"]) + fill("oshino", "50% 75%"))
     B.page(body, FOOT["ch6"])
 
 
@@ -633,7 +638,7 @@ def p_book(B):
         f'<em>{url.replace("https://", "")}</em></div></a>' for key, *_, url, _ in BOOKING)
     chk = B.T["bn"].get("check", "") if REVIEW[0] else ""  # note to Tama, only in her review copy
     chk = f'<div class="alert">{icon("warn")}<div>{chk}</div></div>' if chk else ""
-    body = (head("Book &amp; Navigate", BN["h_book"], BN["lead_book"]) + chk + f'<div class="qg">{cells}</div>' + src(BN["fc"]))
+    body = (head("Book &amp; Navigate", BN["h_book"], BN["lead_book"]) + chk + f'<div class="qg">{cells}</div>' + src(BN["fc"]) + fill("train", "30% 50%"))
     B.page(body, FOOT["bonus"])
     pn = [nj if lang == "ja" else ne for _, ne, nj, _ in PLACES] if lang in ("en", "ja") else i18n.PLACE_NAMES[lang]
     cells = "".join(

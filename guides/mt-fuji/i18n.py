@@ -328,8 +328,8 @@ BOOK_NAMES["ms"] = {"jre": ("JR-EAST Train Reservation", "Tempah Fuji Excursion 
 PLACE_NAMES["th"] = ["สถานีคาวากุจิโกะ", "บัสตะชินจูกุ (รถบัสทางด่วน)", "เจดีย์ห้าชั้น (สวนอาราคุระยามะเซ็นเง็น)", "สวนโออิชิ", "โอชิโนะฮักไก",
                      "กระเช้าพาโนรามาภูเขาไฟฟูจิ", "ไซโกะอิยาชิโนะซาโตะเนมบะ", "สถานีที่ 5 ฟูจิซูบารุไลน์", "ฟูจิคิวไฮแลนด์",
                      "ทะเลสาบโมโตสึ (ใกล้โคอันโซ)", "โรงแรมรอยัลคาวากุจิโกะ (รอยสักได้)", "ฟูจิโจโบโนะยุ ยูราริ"]
-PLACE_NAMES["vi"] = ["Ga Kawaguchiko", "Busta Shinjuku (xe buýt cao tốc)", "Chùa 5 tầng (công viên Arakurayama Sengen)", "Công viên Oishi", "Oshino Hakkai",
-                     "Cáp treo toàn cảnh núi Phú Sĩ", "Saiko Iyashi-no-Sato Nenba", "Trạm 5 Fuji Subaru Line", "Fuji-Q Highland",
+PLACE_NAMES["vi"] = ["Ga Kawaguchiko", "Busta Shinjuku (xe buýt cao tốc)", "Chùa 5 tầng Chureito (công viên Arakurayama Sengen)", "Công viên Oishi", "Oshino Hakkai",
+                     "Cáp treo toàn cảnh Phú Sĩ", "Saiko Iyashi-no-Sato Nenba", "Trạm số 5 Fuji Subaru Line", "Fuji-Q Highland",
                      "Hồ Motosu (gần Koansō)", "Royal Hotel Kawaguchiko (có hình xăm vẫn được)", "Fuji Choubou no Yu Yurari"]
 PLACE_NAMES["ms"] = ["Stesen Kawaguchiko", "Busta Shinjuku (bas lebuh raya)", "Pagoda Chureito (Taman Arakurayama Sengen)", "Taman Oishi", "Oshino Hakkai",
                      "Kereta Kabel Panorama Gunung Fuji", "Saiko Iyashi-no-Sato Nenba", "Stesen ke-5 Fuji Subaru Line", "Fuji-Q Highland",
