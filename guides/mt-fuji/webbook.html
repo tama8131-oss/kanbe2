@@ -155,8 +155,8 @@ function links(box, list) {
 }
 
 // ---- zoom: the page drawn larger (sharp picture), scroll to read, ＋/－ to change size
-const ZOOMS = [1.6, 2.2, 3.0, 4.0];
-let zi = 1;
+const ZOOMS = [1.0, 1.3, 1.6, 2.2, 3.0];  // 1.0 = the whole page fits on the screen
+let zi = 1;            // opens a little larger than the page view; － goes down to the whole page
 function zsize() {
   const vw = $('zscroll').clientWidth;
   const w = Math.round(Math.min(vw, ($('zscroll').clientHeight) * RATIO) * ZOOMS[zi]);
