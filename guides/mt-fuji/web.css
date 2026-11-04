@@ -1,0 +1,106 @@
+
+/* ===================== phone reading version (webread.py) =====================
+   .read holds one language. The page script sets `zoom` (about 1.6 on a phone) and a width of
+   (screen width / zoom), so every print size is drawn larger and the pages reflow to the screen. */
+.read { margin: 0 auto; }
+.read .L { font-size: var(--fs); }
+.read .pg { width: auto; height: auto; overflow: visible; break-after: auto; page-break-after: auto; margin: 0 0 3mm; box-shadow: 0 1px 0 var(--line); }
+.read .in { position: static; padding: 6mm 5mm 7mm; overflow: visible; }
+.read .pg.full .in, .read .pg.opener .in { padding: 0 0 6mm; }
+.read .foot { display: none; }
+
+/* cover: full photo behind, the words flow top to bottom so nothing overlaps on a narrow screen */
+.read .pg.cover { height: auto; aspect-ratio: 148 / 230; display: flex; }
+.read .pg.cover .in { position: relative; inset: auto; flex: 1; display: flex; flex-direction: column; padding: 6mm 5.5mm 6mm; }
+.read .cvtop { top: auto; left: auto; right: auto; letter-spacing: .22em; font-size: 6pt; gap: 3mm; }
+.read .cvtop span:last-child { text-align: right; }
+.read .cvlangs { display: none; }
+.read .cvtop, .read .cvt, .read .cvst { position: relative; z-index: 1; }
+.read .cvt { left: auto; right: auto; bottom: auto; margin-top: auto; padding-top: 6mm; }
+.read .cvbig { font-size: 50pt; margin: 0 0 3mm -.5mm; }
+.read .cvh { font-size: 12pt; letter-spacing: .04em; }
+.read .cvst { left: auto; right: auto; bottom: auto; grid-template-columns: 1fr 1fr; row-gap: 2.5mm; column-gap: 3mm; margin-top: 5mm; }
+.read .cvst span { font-size: 5.6pt; line-height: 1.4; display: block; }
+.read .cvs { background: linear-gradient(to bottom, rgba(0,0,0,.35), rgba(0,0,0,0) 22%, rgba(0,0,0,.05) 40%, rgba(0,0,0,.7)); }
+
+/* photos: a steady 4:3 band instead of print heights */
+.read .op { height: auto !important; aspect-ratio: 4 / 3.4; }
+.read .ph { height: auto !important; aspect-ratio: 4 / 3; }
+.read .ph.two { aspect-ratio: 4 / 2.4; }
+.read .photo { height: auto !important; aspect-ratio: 4 / 3; }
+.read .opb { padding: 5mm 5mm 0; }
+.read .phb, .read .pb { padding-left: 5mm; padding-right: 5mm; }
+.read .pnum { margin-left: 5mm; font-size: 34pt; }
+
+/* wide rows stack into one column */
+.read .g2, .read .g3, .read .cbg, .read .qg, .read .cks, .read .seas, .read .ctips { grid-template-columns: 1fr; }
+.read .stats.c4, .read .stats.c3 { grid-template-columns: 1fr 1fr; }
+.read .vs { flex-direction: column; align-items: stretch; }
+.read .vsx { text-align: center; }
+.read .mp { flex-direction: column; }
+.read .mpi { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+.read .cbp { display: grid; grid-template-columns: 1fr 1fr; gap: 2mm; }
+.read .cbp .photo { margin: 0; aspect-ratio: 3 / 4; }
+.read .cbp .cd { grid-column: 1 / -1; margin: 0; }
+.read .tocx { gap: 1.5mm 4mm; }
+.read .toc a.tr { gap: 2.5mm; padding: 2mm 0; }
+.read .toc img { width: 15mm; height: 11mm; }
+.read .tn { width: 4mm; font-size: 12pt; }
+.read .tx b { font-size: 8.4pt; line-height: 1.3; }
+.read .tx span { font-size: 5.6pt; line-height: 1.4; }
+.read .tp, .read .tocx b { display: none; }   /* print page numbers mean nothing on a scrolling screen */
+.read .tb { width: 100%; }
+.read .tb.ttb td:first-child { white-space: normal; }
+/* tables with 4+ columns: each row becomes a small card, "label ... value" */
+.read .tb.wide, .read .tb.wide tbody { display: block; }
+.read .tb.wide thead { display: none; }
+.read .tb.wide tr { display: grid; grid-template-columns: 1fr; padding: 2mm 0; border-bottom: 1px solid var(--line); }
+.read .tb.wide td { display: flex; justify-content: space-between; align-items: baseline; gap: 3mm; border: 0; padding: .5mm 0; text-align: right; }
+.read .tb.wide td::before { content: attr(data-l); color: var(--muted); font-size: 5.8pt; text-align: left; flex: none; max-width: 45%; }
+.read .tb.wide td:first-child { display: block; text-align: left; font-weight: 700; font-size: calc(var(--fs) + .6pt); }
+.read .tb.wide td:first-child::before { content: none; }
+.read .tb.wide td:empty { display: none; }
+.read .tb.eight tr { grid-template-columns: 8mm 1fr; }
+.read .tb.eight td:first-child { grid-row: 1 / span 6; }
+.read .tb.eight td:nth-child(2) { text-align: left; display: block; font-family: var(--serif); font-weight: 800; font-size: 9pt; }
+.read .tb.eight td:nth-child(2)::before { content: none; }
+.read .tb.know td, .read .tb td { word-break: normal; }
+.read .hl { width: 22mm; }
+.read .tl::before { left: 14.6mm; }
+.read .bars { height: 42mm; }
+.read .mg > span { width: 15mm; }
+/* bus-stop line: a vertical list (names never collide) */
+.read .stops { flex-direction: column; align-items: stretch; gap: 1.8mm; margin: 2mm 0 1mm; }
+.read .stops::before { left: 2.2mm; right: auto; top: 2mm; bottom: 2mm; width: 1.4px; height: auto; }
+.read .sd, .read .stops.five .sd { flex-direction: row; align-items: center; width: auto; text-align: left; gap: 2.5mm; }
+.read .sd i { flex: none; }
+.read .stops .sd span { font-size: 6.4pt; margin-top: 0; }
+.read .qmap, .read .emap, .read .lmap { max-width: 100%; }
+
+/* links and QR cards: easy to tap */
+.read a.tr, .read .q { -webkit-tap-highlight-color: rgba(196, 71, 58, .15); }
+
+/* ---------- tap-through course finder ---------- */
+.read .quiz .qbox { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 4mm; margin: 3mm 0; }
+.read .qn { font-family: var(--serif); color: var(--red); font-weight: 800; font-size: 11pt; }
+.read .qn small { color: var(--muted); font-weight: 400; font-size: 7pt; }
+.read .qq { font-family: var(--serif); font-weight: 800; font-size: 10pt; line-height: 1.5; margin: 1.5mm 0 3mm; }
+.read .qq .ck { display: inline; border: 0; padding: 0; font-size: inherit; color: var(--red); margin-right: 1.5mm; }
+.read .qas { display: flex; flex-direction: column; gap: 2mm; }
+.read .qa { display: flex; align-items: center; gap: 2.5mm; text-align: left; background: var(--navy); color: #fff; border: 0; border-radius: 7px;
+  padding: 3mm 3.5mm; font: inherit; font-weight: 700; font-size: calc(var(--fs) + .3pt); cursor: pointer; }
+.read .qa i { font-family: "Cormorant Garamond", serif; font-style: italic; font-size: 9pt; background: #fff; color: var(--navy); border-radius: 3px; padding: 0 1.5mm; }
+.read .qres img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 7px; display: block; }
+.read .qrb { padding: 3mm 1mm 0; display: flex; flex-direction: column; gap: 1mm; }
+.read .qrb b { font-size: 6.5pt; letter-spacing: .12em; color: var(--red); }
+.read .qrb strong { font-family: var(--serif); font-size: 13pt; color: var(--navy); }
+.read .qrb span { font-size: var(--fs); }
+.read .qrb em { font-style: normal; font-weight: 700; color: var(--red); }
+.read .qreset { position: absolute; right: 3mm; top: 3mm; width: 9mm; height: 9mm; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); font-size: 10pt; cursor: pointer; }
+
+/* which side for Mt. Fuji: one row per section, so the station names have room */
+.read .sides { flex-direction: column; }
+.read .sb { flex: none !important; flex-direction: row; justify-content: space-between; align-items: center; text-align: left; padding: 2mm 3mm; font-size: 6.4pt; gap: 3mm; }
+.read .sb span { font-weight: 800; white-space: nowrap; }
+.read .carl { font-size: 5.8pt; gap: 3mm; }
+.read .tb th, .read .tb th.r, .read .tb th.c { white-space: normal; overflow-wrap: break-word; }

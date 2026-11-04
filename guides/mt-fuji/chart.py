@@ -146,6 +146,30 @@ def chart(lang, title, tips, to_hant=None):
             f'<div class="cwrap" style="height:{H}mm">{svg}{boxes}</div><div class="ctips">{tip_html}</div></section>')
 
 
+def quiz(lang, title, tips, to_hant=None):
+    """Phone version of the course finder: one question at a time, tap an answer, see your course.
+    Same questions, answers and results as chart(); the page script shows one step at a time."""
+    C = CHART.get(lang) or to_hant(CHART["zh-hans"])
+    R = C["r"]
+    steps = [("q1", C["q1"], [("A", C["q1a"], "q2"), ("B", C["q1b"], "rC")]),
+             ("q2", C["q2"], [("A", C["q2a"], "q3"), ("B", C["q2c"], "rA"), ("C", C["q2b"], "q4")]),
+             ("q3", C["q3"], [("A", C["q3a"], "rB"), ("B", C["q3b"], "rA")]),
+             ("q4", C["q4"], [("A", C["q4a"], "rE"), ("B", C["q4b"], "rD")])]
+    out = ""
+    for n, (sid, q, ans) in enumerate(steps):
+        btns = "".join(f'<button class="qa" data-go="{go}"><i>{k}.</i><span>{t}</span></button>' for k, t, go in ans)
+        out += (f'<div class="qs" data-step="{sid}"{"" if n == 0 else " hidden"}><div class="qn">Q{n + 1}<small> / 4</small></div>'
+                f'<p class="qq"><span class="ck">✔</span>{q}</p><div class="qas">{btns}</div></div>')
+    for key in "BAEDC":
+        lab, t, desc, ref = R[key]
+        out += (f'<div class="qs qres" data-step="r{key}" hidden><img src="{ph.src(PHOTO[key])}" alt="">'
+                f'<div class="qrb"><b>{lab}</b><strong>{t}</strong><span>{desc}</span><em>→ {ref}</em></div></div>')
+    tip_html = "".join(f'<div><strong>{a}</strong> {b}</div>' for a, b in tips)
+    return (f'<section class="quiz"><p class="eb">Course Finder</p><h1>{title}</h1><p class="lead">{C["lead"]}</p>'
+            f'<div class="qbox">{out}<button class="qreset" hidden aria-label="Start again">↺</button></div>'
+            f'<div class="ctips">{tip_html}</div></section>')
+
+
 CSS = """
 .chart { page-break-before: always; page-break-after: always; }
 .chead { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 3mm; }

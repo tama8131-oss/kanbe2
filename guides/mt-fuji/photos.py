@@ -37,5 +37,10 @@ FOOD = [None, None]
 CH2 = [None, "bus"]
 
 
+WEB = [False]  # True while building the web reading version (pictures are published next to the page)
+
+
 def src(key):
+    if WEB[0]:
+        return "read/photos/" + PHOTOS[key][0]
     return (DIR / PHOTOS[key][0]).as_uri()

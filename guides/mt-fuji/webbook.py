@@ -69,8 +69,10 @@ def build():
     data = json.dumps({"cover": cover, "langs": langs}, ensure_ascii=False, separators=(",", ":"))
     html = (HERE / "webbook.html").read_text(encoding="utf-8").replace("/*DATA*/null", data)
     (OUT / "index.html").write_text(html, encoding="utf-8")
+    import webread
+    webread.build()
     size = sum(p.stat().st_size for p in OUT.rglob("*") if p.is_file())
-    print(OUT, f"{len(list((OUT / 'img').glob('p*.webp')))} pages, {len(list((OUT / 'img').glob('h*.webp')))} zoom pictures, {size / 1e6:.1f} MB")
+    print(OUT, f"{len(list((OUT / 'img').glob('h*.webp')))} zoom pictures, {size / 1e6:.1f} MB")
 
 
 if __name__ == "__main__":

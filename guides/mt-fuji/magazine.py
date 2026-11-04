@@ -6,6 +6,7 @@ Usage: python3 guides/mt-fuji/magazine.py [--ja] [--only en]
 """
 import importlib
 import pathlib
+import re
 import subprocess
 import sys
 
@@ -115,7 +116,10 @@ def src(text):
 def table(head_cells, rows, cls="", aligns=None):
     aligns = aligns or [""] * len(head_cells)
     th = "".join(f'<th class="{a}">{h}</th>' for h, a in zip(head_cells, aligns))
-    tr = "".join("<tr>" + "".join(f'<td class="{a}">{c}</td>' for c, a in zip(r, aligns)) + "</tr>" for r in rows)
+    labels = [re.sub(r"<[^>]+>", "", h).replace('"', "&quot;") for h in head_cells]
+    tr = "".join("<tr>" + "".join(f'<td class="{a}" data-l="{l}">{c}</td>' for c, a, l in zip(r, aligns, labels)) + "</tr>" for r in rows)
+    if len(head_cells) >= 4:
+        cls += " wide"  # the phone version turns these rows into cards
     return f'<table class="tb {cls}"><thead><tr>{th}</tr></thead><tbody>{tr}</tbody></table>'
 
 

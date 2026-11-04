@@ -1,6 +1,7 @@
 <title>Mt. Fuji Guide Book</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="read/style.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,600&family=Shippori+Mincho:wght@600;800&display=swap">
 <style>
 /* Layout: one-screen reader. A language picker over the cover photo, then one page at a time,
@@ -49,8 +50,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
   padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
 .top { padding-top: calc(8px + env(safe-area-inset-top, 0px)); padding-bottom: 8px; border-bottom-width: 1px; }
 .bottom { padding-top: 8px; padding-bottom: calc(8px + env(safe-area-inset-bottom, 0px)); border-top-width: 1px; }
-.chip { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; font-size: 13px; min-height: 36px; }
-.chip .fl { font-size: 15px; }
+.tbtn { display: inline-flex; align-items: center; gap: 6px; background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; font-size: 13px; min-height: 36px; }
+.tbtn .fl { font-size: 15px; }
 .count { margin-left: auto; font-family: var(--display); font-weight: 600; font-size: 15px; font-variant-numeric: tabular-nums; letter-spacing: .04em; }
 .count small { color: var(--muted); font-size: 12px; margin: 0 2px; }
 .nav { flex: none; width: 46px; height: 40px; border-radius: 10px; border: 1px solid var(--line); background: transparent; font-size: 20px; line-height: 1; }
@@ -64,6 +65,10 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 .sheet a:hover { background: rgba(196,71,58,.12); }
 @media (prefers-reduced-motion: no-preference) { .sheet.turn { animation: turn .22s ease; } }
 @keyframes turn { from { opacity: .35; } to { opacity: 1; } }
+/* phone reading view: the book's pages reflowed to the screen (read/*.html, built by webread.py) */
+#readview { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; background: var(--ground); }
+#readview .read { box-shadow: 0 0 18px var(--shadow); }
+.mode { font-size: 12px; }
 /* a short hint on how to zoom, in the reader's language, shown when a language opens */
 .hint { position: absolute; left: 50%; bottom: 14px; transform: translateX(-50%); background: rgba(31,42,68,.88); color: #fff; font-size: 13px;
   padding: 8px 14px; border-radius: 999px; white-space: nowrap; pointer-events: none; opacity: 0; transition: opacity .4s ease; }
@@ -82,12 +87,14 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outlin
 
 <section id="read" hidden aria-label="Guide book">
   <div class="bar top">
-    <button class="chip" id="back" aria-label="Change language"><span class="fl" id="curflag"></span><span id="curname"></span></button>
-    <button class="chip" id="toc" aria-label="Contents">☰</button>
-    <div class="count" aria-live="polite"><span id="pn">1</span><small>/</small><span id="pt">35</span></div>
+    <button class="tbtn" id="back" aria-label="Change language"><span class="fl" id="curflag"></span><span id="curname"></span></button>
+    <button class="tbtn" id="toc" aria-label="Contents">☰</button>
+    <button class="tbtn mode" id="mode"></button>
+    <div class="count" id="count" aria-live="polite"><span id="pn">1</span><small>/</small><span id="pt">35</span></div>
   </div>
   <div id="stage"><div class="sheet" id="sheet"><img id="pic" alt=""><div id="hot"></div></div><div class="hint" id="hint"></div></div>
-  <div class="bar bottom">
+  <div id="readview" hidden></div>
+  <div class="bar bottom" id="pagebar">
     <button class="nav" id="prev" aria-label="Previous page">‹</button>
     <div class="track"><i id="prog"></i></div>
     <button class="nav" id="next" aria-label="Next page">›</button>
@@ -160,11 +167,14 @@ function route() {
   $('curflag').textContent = L.flags.split(' ')[0]; $('curname').textContent = L.name;
   fit();
   show(+(store('fuji-page-' + L.code) || 0));
-  showHint(L.code);
+  applyMode();
 }
 
 $('back').onclick = () => { location.hash = ''; };
-$('toc').onclick = () => show(1, -1);   // page 2 of every language is the welcome page with the contents
+$('toc').onclick = () => {   // page 2 of every language is the welcome page with the contents
+  if (mode === 'read') { const el = $('readview').querySelector('#' + lang.code + '-p2'); if (el) el.scrollIntoView(); }
+  else show(1, -1);
+};
 $('prev').onclick = () => show(page - 1, -1);
 $('next').onclick = () => show(page + 1, 1);
 addEventListener('keydown', e => {
@@ -264,7 +274,45 @@ function showHint(code) {
   const h = $('hint'); h.textContent = '🤏 ' + (HINTS[code] || HINTS.en);
   h.classList.add('on'); clearTimeout(hintTimer); hintTimer = setTimeout(() => h.classList.remove('on'), 3500);
 }
-addEventListener('resize', () => { if (lang) { fit(); resetZoom(false); } });
+// ---- two ways to read: the phone view (default, text reflows to the screen) and the page view (the printed pages)
+const VIEW = { ja: ['📖 ページで見る', '📱 スマホで読む'], en: ['📖 Page view', '📱 Phone view'], ko: ['📖 페이지로 보기', '📱 휴대폰으로 읽기'],
+  'zh-hant': ['📖 頁面檢視', '📱 手機閱讀'], 'zh-hans': ['📖 页面查看', '📱 手机阅读'], th: ['📖 ดูแบบหน้า', '📱 อ่านบนมือถือ'],
+  vi: ['📖 Xem theo trang', '📱 Đọc trên điện thoại'], ms: ['📖 Paparan halaman', '📱 Baca di telefon'] };
+let mode = store('fuji-mode') || 'read';
+const readCache = {};
+function sizeRead() {
+  const rv = $('readview'), r = rv.querySelector('.read');
+  if (!r) return;
+  const cw = rv.clientWidth;
+  const z = cw < 700 ? Math.max(1.35, Math.min(1.7, cw / 250)) : 1.3;   // about 15px text on a phone
+  r.style.zoom = z; r.style.width = (Math.min(cw, 760) / z) + 'px';
+}
+async function loadRead(code) {
+  const rv = $('readview');
+  if (rv.dataset.lang === code) return;
+  if (!readCache[code]) readCache[code] = await (await fetch('read/' + code + '.html')).text();
+  rv.innerHTML = '<div class="read">' + readCache[code] + '</div>';
+  rv.dataset.lang = code; sizeRead(); rv.scrollTop = 0;
+}
+function applyMode() {
+  const read = mode === 'read';
+  $('readview').hidden = !read; $('stage').hidden = read; $('pagebar').hidden = read; $('count').hidden = read;
+  $('mode').textContent = (VIEW[lang.code] || VIEW.en)[read ? 0 : 1];
+  if (read) loadRead(lang.code); else { fit(); showHint(lang.code); }
+}
+$('mode').onclick = () => { mode = mode === 'read' ? 'page' : 'read'; store('fuji-mode', mode); applyMode(); };
+$('readview').addEventListener('click', e => {
+  const a = e.target.closest('a[href^="#"]');
+  if (a) { e.preventDefault(); const el = $('readview').querySelector('#' + CSS.escape(a.getAttribute('href').slice(1))); if (el) el.scrollIntoView({ behavior: 'smooth' }); return; }
+  const qa = e.target.closest('.qa'), qr = e.target.closest('.qreset');
+  if (qa || qr) {
+    const box = (qa || qr).closest('.qbox');
+    box.querySelectorAll('.qs').forEach(x => { x.hidden = true; });
+    box.querySelector('[data-step="' + (qa ? qa.dataset.go : 'q1') + '"]').hidden = false;
+    box.querySelector('.qreset').hidden = !qa;
+  }
+});
+addEventListener('resize', () => { if (lang) { fit(); resetZoom(false); sizeRead(); } });
 addEventListener('hashchange', route);
 route();
 </script>
