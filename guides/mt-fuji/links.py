@@ -1,8 +1,8 @@
 """Links printed in the guide (booking sites and Google Maps navigation).
 
-The booking-site addresses below are NOT yet verified (2026-11-03): this
-session cannot open them. Tama checks each one by scanning the QR code in the
-Japanese review copy; set verified=True only after that.
+Booking-site addresses: Tama opened each link on her phone on 2026-11-04.
+verified=True = the right official page opened. The JR-EAST Train Reservation
+address did NOT work (eki-net access error) and still needs the correct address.
 """
 from urllib.parse import quote
 
@@ -13,22 +13,22 @@ BOOKING = [
      "https://www.eki-net.com/en/jreast-train-reservation/", False),
     ("ekinet", "Eki-net (JR East)", "えきねっと（JR東日本）",
      "Book the Fuji Excursion (Japanese)", "富士回遊を予約（日本語）",
-     "https://www.eki-net.com/", False),
+     "https://www.eki-net.com/", True),
     ("hwb", "Highway Bus.com", "ハイウェイバスドットコム",
      "Book the highway bus from Busta Shinjuku", "バスタ新宿からの高速バスを予約",
-     "https://www.highwaybus.com/", False),
+     "https://www.highwaybus.com/", True),
     ("fkrail", "Fujikyu Railway", "富士急行線",
      "Timetables, fares, Mt. FUJI Passport", "時刻表・運賃・富士山・富士五湖パスポート",
-     "https://www.fujikyu-railway.jp/", False),
+     "https://www.fujikyu-railway.jp/", True),
     ("fkbus", "Fujikyu Bus", "富士急バス",
      "Sightseeing buses, timetables, bus passes", "周遊バス・時刻表・乗り放題券",
-     "https://www.fujikyubus.co.jp/", False),
+     "https://www.fujikyubus.co.jp/", True),
     ("fujiq", "Fuji-Q Highland", "富士急ハイランド",
      "Ride passes and the opening calendar", "乗り放題パスと営業カレンダー",
-     "https://www.fujiq.jp/", False),
+     "https://www.fujiq.jp/", True),
     ("motosuko", "Fuji Motosuko Resort", "富士本栖湖リゾート",
      "Live camera and the Shibazakura Festival", "ライブカメラと富士芝桜まつり",
-     "https://www.fujimotosuko-resort.jp/", False),
+     "https://www.fujimotosuko-resort.jp/", True),
 ]
 
 # Google Maps directions from the reader's current location (official Google Maps URL format).
