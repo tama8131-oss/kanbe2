@@ -1,8 +1,8 @@
 """Links printed in the guide (booking sites and Google Maps navigation).
 
 Booking-site addresses: Tama opened each link on her phone on 2026-11-04.
-verified=True = the right official page opened. The JR-EAST Train Reservation
-address did NOT work (eki-net access error) and still needs the correct address.
+verified=True = the right official page opened. The first JR-EAST Train Reservation
+address did not work; Tama found the official English guide page instead (2026-11-04).
 """
 from urllib.parse import quote
 
@@ -10,7 +10,7 @@ BOOKING = [
     # (key, English name, Japanese name, what for (en), what for (ja), url, verified)
     ("jre", "JR-EAST Train Reservation", "JR-EAST Train Reservation（英語の予約サイト）",
      "Book the Fuji Excursion in English", "富士回遊を英語で予約",
-     "https://www.eki-net.com/en/jreast-train-reservation/", False),
+     "https://www.eki-net.com/top/tr/guide/about/", True),
     ("ekinet", "Eki-net (JR East)", "えきねっと（JR東日本）",
      "Book the Fuji Excursion (Japanese)", "富士回遊を予約（日本語）",
      "https://www.eki-net.com/", True),
