@@ -14,7 +14,7 @@ T = dict(
     know=dict(h="Know before you go",
               lead="The points that most often catch travelers out, and that quick online answers often get wrong or leave out. We checked each one with the operators themselves in November 2026.",
               col="What to know", ch="Ch.", author_h="FROM THE AUTHOR",
-              author="I made this guide because the information on getting to Mt. Fuji is spread across dozens of Japanese websites, and quick online answers are often out of date or wrong. The text was written with the help of AI tools, but I checked every fare, timetable and opening time myself on official websites and by phone with the railway and bus companies, museums, hot springs and tourist offices, in November 2026. <b>— Tama</b>"),
+              author="I made this guide because the information on getting to Mt. Fuji is spread across dozens of Japanese websites, and quick online answers are often out of date or wrong. I used AI tools to help with the writing and the research, but fares, timetables and opening hours come from official websites, checked in November 2026 (only food prices come from the restaurants' menus), and where something was unclear, I called the railway and bus companies, museums, hot springs and tourist offices myself. <b>— Tama</b>"),
     finder=dict(title="Find Your Course", tips=[
         ("Have a tattoo?", "For a hot spring, choose Royal Hotel Kawaguchiko (tattoos OK)."), ("June to August?", "Mt. Fuji is often hidden. Keep Course C ready."),
         ("Japan Rail Pass?", "It covers Shinjuku–Otsuki only. See Chapter 2."), ("Big suitcase?", "Leave it in a locker just outside Kawaguchiko Station's ticket gates.")]),

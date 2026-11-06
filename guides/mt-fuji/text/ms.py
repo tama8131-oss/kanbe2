@@ -15,7 +15,7 @@ T = dict(
     know=dict(h="Perlu tahu sebelum pergi",
               lead="Perkara yang paling kerap menyusahkan pelancong, dan jawapan ringkas di internet sering salah atau tertinggal. Semuanya disemak terus dengan pengendali pada November 2026.",
               col="Apa yang perlu tahu", ch="Bab", author_h="FROM THE AUTHOR",
-              author="Maklumat untuk ke Gunung Fuji bertaburan di banyak laman web bahasa Jepun, dan jawapan ringkas di internet sering lapuk atau salah. Sebab itu saya buat panduan ini. Teksnya ditulis dengan bantuan AI, tetapi setiap tambang, jadual dan waktu buka saya semak sendiri di laman rasmi dan melalui telefon dengan syarikat kereta api dan bas, muzium, onsen dan pusat pelancongan, pada November 2026. <b>— Tama</b>"),
+              author="Maklumat untuk ke Gunung Fuji bertaburan di banyak laman web bahasa Jepun, dan jawapan ringkas di internet sering lapuk atau salah. Sebab itu saya buat panduan ini. Penulisan dan carian maklumat dibantu oleh AI, tetapi tambang, jadual dan waktu buka diambil daripada laman rasmi pada November 2026 (hanya harga makanan daripada menu kedai), dan bahagian yang kurang jelas saya semak sendiri melalui telefon dengan syarikat kereta api dan bas, muzium, onsen dan pusat pelancongan. <b>— Tama</b>"),
     finder=dict(title="Cari Pelan Anda", tips=[
         ("Ada tatu?", "Untuk onsen, pilih Royal Hotel Kawaguchiko (tatu dibenarkan)."), ("Jun–Ogos?", "Gunung Fuji sering tersembunyi. Sediakan Pelan C."),
         ("Ada JR Pass?", "Hanya Shinjuku–Otsuki. Lihat Bab 2."), ("Beg besar?", "Simpan di loker di luar pintu tiket Stesen Kawaguchiko.")]),

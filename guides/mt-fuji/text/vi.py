@@ -14,7 +14,7 @@ T = dict(
     know=dict(h="Cần biết trước khi đi",
               lead="Những điểm du khách hay nhầm nhất, và câu trả lời nhanh trên mạng thường sai hoặc bỏ sót. Tất cả đã được hỏi trực tiếp đơn vị vận hành vào tháng 11/2026.",
               col="Điều cần biết", ch="Ch.", author_h="FROM THE AUTHOR",
-              author="Thông tin về cách đến núi Phú Sĩ nằm rải rác trên rất nhiều trang tiếng Nhật, còn câu trả lời nhanh trên mạng thường cũ hoặc sai. Vì vậy tôi làm cẩm nang này. Phần chữ được viết với sự hỗ trợ của AI, nhưng mọi giá vé, giờ tàu xe và giờ mở cửa đều do chính tôi kiểm tra trên trang chính thức và gọi điện cho các công ty đường sắt, xe buýt, bảo tàng, suối nước nóng và văn phòng du lịch vào tháng 11/2026. <b>— Tama</b>"),
+              author="Thông tin về cách đến núi Phú Sĩ nằm rải rác trên rất nhiều trang tiếng Nhật, còn câu trả lời nhanh trên mạng thường cũ hoặc sai. Vì vậy tôi làm cẩm nang này. Phần chữ và việc tìm thông tin có sự hỗ trợ của AI, nhưng giá vé, giờ tàu xe và giờ mở cửa lấy từ trang chính thức vào tháng 11/2026 (riêng giá món ăn lấy từ thực đơn của quán), và chỗ nào chưa rõ thì chính tôi đã gọi điện hỏi các công ty đường sắt, xe buýt, bảo tàng, suối nước nóng và văn phòng du lịch. <b>— Tama</b>"),
     finder=dict(title="Tìm lịch trình phù hợp", tips=[
         ("Có hình xăm?", "Suối nước nóng: chọn Royal Hotel Kawaguchiko (được phép)."), ("Đi tháng 6–8?", "Núi Phú Sĩ hay bị che. Chuẩn bị sẵn lịch trình C."),
         ("Có JR Pass?", "Chỉ đi được Shinjuku–Otsuki. Xem Chương 2."), ("Vali lớn?", "Gửi tủ khóa ngay ngoài cửa soát vé ga Kawaguchiko.")]),
