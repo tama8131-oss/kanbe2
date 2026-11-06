@@ -664,7 +664,8 @@ def p_map(B):
         s += f'<circle cx="{x:.0f}" cy="{y:.0f}" r="24" fill="#fff" stroke="{col}" stroke-width="4"/>'
         s += f'<text x="{x:.0f}" y="{y + 5:.0f}" font-size="14">{"①②③④⑤⑥⑦⑧"[n - 1]}</text>'
         name, how = T["spots"][n - 1]
-        ty = y + 44 if a > 20 and a < 160 else y - 48 if (a < -20 and a > -160) else y + 44
+        an = (a + 180) % 360 - 180  # labels sit on the side away from the line, so the line never crosses them
+        ty = y + 44 if 20 < an < 160 else y - 48 if -160 < an < -20 else y + 44
         if n == 4:
             ty = y - 52
         s += f'<text x="{x:.0f}" y="{ty:.0f}" font-weight="700" font-size="13">{name}</text><text x="{x:.0f}" y="{ty + 16:.0f}" font-size="10.5" fill="#6d665c">{how}</text>'
