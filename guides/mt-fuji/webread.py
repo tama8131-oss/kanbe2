@@ -66,7 +66,7 @@ def build():
         for code, *_ in i18n.LANGS:
             T = magazine.load_text(code)
             quiz = chart.quiz(code, T["finder"]["title"], T["finder"]["tips"], i18n.to_hant)
-            html = magazine.language_book(code, quiz, magazine.know_rows(code))
+            html = magazine.language_book(code, quiz, magazine.know_rows(code)) + magazine.credits_page()  # photo credits must always be shown
             (OUT / f"{code}.html").write_text(html, encoding="utf-8")
     finally:
         ph.WEB[0] = False
