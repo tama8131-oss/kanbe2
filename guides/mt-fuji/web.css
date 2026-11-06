@@ -105,3 +105,5 @@
 .read .carl { font-size: 5.8pt; gap: 3mm; }
 .read .tb th, .read .tb th.r, .read .tb th.c { white-space: normal; overflow-wrap: break-word; }
 .read .fill { display: none; }
+.read .stops.five .sd.ride i { background: var(--paper); }
+.read .arr::before { content: "↓"; }

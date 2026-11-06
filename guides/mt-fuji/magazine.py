@@ -271,7 +271,7 @@ def p_train(B):
     body = (head("A — By Train", T["h"]) +
             stats([("clock", T["s1"], T["s1v"], ""), ("yen", T["s2"], T["s2v"], T["s2s"]), ("cal", T["s3"], T["s3v"], T["s3s"]),
                    ("ticket", T["s4"], T["s4v"], T["s4s"])]) +
-            h2(T["stops_h"], "Stops") + f'<div class="stops">{dots}</div>' + src(T["stops_note"]) +
+            h2(T["stops_h"], "Stops") + f'<div class="stops">{dots}</div>' + f'<p class="skey">{T["stops_key"]}</p>' + src(T["stops_note"]) +
             f'<div class="alert big">{icon("warn")}<div><b>{T["warn_b"]}</b> {T["warn"]}<div class="cars">{cars}</div>'
             f'<div class="carl"><span>{T["car1"]}</span><span>{T["car2"]}</span></div></div></div>'
             f'<div class="g2">{card("ticket", T["c1t"], T["c1"])}{card("info", T["c2t"], T["c2"], "beige")}</div>' +
@@ -300,13 +300,14 @@ def p_passes(B):
     jr = table(T["jr_cols"], [[T["jr_r1"], "1,170", "600", "<b>1,770</b>"], [T["jr_r2"], "980", "600", "<b>1,580</b>"]],
                "inner", ["", "r", "r", "r big"])
     wide = "".join(f"<li>{x}</li>" for x in T["wide_li"])
-    pb = "".join(f'<div class="sd{" f" if i % 2 == 0 else ""}"><i></i><span>{s}</span></div>' for i, s in enumerate(T["planb_line"]))
+    pb = "".join(f'<div class="sd f"><i></i><span>{s}</span></div>' if i % 2 == 0 else
+                 f'<div class="sd ride"><i class="arr"></i><span>{s}</span></div>' for i, s in enumerate(T["planb_line"]))
     rows = [[T["pb_rows"][0], "<b>400</b>", "—"], [T["pb_rows"][1], "+200", T["seat"]],
             [T["pb_rows"][2], "+900", T["special"]], [T["pb_rows"][3], "+200", T["seat"]]]
     body = (head("Rail Passes", T["h"]) +
             f'<div class="box">{icon("ticket")}<b class="bt">{T["jr_t"]}</b><p>{T["jr"]}</p>{jr}{src(T["jr_note"])}</div>'
             f'<div class="box blue">{icon("ticket")}<b class="bt">{T["wide_t"]}</b><p>{T["wide"]}</p><ul>{wide}</ul>{src(T["wide_src"])}</div>'
-            + h2(T["planb_h"], "Plan B") + f'<div class="stops five">{pb}</div><p class="small">{T["planb"]}</p>'
+            + h2(T["planb_h"], "Plan B") + f'<div class="stops five">{pb}</div><p class="skey">{T["planb_key"]}</p><p class="small">{T["planb"]}</p>'
             + table(T["pb_cols"], rows, "", ["", "r", ""]) + src(T["pb_note"]))
     B.page(body, FOOT["ch2"])
 
