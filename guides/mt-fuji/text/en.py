@@ -161,7 +161,7 @@ T = dict(
     p45=dict(t4="Mt. Fuji Panoramic<br>Ropeway (Mt. Tenjo)", l4="From the lakeshore up the mountain. The top has wide views of Mt. Fuji and the lake.",
              r_s1="Red Line, 11 min", r_s1v="15 min walk", r_s1s="\"Yuransen · Ropeway Iriguchi\"", s_time="Time needed", r_s2v="1 hour",
              r_s3="Return adult/child", r_s3s="one way ¥800/400", r_s4="Usually", r_s4s="varies by season &amp; maintenance",
-             src4="Confirmed by phone with Mt. Fuji Panoramic Ropeway, November 3, 2026",
+             src4="<b>Closed for inspection December 7–18, 2026.</b> Opening hours are announced month by month on the official website, so check before you go. (Confirmed by phone with Mt. Fuji Panoramic Ropeway, November 3 and 10, 2026)",
              t5="Saiko Iyashi-no-Sato Nenba", l5="A re-created village of thatched-roof houses with Mt. Fuji behind it.",
              n_s1="Green Line, 40 min", n_s1v="every 30 min", n_s1s="last from station 16:40", n_s3="High school+ / 6–15", n_s3s="preschool free",
              n_s4="Until November", n_s4s="Dec–Feb 9:30–16:30", src5="Last entry 30 min before closing (16:30; winter 16:00). Confirmed by phone with Saiko Iyashi-no-Sato Nenba, November 3, 2026"),

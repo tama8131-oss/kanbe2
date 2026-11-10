@@ -160,7 +160,7 @@ T = dict(
     p45=dict(t4="Cáp treo toàn cảnh<br>Phú Sĩ (núi Tenjo)", l4="Từ bờ hồ lên núi. Trên đỉnh nhìn bao quát núi Phú Sĩ và hồ.",
              r_s1="Đỏ, 11 phút", r_s1v="đi bộ 15 phút", r_s1s="\"Yuransen · Ropeway Iriguchi\"", s_time="Thời gian", r_s2v="1 giờ",
              r_s3="Khứ hồi lớn/trẻ", r_s3s="1 chiều 800/400 yên", r_s4="Thường", r_s4s="đổi theo mùa &amp; ngày bảo trì",
-             src4="Gọi điện xác nhận với Mt. Fuji Panoramic Ropeway, 3/11/2026",
+             src4="<b>Ngừng chạy để bảo trì từ 7–18/12/2026.</b> Giờ mở cửa được công bố theo từng tháng trên trang chính thức, hãy kiểm tra trước khi đi. (Gọi điện xác nhận với Mt. Fuji Panoramic Ropeway, 3 và 10/11/2026)",
              t5="Saiko Iyashi-no-Sato Nenba", l5="Ngôi làng nhà mái tranh được phục dựng, với núi Phú Sĩ phía sau.",
              n_s1="Xanh lá, 40 phút", n_s1v="30 phút/chuyến", n_s1s="chuyến cuối từ ga 16:40", n_s3="THPT trở lên / 6–15 tuổi", n_s3s="trẻ chưa đi học miễn phí",
              n_s4="Đến tháng 11", n_s4s="T12–T2 9:30–16:30", src5="Vào lần cuối 30 phút trước giờ đóng (16:30; mùa đông 16:00). Gọi điện xác nhận với Nenba, 3/11/2026"),

@@ -162,7 +162,7 @@ T = dict(
     p45=dict(t4="Kereta Kabel Panorama<br>Gunung Fuji (Gunung Tenjo)", l4="Dari tepi tasik naik ke gunung. Di puncak, pemandangan luas Gunung Fuji dan tasik.",
              r_s1="Merah, 11 min", r_s1v="jalan 15 min", r_s1s="\"Yuransen · Ropeway Iriguchi\"", s_time="Masa diperlukan", r_s2v="1 jam",
              r_s3="Pergi balik dewasa/kanak", r_s3s="sehala ¥800/400", r_s4="Biasanya", r_s4s="berubah ikut musim &amp; penyelenggaraan",
-             src4="Disahkan melalui telefon dengan Mt. Fuji Panoramic Ropeway, 3 November 2026",
+             src4="<b>Ditutup untuk pemeriksaan 7–18 Disember 2026.</b> Waktu operasi diumumkan setiap bulan di laman rasmi, jadi semak sebelum pergi. (Disahkan melalui telefon dengan Mt. Fuji Panoramic Ropeway, 3 dan 10 November 2026)",
              t5="Saiko Iyashi-no-Sato Nenba", l5="Perkampungan rumah beratap jerami yang dibina semula, dengan Gunung Fuji di belakang.",
              n_s1="Hijau, 40 min", n_s1v="setiap 30 min", n_s1s="terakhir dari stesen 16:40", n_s3="Sek. menengah atas+ / 6–15", n_s3s="prasekolah percuma",
              n_s4="Hingga November", n_s4s="Dis–Feb 9:30–16:30", src5="Masuk terakhir 30 min sebelum tutup (16:30; musim sejuk 16:00). Disahkan melalui telefon dengan Nenba, 3 November 2026"),
