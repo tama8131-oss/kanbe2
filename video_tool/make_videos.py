@@ -60,7 +60,9 @@ DISCLAIMER = [
     "※収入は働く日数・時間・配達件数などによって、人によって大きく変わります。平均より多く稼ぐ人もいれば、少ない人もいます。",
     "※記載の金額を保証するものではありません。",
 ]
-POST_FOOTER = ["この動画はAIで作っています", "VOICEVOX:玄野武宏"]
+# 声のクレジット（VOICEVOXの決まりで表記が必要）。投稿文には書かず、動画の画面に出す（たまさんの希望）
+VOICE_CREDIT = "VOICEVOX:玄野武宏"
+POST_FOOTER = ["この動画はAIで作っています"]
 
 # 「1日の流れ」の型では画面に「再現」と出す
 SAIGEN_TYPES = {"1日の流れ"}
@@ -248,6 +250,10 @@ def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card
             for ln in wrap(d, para, f, W - 120):
                 d.text((60, y), ln, font=f, fill=FG)
                 y += 38
+
+    # 右下：声のクレジット
+    f = font(28)
+    d.text((W - 40 - text_w(d, VOICE_CREDIT, f), H - 70), VOICE_CREDIT, font=f, fill=FG)
 
     # 画面下：キャラ「はこぶ」
     ch = chara_image()
