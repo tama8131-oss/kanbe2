@@ -13,6 +13,7 @@ import argparse
 import datetime
 import io
 import json
+import math
 import shutil
 import subprocess
 import sys
@@ -22,6 +23,7 @@ import urllib.request
 import wave
 from pathlib import Path
 
+import numpy as np
 import yaml
 from PIL import Image, ImageDraw, ImageFont
 
@@ -38,6 +40,16 @@ FPS = 30
 BG = (220, 235, 245)
 FG = (35, 57, 91)
 WHITE = (255, 255, 255)
+
+# 動画ごとに背景の色を変える（毎回同じ見た目で飛ばされるのを防ぐ）
+# YAML に theme: 0〜4 を書けばその色、書かなければ作る順番で自動で回す
+THEMES = [
+    (220, 235, 245),  # 水色
+    (252, 241, 214),  # クリーム
+    (222, 242, 226),  # ミント
+    (250, 228, 226),  # ピンク
+    (232, 228, 248),  # ラベンダー
+]
 LINE_COLOR = (190, 205, 220)
 
 HEADLINE = "Amazon配送ドライバーのリアル"
@@ -186,6 +198,45 @@ def chara_image():
     return im
 
 
+FACE = (0xC8, 0x95, 0x5A)
+LINE = (0x3A, 0x2A, 0x1C)
+_variants = {}
+
+
+def chara_variants():
+    """はこぶの表情4種類（ふつう／口あけ／まばたき／まばたき＋口あけ）を、動画用の大きさで返す"""
+    if _variants:
+        return _variants
+    base = chara_image()
+
+    def mouth_open(im):
+        d = ImageDraw.Draw(im)
+        d.rectangle((488, 643, 592, 692), fill=FACE)
+        d.ellipse((514, 650, 566, 702), fill=LINE)
+        d.ellipse((524, 676, 556, 698), fill=(0xE9, 0x8A, 0x7A))
+
+    def blink(im):
+        d = ImageDraw.Draw(im)
+        for cx in (465, 615):
+            d.rectangle((cx - 28, 572, cx + 28, 628), fill=FACE)
+            d.arc((cx - 24, 584, cx + 24, 616), start=20, end=160, fill=LINE, width=8)
+
+    size = int(1080 * CHARA_SCALE)
+    for name, fns in {"normal": [], "open": [mouth_open], "blink": [blink],
+                      "blink_open": [blink, mouth_open]}.items():
+        im = base.copy()
+        for fn in fns:
+            fn(im)
+        _variants[name] = im.resize((size, size), Image.LANCZOS)
+    return _variants
+
+
+def chara_pos():
+    content_cx = (220 + 920) / 2 * CHARA_SCALE  # 絵の左右の中心
+    bottom = 964 * CHARA_SCALE                  # 影の下端
+    return int(W / 2 - content_cx), int(H - 30 - bottom)
+
+
 def svg_to_png(svg, png):
     """hakobu_base.png が消えたときだけ使う（通常は同梱のPNGを使う）"""
     try:
@@ -201,8 +252,9 @@ def svg_to_png(svg, png):
 CHARA_SCALE = 0.68
 
 
-def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card=False):
-    im = Image.new("RGB", (W, H), BG)
+def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card=False,
+                 bg=BG, hook=False, with_chara=True):
+    im = Image.new("RGB", (W, H), bg)
     d = ImageDraw.Draw(im)
 
     # 左上：見出し
@@ -233,6 +285,11 @@ def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card
         f = font(84)
         lines = END_TEXT.split("\n")
         line_h = 120
+    elif hook:
+        # 1行目（つかみ）は大きく、濃い色の枠で目立たせる
+        f = font(76)
+        lines = wrap_balanced(d, text, f, 880)
+        line_h = 108
     else:
         f = font(60)
         lines = wrap_balanced(d, text, f, 860)
@@ -240,8 +297,9 @@ def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card
     box_h = len(lines) * line_h + 90
     center_y = 1010 if (table and not end_card) else 760
     top = int(center_y - box_h / 2)
-    d.rounded_rectangle((60, top, W - 60, top + box_h), radius=36, fill=WHITE)
-    draw_centered_lines(d, lines, f, W / 2, top + 40, line_h, FG)
+    box_fill, text_fill = (FG, WHITE) if hook else (WHITE, FG)
+    d.rounded_rectangle((60, top, W - 60, top + box_h), radius=36, fill=box_fill)
+    draw_centered_lines(d, lines, f, W / 2, top + 40, line_h, text_fill)
 
     # 金額の注意書き
     if show_disclaimer:
@@ -256,15 +314,10 @@ def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card
     f = font(28)
     d.text((W - 40 - text_w(d, VOICE_CREDIT, f), H - 70), VOICE_CREDIT, font=f, fill=FG)
 
-    # 画面下：キャラ「はこぶ」
-    ch = chara_image()
-    size = int(1080 * CHARA_SCALE)
-    small = ch.resize((size, size), Image.LANCZOS)
-    content_cx = (220 + 920) / 2 * CHARA_SCALE  # 絵の左右の中心
-    bottom = 964 * CHARA_SCALE                  # 影の下端
-    px = int(W / 2 - content_cx)
-    py = int(H - 30 - bottom)
-    im.paste(small, (px, py), small)
+    # 画面下：キャラ「はこぶ」（動画では毎フレーム動かすので、ここでは止め絵用）
+    if with_chara:
+        small = chara_variants()["normal"]
+        im.paste(small, chara_pos(), small)
     return im
 
 
@@ -416,78 +469,109 @@ def silence(nframes, sampwidth, nch):
     return b"\x00" * (nframes * sampwidth * nch)
 
 
-def build_video(path, out_mp4, out_txt, speaker_id, preview=False):
+def pick_theme(data, order):
+    """YAML の theme があればその色。なければ作る順番で色を回す（続けて同じ色にならへん）"""
+    if "theme" in data:
+        return THEMES[int(data["theme"]) % len(THEMES)]
+    return THEMES[order % len(THEMES)]
+
+
+def build_video(path, out_mp4, out_txt, speaker_id, preview=False, order=0):
     data = load_script(path)
     money = is_money_video(data)
     saigen = bool(data.get("saigen", data.get("type") in SAIGEN_TYPES))
+    bg = pick_theme(data, order)
+
+    # 画面（キャラ以外）をセリフごとに1枚ずつ描く
+    bases = []
+    for i, ln in enumerate(data["lines"]):
+        bases.append(render_frame(ln["text"], ln.get("table"), saigen, money,
+                                  bg=bg, hook=(i == 0), with_chara=preview))
+    end_base = render_frame("", None, saigen, money, end_card=True, bg=bg, with_chara=preview)
+
+    if preview:
+        pdir = OUTPUT_DIR / "preview" / Path(path).stem
+        pdir.mkdir(parents=True, exist_ok=True)
+        for i, im in enumerate(bases):
+            im.save(pdir / f"f{i:03d}.png")
+        end_base.save(pdir / "end.png")
+        print(f"  見た目の確認用画像: {pdir}")
+        return
+
+    # 声を作ってつなげる
+    pcm = bytearray()
+    params = None
+    durations = []
+    for ln in data["lines"]:
+        wav_bytes = synthesize(ln.get("yomi", ln["text"]), speaker_id)
+        with wave.open(io.BytesIO(wav_bytes)) as w:
+            p = (w.getnchannels(), w.getsampwidth(), w.getframerate())
+            if params is None:
+                params = p
+            frames = w.readframes(w.getnframes())
+            n = w.getnframes()
+        nch, sw, rate = params
+        lead = int(LEAD_SILENCE * rate)
+        tail = int(TAIL_SILENCE * rate)
+        pcm += silence(lead, sw, nch) + frames + silence(tail, sw, nch)
+        durations.append((lead + n + tail) / rate)
+    nch, sw, rate = params
+    pcm += silence(int(END_SECONDS * rate), sw, nch)
+    bases.append(end_base)
+    durations.append(END_SECONDS)
+    total = len(pcm) / (sw * nch) / rate
+
+    # 口パク用：フレームごとの声の大きさ
+    samples = np.frombuffer(bytes(pcm), dtype=np.int16).astype(np.float32)
+    if nch > 1:
+        samples = samples.reshape(-1, nch).mean(axis=1)
+    n_frames = int(math.ceil(total * FPS))
+    per = rate / FPS
+    loud = np.array([
+        np.sqrt(np.mean(samples[int(k * per):int((k + 1) * per)] ** 2)) if int(k * per) < len(samples) else 0.0
+        for k in range(n_frames)
+    ])
+    threshold = max(loud.max() * 0.15, 1.0)
+
+    bounds = np.cumsum(durations)
+    variants = chara_variants()
+    px, py = chara_pos()
 
     with tempfile.TemporaryDirectory() as tmp:
-        tmp = Path(tmp)
-        segments = []  # (png, 秒)
-        pcm = bytearray()
-        params = None
-
-        for i, ln in enumerate(data["lines"]):
-            frame = render_frame(ln["text"], ln.get("table"), saigen, money)
-            png = tmp / f"f{i:03d}.png"
-            frame.save(png)
-            if preview:
-                segments.append((png, 0))
-                continue
-            wav_bytes = synthesize(ln.get("yomi", ln["text"]), speaker_id)
-            with wave.open(io.BytesIO(wav_bytes)) as w:
-                p = (w.getnchannels(), w.getsampwidth(), w.getframerate())
-                if params is None:
-                    params = p
-                frames = w.readframes(w.getnframes())
-                n = w.getnframes()
-            nch, sw, rate = params
-            lead = int(LEAD_SILENCE * rate)
-            tail = int(TAIL_SILENCE * rate)
-            pcm += silence(lead, sw, nch) + frames + silence(tail, sw, nch)
-            segments.append((png, (lead + n + tail) / rate))
-
-        # 最後の2秒：「条件は／プロフィールの／固定投稿へ」
-        end_png = tmp / "end.png"
-        render_frame("", None, saigen, money, end_card=True).save(end_png)
-        segments.append((end_png, END_SECONDS))
-
-        if preview:
-            pdir = OUTPUT_DIR / "preview" / Path(path).stem
-            pdir.mkdir(parents=True, exist_ok=True)
-            for png, _ in segments:
-                shutil.copy(png, pdir / png.name)
-            print(f"  見た目の確認用画像: {pdir}")
-            return
-
-        nch, sw, rate = params
-        pcm += silence(int(END_SECONDS * rate), sw, nch)
-        wav_path = tmp / "voice.wav"
+        wav_path = Path(tmp) / "voice.wav"
         with wave.open(str(wav_path), "wb") as w:
             w.setnchannels(nch)
             w.setsampwidth(sw)
             w.setframerate(rate)
             w.writeframes(bytes(pcm))
-        total = len(pcm) / (sw * nch) / rate
-
-        concat = tmp / "frames.txt"
-        with open(concat, "w", encoding="utf-8") as fp:
-            for png, sec in segments:
-                fp.write(f"file '{png.as_posix()}'\nduration {sec:.4f}\n")
-            fp.write(f"file '{segments[-1][0].as_posix()}'\n")
 
         cmd = [
             "ffmpeg", "-y", "-loglevel", "error",
-            "-f", "concat", "-safe", "0", "-i", str(concat),
+            "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
             "-i", str(wav_path),
-            "-vf", f"fps={FPS},format=yuv420p",
+            "-vf", "format=yuv420p",
             "-c:v", "libx264", "-preset", "medium", "-crf", "20",
             "-c:a", "aac", "-b:a", "192k", "-ar", "44100",
             "-t", f"{total:.3f}",
             "-movflags", "+faststart",
             str(out_mp4),
         ]
-        subprocess.run(cmd, check=True)
+        proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
+        for k in range(n_frames):
+            t = k / FPS
+            seg = min(int(np.searchsorted(bounds, t, side="right")), len(bases) - 1)
+            frame = bases[seg].copy()
+            talking = loud[k] > threshold and (k // 3) % 2 == 0   # しゃべってる間は口をパクパク
+            blinking = (k % 105) in (0, 1, 2)                      # 3.5秒ごとにまばたき
+            name = ("blink_" if blinking else "") + ("open" if talking else "normal")
+            name = name.replace("blink_normal", "blink")
+            ch = variants[name]
+            dy = int(10 * math.sin(2 * math.pi * 0.9 * t))         # ゆらゆら上下
+            frame.paste(ch, (px, py + dy), ch)
+            proc.stdin.write(frame.tobytes())
+        proc.stdin.close()
+        if proc.wait() != 0:
+            raise UserError("ffmpeg で動画を作るのに失敗しました。")
 
     out_txt.write_text(make_post_text(data, money), encoding="utf-8")
     print(f"  動画: {out_mp4.name}（{total:.1f}秒）")
@@ -539,7 +623,7 @@ def main():
             print(f"作成中: {f.name}")
             stem = f"{date_str}_{num:02d}"
             build_video(f, OUTPUT_DIR / f"{stem}.mp4", OUTPUT_DIR / f"{stem}.txt",
-                        speaker_id, preview=args.preview)
+                        speaker_id, preview=args.preview, order=num)
             num += 1
     except UserError as e:
         print("\n【エラー】" + str(e))
