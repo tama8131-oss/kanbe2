@@ -63,5 +63,6 @@
 4. 保存用ページを作る：
    `python3 make_download_page.py --start 翌日の日付 --time 20:00 --dir （作業フォルダ） output/今週の動画...`
    → Artifact に index.html と動画を一緒に publish_files し、downloads を宣言（既存ページの更新なら slug を使う）
-5. 投稿が済んだ台本は `scripts/posted/` へ移す
-6. CLAUDE.md の引き継ぎメモを更新して、コミット＆プッシュ
+5. ストーリー画像（毎日の告知7枚）も作る：`python3 make_stories.py --start 翌週木曜の日付` → `make_download_page.py --dir` で別ページにして Artifact で公開（downloads 宣言）
+6. 投稿が済んだ台本は `scripts/posted/` へ移す
+7. CLAUDE.md の引き継ぎメモを更新して、コミット＆プッシュ

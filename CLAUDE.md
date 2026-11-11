@@ -92,5 +92,6 @@
 - ⑤LP：`video_tool/make_lp.py` → `video_tool/lp/index.html`（確認済みの事実だけ、FAQは構造化データ入り、DMボタンは ig.me/m/hakobu_driver）。tiiny.site に無料で置いて、インスタのプロフィールのリンクに入れる予定
 - ⑥〜⑩：DM・コメント返信テンプレは `video_tool/funnel/dm_templates.md`。スマホ用のコピーボタン付きページ https://claude.ai/artifact/9kCYxghhVbChp6SmXW2Goj （LPのファイル保存ボタンもここ）
 - 1週目の7本はファネルに合わせて作り直し済み：上司も同僚もいない／経験ゼロ（認知）、お金の話／向いてる・向いてない／3つの理由（比較）、外国籍（認知を広げる）、相談の流れ（商談）。「車の持ち帰り」「こんな人に」は `scripts/stock/` に回した
+- 投稿以外の運用：ストーリーで毎日の動画を告知（画像は `make_stories.py`。1週目ぶんとハイライト表紙4枚 https://claude.ai/artifact/KEo3dgGQ6AxJmFLAgmHCRb ）、ハイライト「条件・お金・相談・Q&A」、配送系アカウントを1日20人までフォロー＋中身のあるコメント、DM・コメントは早く返す、週1でインサイトのスクショをもらって改善
 - 【要確認・たまさんに聞く】紹介会社につないだあとの流れ（伝え方・面談の有無・始めるまでの日数）／紹介してくれた人へのお礼があるか
 - 次の作業：1週目の7本を予約投稿（たまさん）→ TikTokのアカウント作り → YouTubeショート → 2週目の7本
