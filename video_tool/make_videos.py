@@ -13,6 +13,7 @@ import argparse
 import datetime
 import io
 import json
+import re
 import math
 import shutil
 import subprocess
@@ -26,6 +27,8 @@ from pathlib import Path
 import numpy as np
 import yaml
 from PIL import Image, ImageDraw, ImageFont
+
+import audio_fx
 
 # ---------------------------------------------------------------------------
 # 設定
@@ -247,78 +250,256 @@ def svg_to_png(svg, png):
 
 
 # ---------------------------------------------------------------------------
-# 画面を1枚描く
+# 画面づくり（プロ仕様）
+#   - セリフは「ひと息」ごとに字幕を切り替え、声とぴったり合わせる
+#   - 大事な言葉と数字は色を変えて目立たせる
+#   - 字幕はポンッと飛び出す。背景のしま模様はゆっくり流れる
+#   - 上に進み具合のバー。最後は「名前をタップ」の矢印が跳ねる
 # ---------------------------------------------------------------------------
 CHARA_SCALE = 0.68
+ACCENT = (228, 87, 46)          # 白い枠の上の強調色（朱色）
+ACCENT_ON_DARK = (255, 209, 102)  # 濃い枠の上の強調色（黄色）
+SHADOW = (0, 0, 0, 45)
+
+# 自動で目立たせる言葉（確認済みの条件の言い回し）
+KEYWORDS = [
+    "上司も同僚もいない", "ひとりで黙々", "経験ゼロ", "未経験", "外国籍", "持ち帰れ", "貸してもらえ",
+    "OK", "関東", "固定投稿", "DM", "正直", "人間関係", "お金", "タダではありません", "3つの理由",
+    "個人事業主", "ビザ",
+]
+NUM_RE = re.compile(r"月?約?[0-9０-９][0-9０-９,，.]*(万[0-9０-９,，]*)?円?")
 
 
-def render_frame(text, table=None, saigen=False, show_disclaimer=False, end_card=False,
-                 bg=BG, hook=False, with_chara=True):
-    im = Image.new("RGB", (W, H), bg)
+def emphasis_index(text, extra=()):
+    marks = set()
+    for kw in list(KEYWORDS) + list(extra):
+        start = 0
+        while True:
+            i = text.find(kw, start)
+            if i < 0:
+                break
+            marks.update(range(i, i + len(kw)))
+            start = i + 1
+    for m in NUM_RE.finditer(text):
+        if any(c.isdigit() for c in m.group()):
+            marks.update(range(m.start(), m.end()))
+    return marks
+
+
+def rich_lines(d, text, f, max_w, marks):
+    lines = wrap_balanced(d, text, f, max_w)
+    out, i = [], 0
+    for ln in lines:
+        out.append([(ch, (i + k) in marks) for k, ch in enumerate(ln)])
+        i += len(ln)
+    return out
+
+
+def draw_rich(d, lines, f, cx, top, line_h, color, ecolor):
+    for li, ln in enumerate(lines):
+        s = "".join(c for c, _ in ln)
+        x = cx - d.textlength(s, font=f) / 2
+        y = top + li * line_h
+        run, flag = "", None
+        for c, e in ln + [(None, None)]:
+            if c is None or e != flag:
+                if run:
+                    d.text((x, y), run, font=f, fill=ecolor if flag else color)
+                    x += d.textlength(run, font=f)
+                run, flag = (c or ""), e
+            else:
+                run += c
+
+
+def split_chunks(text):
+    """ひと息ごとに分ける（文の終わり。長い文は真ん中あたりの読点でも分ける）"""
+    sents = [s for s in re.findall(r"[^。！？!?]+[。！？!?]?", text) if s.strip()]
+    out = []
+    for s in sents:
+        if len(s) > 24 and "、" in s[:-1]:
+            mid = len(s) / 2
+            cands = [i for i, c in enumerate(s[:-1]) if c == "、"]
+            cut = min(cands, key=lambda i: abs(i - mid)) + 1
+            out += [s[:cut], s[cut:]]
+        else:
+            out.append(s)
+    return out or [text]
+
+
+def make_bg_strip(bg):
+    """斜めのしま模様（横に流すので少し広めに作る）"""
+    period = 120
+    im = Image.new("RGB", (W + period, H), bg)
     d = ImageDraw.Draw(im)
+    light = tuple(min(255, int(c + (255 - c) * 0.35)) for c in bg)
+    for x0 in range(-H, W + period, period):
+        d.polygon([(x0, 0), (x0 + 50, 0), (x0 + 50 + H, H), (x0 + H, H)], fill=light)
+    return im, period
 
-    # 左上：見出し
+
+def header_layer(saigen):
+    im = Image.new("RGBA", (W, 240), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
     d.text((48, 56), HEADLINE, font=font(54), fill=FG)
-
-    # 右上：AI生成ラベル（ずっと表示）
     f = font(36)
     tw = text_w(d, AI_LABEL, f)
     x1 = W - 40
     x0 = x1 - tw - 44
     d.rounded_rectangle((x0, 50, x1, 118), radius=16, fill=FG)
     d.text((x0 + 22, 56), AI_LABEL, font=f, fill=WHITE)
-
-    # 「再現」ラベル（1日の流れの型）
+    f = font(24)
+    d.text((W - 40 - text_w(d, VOICE_CREDIT, f), 128), VOICE_CREDIT, font=f, fill=FG)
     if saigen:
         f = font(36)
         tw = text_w(d, SAIGEN_LABEL, f)
-        d.rounded_rectangle((48, 140, 48 + tw + 44, 208), radius=16,
-                            fill=WHITE, outline=FG, width=4)
+        d.rounded_rectangle((48, 140, 48 + tw + 44, 208), radius=16, fill=WHITE, outline=FG, width=4)
         d.text((48 + 22, 146), SAIGEN_LABEL, font=f, fill=FG)
-
-    # 上側：数字の表
-    if table and not end_card:
-        draw_table(d, table)
-
-    # 中央：白い角丸の字幕枠
-    if end_card:
-        f = font(84)
-        lines = END_TEXT.split("\n")
-        line_h = 120
-    elif hook:
-        # 1行目（つかみ）は大きく、濃い色の枠で目立たせる
-        f = font(76)
-        lines = wrap_balanced(d, text, f, 880)
-        line_h = 108
-    else:
-        f = font(60)
-        lines = wrap_balanced(d, text, f, 860)
-        line_h = 88
-    box_h = len(lines) * line_h + 90
-    center_y = 1010 if (table and not end_card) else 760
-    top = int(center_y - box_h / 2)
-    box_fill, text_fill = (FG, WHITE) if hook else (WHITE, FG)
-    d.rounded_rectangle((60, top, W - 60, top + box_h), radius=36, fill=box_fill)
-    draw_centered_lines(d, lines, f, W / 2, top + 40, line_h, text_fill)
-
-    # 金額の注意書き
-    if show_disclaimer:
-        f = font(27)
-        y = top + box_h + 40 if end_card else 1222
-        for para in DISCLAIMER:
-            for ln in wrap(d, para, f, W - 120):
-                d.text((60, y), ln, font=f, fill=FG)
-                y += 38
-
-    # 右下：声のクレジット
-    f = font(28)
-    d.text((W - 40 - text_w(d, VOICE_CREDIT, f), H - 70), VOICE_CREDIT, font=f, fill=FG)
-
-    # 画面下：キャラ「はこぶ」（動画では毎フレーム動かすので、ここでは止め絵用）
-    if with_chara:
-        small = chara_variants()["normal"]
-        im.paste(small, chara_pos(), small)
     return im
+
+
+def box_layer(text, hook=False, label=None, extra=(), end_card=False):
+    """字幕の枠（影つき）。中心に置く前提で RGBA を返す"""
+    tmp = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    if end_card:
+        f, line_h = font(84), 120
+        lines = [[(c, False) for c in ln] for ln in END_TEXT.split("\n")]
+    elif hook:
+        f, line_h = font(78), 110
+        lines = rich_lines(tmp, text, f, 880, emphasis_index(text, extra))
+    else:
+        f, line_h = font(64), 94
+        lines = rich_lines(tmp, text, f, 860, emphasis_index(text, extra))
+    bw = W - 120
+    bh = len(lines) * line_h + 90
+    pad_top = 40 if label else 0
+    im = Image.new("RGBA", (bw + 16, bh + 16 + pad_top), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((10, pad_top + 12, bw + 10, pad_top + bh + 12), radius=40, fill=SHADOW)
+    dark = hook or end_card
+    fill, color, ecolor = (FG, WHITE, ACCENT_ON_DARK) if dark else (WHITE, FG, ACCENT)
+    d.rounded_rectangle((0, pad_top, bw, pad_top + bh), radius=40, fill=fill)
+    draw_rich(d, lines, f, bw / 2, pad_top + 40, line_h, color, ecolor)
+    if label:
+        lf = font(44)
+        lw = max(text_w(d, label, lf), 44)
+        d.rounded_rectangle((30, 0, 30 + lw + 56, 76), radius=38, fill=ACCENT)
+        d.text((30 + 28 + (lw - text_w(d, label, lf)) / 2, 8), label, font=lf, fill=WHITE)
+    return im
+
+
+def table_layer(table):
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    draw_table(ImageDraw.Draw(im), table)
+    box = im.getbbox()
+    return im.crop(box), (box[0], box[1])
+
+
+def disclaimer_layer():
+    im = Image.new("RGBA", (W, 260), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    f = font(27)
+    y = 0
+    for para in DISCLAIMER:
+        for ln in wrap(d, para, f, W - 120):
+            d.text((60, y), ln, font=f, fill=FG)
+            y += 38
+    return im.crop((0, 0, W, y + 4))
+
+
+def tap_pointer_layer():
+    """最後の2秒に出す「名前をタップ」の吹き出し（下向き矢印つき）"""
+    f = font(34)
+    text = "名前をタップ"
+    tmp = ImageDraw.Draw(Image.new("RGB", (10, 10)))
+    tw = text_w(tmp, text, f)
+    w, h = int(tw + 60), 150
+    im = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, w, 68), radius=34, fill=ACCENT)
+    d.text((30, 10), text, font=f, fill=WHITE)
+    d.polygon([(36, 66), (90, 66), (63, 124)], fill=ACCENT)
+    return im
+
+
+def ease_out_back(x):
+    c1, c3 = 1.70158, 2.70158
+    return 1 + c3 * (x - 1) ** 3 + c1 * (x - 1) ** 2
+
+
+def paste(frame, layer, xy):
+    frame.paste(layer, (int(xy[0]), int(xy[1])), layer)
+
+
+class Timeline:
+    """字幕ひとつぶんの区切り（ひと息）を並べたもの"""
+
+    def __init__(self):
+        self.items = []  # dict(start, end, line, box, label, table, first_table, new_line, end_card)
+
+    def bounds(self):
+        return np.array([it["end"] for it in self.items])
+
+
+def compose_frame(k, tl, ctx):
+    t = k / FPS
+    bounds = ctx["bounds"]
+    idx = min(int(np.searchsorted(bounds, t, side="right")), len(tl.items) - 1)
+    it = tl.items[idx]
+    since = t - it["start"]
+    f_since = int(since * FPS)
+
+    off = int(t * 24) % ctx["period"]
+    frame = ctx["strip"].crop((off, 0, off + W, H))
+    paste(frame, ctx["header"], (0, 0))
+
+    # 表（最初に出るときだけ上からスッと入る）
+    if it["table"] is not None:
+        layer, (tx, ty) = it["table"]
+        if it["first_table"] and f_since < 9:
+            p = (f_since + 1) / 9
+            a = layer.copy()
+            alpha = a.getchannel("A").point(lambda v, p=p: int(v * p))
+            a.putalpha(alpha)
+            paste(frame, a, (tx, ty - 60 * (1 - p)))
+        else:
+            paste(frame, layer, (tx, ty))
+
+    # 字幕（ポンッと出る）
+    box = it["box"]
+    cy = 1010 if it["table"] is not None else 760
+    if f_since < 8:
+        s = 0.55 + 0.45 * ease_out_back(min(1.0, (f_since + 1) / 8))
+        bw, bh = max(1, int(box.width * s)), max(1, int(box.height * s))
+        b = box.resize((bw, bh), Image.BILINEAR)
+    else:
+        b = box
+    paste(frame, b, (W / 2 - b.width / 2, cy - b.height / 2))
+
+    if ctx["disclaimer"] is not None:
+        paste(frame, ctx["disclaimer"], (0, 1222 if not it["end_card"] else 1060))
+
+    # 最後：名前をタップ
+    if it["end_card"]:
+        ptr = ctx["pointer"]
+        bounce = abs(math.sin(2 * math.pi * 1.6 * since)) * 24
+        paste(frame, ptr, (20, 1470 + bounce))
+
+    # はこぶ
+    talking = ctx["loud"][min(k, len(ctx["loud"]) - 1)] > ctx["threshold"] and (k // 3) % 2 == 0
+    blinking = (k % 105) in (0, 1, 2)
+    name = ("blink_" if blinking else "") + ("open" if talking else "normal")
+    name = name.replace("blink_normal", "blink")
+    ch = ctx["variants"][name]
+    px, py = ctx["chara_pos"]
+    dy = 10 * math.sin(2 * math.pi * 0.9 * t)
+    if f_since < 9 and it["new_line"]:
+        dy -= 34 * math.sin(math.pi * f_since / 9)  # セリフが変わるとき、ぴょんと跳ねる
+    paste(frame, ch, (px, py + dy))
+
+    # 進み具合のバー
+    d = ImageDraw.Draw(frame)
+    d.rectangle((0, 0, int(W * min(1.0, t / ctx["total"])), 10), fill=ACCENT)
+    return frame
 
 
 def draw_table(d, table):
@@ -387,6 +568,8 @@ def load_script(path):
     tags = [w for w in data["caption"].split() if w.startswith(("#", "＃"))]
     if len(tags) > MAX_HASHTAGS:
         raise UserError(f"{name}: ハッシュタグが{len(tags)}個あります。インスタは{MAX_HASHTAGS}個までなので減らしてください。")
+    for e in data.get("emphasis", []):
+        must_str(e, f"{name} の emphasis")
     if not isinstance(data["lines"], list) or not data["lines"]:
         raise UserError(f"{name}: lines にセリフが1つもありません。")
     for i, ln in enumerate(data["lines"], 1):
@@ -396,6 +579,8 @@ def load_script(path):
         must_str(ln["text"], f"{where} の text")
         if "yomi" in ln:
             must_str(ln["yomi"], f"{where} の yomi")
+        if "label" in ln:
+            must_str(ln["label"], f"{where} の label")
         t = ln.get("table")
         if t is not None:
             if not isinstance(t, dict) or "rows" not in t:
@@ -476,81 +661,122 @@ def pick_theme(data, order):
     return THEMES[order % len(THEMES)]
 
 
+CHUNK_GAP = 0.10   # ひと息とひと息の間（秒）
+
+
+def plan_chunks(ln):
+    """1つのセリフを、(画面の文字, 読ませる文字) のひと息ごとに分ける"""
+    shown = split_chunks(ln["text"])
+    if "yomi" in ln:
+        spoken = split_chunks(ln["yomi"])
+        if len(spoken) != len(shown):
+            return [(ln["text"], ln["yomi"])]
+        return list(zip(shown, spoken))
+    return [(c, c) for c in shown]
+
+
 def build_video(path, out_mp4, out_txt, speaker_id, preview=False, order=0):
     data = load_script(path)
     money = is_money_video(data)
     saigen = bool(data.get("saigen", data.get("type") in SAIGEN_TYPES))
     bg = pick_theme(data, order)
+    extra = data.get("emphasis", [])
 
-    # 画面（キャラ以外）をセリフごとに1枚ずつ描く
-    bases = []
-    for i, ln in enumerate(data["lines"]):
-        bases.append(render_frame(ln["text"], ln.get("table"), saigen, money,
-                                  bg=bg, hook=(i == 0), with_chara=preview))
-    end_base = render_frame("", None, saigen, money, end_card=True, bg=bg, with_chara=preview)
+    tl = Timeline()
+    rate = 24000
+    voice = []
+    events = []
+    t = 0.0
+    prev_table_key = None
+    for li, ln in enumerate(data["lines"]):
+        table = ln.get("table")
+        tlayer = table_layer(table) if table else None
+        tkey = repr(table) if table else None
+        first_table = tkey is not None and tkey != prev_table_key
+        prev_table_key = tkey
+        chunks = plan_chunks(ln)
+        t += LEAD_SILENCE
+        if li > 0:
+            events.append((max(0.0, t - 0.12), "whoosh"))
+        for ci, (shown, spoken) in enumerate(chunks):
+            if preview:
+                dur = 1.5
+                pcm = np.zeros(int(dur * rate), dtype=np.int16)
+            else:
+                wav_bytes = synthesize(spoken, speaker_id)
+                with wave.open(io.BytesIO(wav_bytes)) as w:
+                    rate = w.getframerate()
+                    pcm = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16)
+                    if w.getnchannels() > 1:
+                        pcm = pcm.reshape(-1, w.getnchannels())[:, 0]
+            gap = CHUNK_GAP if ci < len(chunks) - 1 else TAIL_SILENCE
+            start = t
+            voice.append((start, pcm))
+            t += len(pcm) / rate + gap
+            events.append((start, "pop"))
+            tl.items.append(dict(
+                start=start - (LEAD_SILENCE if ci == 0 else 0), end=t, line=li,
+                box=box_layer(shown, hook=(li == 0), label=ln.get("label"), extra=extra),
+                table=tlayer, first_table=(first_table and ci == 0), new_line=(ci == 0), end_card=False,
+            ))
+    # 最後の2秒
+    events.append((t, "ding"))
+    tl.items.append(dict(start=t, end=t + END_SECONDS, line=-1, box=box_layer("", end_card=True),
+                         table=None, first_table=False, new_line=True, end_card=True))
+    t += END_SECONDS
+    total = t
+    tl.items[0]["start"] = 0.0
+
+    # 声を1本につなぐ
+    n = int(math.ceil(total * rate))
+    track = np.zeros(n, dtype=np.int16)
+    for start, pcm in voice:
+        s = int(start * rate)
+        e = min(n, s + len(pcm))
+        track[s:e] = pcm[:e - s]
+
+    # 口パク用：フレームごとの声の大きさ
+    n_frames = int(math.ceil(total * FPS))
+    per = rate / FPS
+    vf = track.astype(np.float32)
+    loud = np.array([
+        np.sqrt(np.mean(vf[int(k * per):int((k + 1) * per)] ** 2)) if int(k * per) < len(vf) else 0.0
+        for k in range(n_frames)
+    ])
+    strip, period = make_bg_strip(bg)
+    ctx = dict(
+        bounds=tl.bounds(), strip=strip, period=period, header=header_layer(saigen),
+        disclaimer=disclaimer_layer() if money else None, pointer=tap_pointer_layer(),
+        loud=loud, threshold=max(loud.max() * 0.15, 1.0), variants=chara_variants(),
+        chara_pos=chara_pos(), total=total,
+    )
 
     if preview:
         pdir = OUTPUT_DIR / "preview" / Path(path).stem
         pdir.mkdir(parents=True, exist_ok=True)
-        for i, im in enumerate(bases):
-            im.save(pdir / f"f{i:03d}.png")
-        end_base.save(pdir / "end.png")
+        for i, it in enumerate(tl.items):
+            k = int((it["start"] + min(0.6, (it["end"] - it["start"]) / 2)) * FPS)
+            compose_frame(k, tl, ctx).save(pdir / f"f{i:03d}.png")
         print(f"  見た目の確認用画像: {pdir}")
         return
 
-    # 声を作ってつなげる
-    pcm = bytearray()
-    params = None
-    durations = []
-    for ln in data["lines"]:
-        wav_bytes = synthesize(ln.get("yomi", ln["text"]), speaker_id)
-        with wave.open(io.BytesIO(wav_bytes)) as w:
-            p = (w.getnchannels(), w.getsampwidth(), w.getframerate())
-            if params is None:
-                params = p
-            frames = w.readframes(w.getnframes())
-            n = w.getnframes()
-        nch, sw, rate = params
-        lead = int(LEAD_SILENCE * rate)
-        tail = int(TAIL_SILENCE * rate)
-        pcm += silence(lead, sw, nch) + frames + silence(tail, sw, nch)
-        durations.append((lead + n + tail) / rate)
-    nch, sw, rate = params
-    pcm += silence(int(END_SECONDS * rate), sw, nch)
-    bases.append(end_base)
-    durations.append(END_SECONDS)
-    total = len(pcm) / (sw * nch) / rate
-
-    # 口パク用：フレームごとの声の大きさ
-    samples = np.frombuffer(bytes(pcm), dtype=np.int16).astype(np.float32)
-    if nch > 1:
-        samples = samples.reshape(-1, nch).mean(axis=1)
-    n_frames = int(math.ceil(total * FPS))
-    per = rate / FPS
-    loud = np.array([
-        np.sqrt(np.mean(samples[int(k * per):int((k + 1) * per)] ** 2)) if int(k * per) < len(samples) else 0.0
-        for k in range(n_frames)
-    ])
-    threshold = max(loud.max() * 0.15, 1.0)
-
-    bounds = np.cumsum(durations)
-    variants = chara_variants()
-    px, py = chara_pos()
+    mixed = audio_fx.mix(track, rate, events, variant=order)
 
     with tempfile.TemporaryDirectory() as tmp:
         wav_path = Path(tmp) / "voice.wav"
         with wave.open(str(wav_path), "wb") as w:
-            w.setnchannels(nch)
-            w.setsampwidth(sw)
+            w.setnchannels(1)
+            w.setsampwidth(2)
             w.setframerate(rate)
-            w.writeframes(bytes(pcm))
+            w.writeframes(mixed.tobytes())
 
         cmd = [
             "ffmpeg", "-y", "-loglevel", "error",
             "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
             "-i", str(wav_path),
             "-vf", "format=yuv420p",
-            "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",   # スマホで聞きやすい音量にそろえる
+            "-c:v", "libx264", "-preset", "medium", "-crf", "19",
             "-c:a", "aac", "-b:a", "192k", "-ar", "44100",
             "-t", f"{total:.3f}",
             "-movflags", "+faststart",
@@ -558,17 +784,7 @@ def build_video(path, out_mp4, out_txt, speaker_id, preview=False, order=0):
         ]
         proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
         for k in range(n_frames):
-            t = k / FPS
-            seg = min(int(np.searchsorted(bounds, t, side="right")), len(bases) - 1)
-            frame = bases[seg].copy()
-            talking = loud[k] > threshold and (k // 3) % 2 == 0   # しゃべってる間は口をパクパク
-            blinking = (k % 105) in (0, 1, 2)                      # 3.5秒ごとにまばたき
-            name = ("blink_" if blinking else "") + ("open" if talking else "normal")
-            name = name.replace("blink_normal", "blink")
-            ch = variants[name]
-            dy = int(10 * math.sin(2 * math.pi * 0.9 * t))         # ゆらゆら上下
-            frame.paste(ch, (px, py + dy), ch)
-            proc.stdin.write(frame.tobytes())
+            proc.stdin.write(compose_frame(k, tl, ctx).tobytes())
         proc.stdin.close()
         if proc.wait() != 0:
             raise UserError("ffmpeg で動画を作るのに失敗しました。")
