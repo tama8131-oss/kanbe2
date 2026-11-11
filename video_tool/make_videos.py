@@ -63,6 +63,7 @@ DISCLAIMER = [
 # 声のクレジット（VOICEVOXの決まりで表記が必要）。投稿文には書かず、動画の画面に出す（たまさんの希望）
 VOICE_CREDIT = "VOICEVOX:玄野武宏"
 POST_FOOTER = ["この動画はAIで作っています"]
+MAX_HASHTAGS = 5  # インスタのハッシュタグは5個まで
 
 # 「1日の流れ」の型では画面に「再現」と出す
 SAIGEN_TYPES = {"1日の流れ"}
@@ -330,6 +331,9 @@ def load_script(path):
             raise UserError(f"{name}: 「{key}」がありません。")
     must_str(data["title"], f"{name} の title")
     must_str(data["caption"], f"{name} の caption")
+    tags = [w for w in data["caption"].split() if w.startswith(("#", "＃"))]
+    if len(tags) > MAX_HASHTAGS:
+        raise UserError(f"{name}: ハッシュタグが{len(tags)}個あります。インスタは{MAX_HASHTAGS}個までなので減らしてください。")
     if not isinstance(data["lines"], list) or not data["lines"]:
         raise UserError(f"{name}: lines にセリフが1つもありません。")
     for i, ln in enumerate(data["lines"], 1):
