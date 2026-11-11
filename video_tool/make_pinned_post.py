@@ -25,10 +25,12 @@ COST_TABLE = {
 CAPTION = """【はじめに読んでください】
 このアカウントでは、Amazon配送の仕事（業務委託）のリアルを、いいこともきついことも正直に紹介しています。
 
-・未経験OK
-・車がなくても、会社の車を借りて始める方法があります
-・全国対応OK！
-・基本は関東エリアの情報です
+✅ 経験ゼロでOK
+✅ 車がなくても、貸してもらえる
+✅ 車レンタルは持ち帰れる
+✅ 上司も同僚もいない、ひとりで黙々
+✅ 外国籍もOK（個人事業主として働けるビザがある人）
+✅ 全国対応OK！基本は関東エリアの情報です
 
 気になる人は、DMで「相談したい」と送ってください。
 質問だけでも大丈夫です。
@@ -104,28 +106,29 @@ def page1(total):
 def page2(total):
     im, d = base(2, total)
     centered(d, "どんな仕事？", 64, 210)
-    white_box(d, 340, 950)
-    bullets(d, [
+    white_box(d, 340, 1060)
+    bottom = bullets(d, [
         "Amazon配送の仕事（業務委託）",
-        "未経験OK",
-        "車がなくても、会社の車を借りて始める方法あり",
+        "経験ゼロでOK",
+        "上司も同僚もいない、ひとりで黙々",
+        "外国籍もOK（個人事業主として働けるビザがある人）",
         "全国対応OK！基本は関東エリアの情報です",
-    ], 400, size=48, gap=40)
-    paste_chara(im, 0.4, W / 2, H - 50)
+    ], 400, size=46, gap=34)
+    paste_chara(im, 0.28, W / 2, H - 40)
     return im
 
 
 def page3(total):
     im, d = base(3, total)
     centered(d, "車がない人は？", 64, 190)
-    centered(d, "会社の車を借りる方法があります。\nただし、毎月お金がかかります。", 40, 300, 60)
+    centered(d, "車がなくても、貸してもらえます。\n車レンタルは持ち帰れます。\nただし、毎月お金がかかります。", 40, 290, 58)
     # 表（動画と同じデザイン）
     tmp = Image.new("RGB", (mv.W, mv.H), mv.BG)
     mv.draw_table(ImageDraw.Draw(tmp), dict(COST_TABLE, highlight_last=False))
     table_img = tmp.crop((0, 250, mv.W, 250 + 80 + 130 * 2 + 22 + 60))
-    im.paste(table_img, (0, 450))
+    im.paste(table_img, (0, 480))
     f = mv.font(26)
-    y = 900
+    y = 930
     for para in mv.DISCLAIMER:
         for ln in mv.wrap(d, para, f, W - 120):
             d.text((60, y), ln, font=f, fill=mv.FG)
