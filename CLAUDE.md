@@ -89,7 +89,7 @@
 - 動画の見た目は毎回同じにせえへん（たまさんの指摘）。ひと息ごとの字幕、強調色、ポップアニメ、流れる背景、進捗バー、はこぶの口パク・まばたき・ジャンプ、自作BGMと効果音、音量の自動調整まで入れた
 - 自動化：毎週火曜14:17（日本時間）に、この会話（セッション）へ定期作業が届き、来週（木〜水）の7本と保存用ページを自動で作る（予定のID：trig_01XM58PyEKBzhdW4CST4Mcpj）
 - たまさんから「①プロダクト②広告③顧客認知④顧客比較⑤LPやHP⑥商談⑦リマインド⑧成約⑨口コミ⑩紹介 を意識してプロとして作れ」と言われた。設計図は `video_tool/funnel/FUNNEL.md`
-- ⑤LP：`video_tool/make_lp.py` → `video_tool/lp/index.html`（確認済みの事実だけ、FAQは構造化データ入り、DMボタンは ig.me/m/hakobu_driver）。tiiny.site に無料で置いて、インスタのプロフィールのリンクに入れる予定
+- ⑤LP：`video_tool/make_lp.py` → `video_tool/lp/index.html`（確認済みの事実だけ、FAQは構造化データ入り、DMボタンは ig.me/m/hakobu_driver）。**tiiny.site は無料だと1サイトまでで、アニメみぃーで使用中のため使えない**（アップデートを押すとアニメみぃーが消える／お試しは自動課金）。代わりに Artifact で公開 https://claude.ai/artifact/WSXRKifViqxpTqKnWDsn6e 。たまさんに「誰でも見られる」設定にしてもらい、インスタのプロフィールのリンクに入れる
 - ⑥〜⑩：DM・コメント返信テンプレは `video_tool/funnel/dm_templates.md`。スマホ用のコピーボタン付きページ https://claude.ai/artifact/9kCYxghhVbChp6SmXW2Goj （LPのファイル保存ボタンもここ）
 - 1週目の7本はファネルに合わせて作り直し済み：上司も同僚もいない／経験ゼロ（認知）、お金の話／向いてる・向いてない／3つの理由（比較）、外国籍（認知を広げる）、相談の流れ（商談）。「車の持ち帰り」「こんな人に」は `scripts/stock/` に回した
 - 投稿以外の運用：ストーリーで毎日の動画を告知（画像は `make_stories.py`。1週目ぶんとハイライト表紙4枚 https://claude.ai/artifact/KEo3dgGQ6AxJmFLAgmHCRb ）、ハイライト「条件・お金・相談・Q&A」、配送系アカウントを1日20人までフォロー＋中身のあるコメント、DM・コメントは早く返す、週1でインサイトのスクショをもらって改善
