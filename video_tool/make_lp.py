@@ -77,7 +77,13 @@ def e(s):
 
 
 def main():
-    icon = base64.b64encode((BASE / "assets" / "icon_hakobu.png").read_bytes()).decode()
+    # 貼り付けで上げられるように、アイコンは小さくして軽くする
+    import io
+    from PIL import Image
+    im = Image.open(BASE / "assets" / "icon_hakobu.png").convert("RGB").resize((300, 300), Image.LANCZOS)
+    buf = io.BytesIO()
+    im.save(buf, "JPEG", quality=82, optimize=True)
+    icon = base64.b64encode(buf.getvalue()).decode()
     faq_ld = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -104,7 +110,6 @@ def main():
 <meta name="description" content="Amazon配送の仕事（業務委託）。経験ゼロでOK、上司も同僚もいない、ひとりで黙々。車がなくても貸してもらえます。全国対応OK、基本は関東エリアの情報です。">
 <meta property="og:title" content="上司も同僚もいない、ひとりで黙々と働く配送の仕事">
 <meta property="og:description" content="経験ゼロでOK。車がなくても貸してもらえる。相談はDMで。">
-<link rel="icon" href="data:image/png;base64,{icon}">
 <script type="application/ld+json">{json.dumps(faq_ld, ensure_ascii=False)}</script>
 <style>
 :root{{--bg:#DCEBF5;--fg:#23395B;--ac:#E4572E;--y:#FFD166}}
@@ -150,7 +155,7 @@ footer{{font-size:12px;text-align:center;opacity:.8;margin:24px 0}}
   <div class="top"><span>Amazon配送ドライバーのリアル</span><span class="ai">AI生成</span></div>
 
   <div class="hero">
-    <img src="data:image/png;base64,{icon}" alt="はこぶ">
+    <img src="data:image/jpeg;base64,{icon}" alt="はこぶ">
     <h1><em>上司も同僚もいない。</em><br>ひとりで黙々と働く、<br>配送の仕事。</h1>
     <p>Amazon配送の仕事（業務委託）</p>
     <p>経験ゼロでOK／車がなくても貸してもらえる</p>
